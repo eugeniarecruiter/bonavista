@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bonavista Talent Partners</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --navy: #0D2E5C;
+  --blue: #1E78C2;
+  --sky: #5BB8F5;
+  --white: #FFFFFF;
+  --light: #F0F7FF;
+  --muted: #6B87A8;
+  --text: #1a2940;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); }
+
+/* ── HERO ─────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #061525 0%, #0D2E5C 55%, #1a4a7a 100%);
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center; padding: 80px 24px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -100px; right: -100px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(91,184,245,0.10) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(42px, 7vw, 72px);
+  font-weight: 300; color: var(--white);
+  letter-spacing: -1px; line-height: 1;
+  margin-bottom: 8px;
+  animation: fadeUp 0.9s ease both;
+  position: relative; z-index: 1;
+}
+.hero-wordmark strong { font-weight: 700; color: var(--sky); }
+.hero-sub-brand {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 48px;
+  animation: fadeUp 0.9s 0.1s ease both;
+  position: relative; z-index: 1;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 4vw, 50px);
+  font-weight: 300; color: var(--white);
+  line-height: 1.25; margin-bottom: 20px;
+  position: relative; z-index: 1;
+  animation: fadeUp 0.9s 0.2s ease both;
+}
+.hero h1 em { font-style: italic; color: var(--sky); }
+.hero p {
+  font-size: clamp(14px, 1.8vw, 17px);
+  color: rgba(255,255,255,0.68);
+  max-width: 560px; line-height: 1.8;
+  margin-bottom: 44px;
+  position: relative; z-index: 1;
+  animation: fadeUp 0.9s 0.3s ease both;
+}
+.hero-cta {
+  display: flex; gap: 14px; flex-wrap: wrap;
+  justify-content: center;
+  position: relative; z-index: 1;
+  animation: fadeUp 0.9s 0.4s ease both;
+}
+.btn-primary {
+  background: var(--sky); color: var(--navy);
+  font-weight: 600; font-size: 13px;
+  padding: 13px 30px; border-radius: 40px;
+  text-decoration: none; letter-spacing: 0.3px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(91,184,245,0.35); }
+.btn-ghost {
+  border: 1.5px solid rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.8); font-size: 13px;
+  padding: 13px 30px; border-radius: 40px;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-ghost:hover { border-color: var(--sky); background: rgba(91,184,245,0.1); }
+
+/* ── STATS ────────────────────────────────────────────── */
+.stats {
+  background: var(--navy);
+  display: grid; grid-template-columns: repeat(4,1fr);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+@media(max-width:640px) { .stats { grid-template-columns: repeat(2,1fr); } }
+.stat { padding: 26px 20px; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+.stat:last-child { border-right: none; }
+.stat-n { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 700; color: var(--sky); line-height: 1; }
+.stat-l { font-size: 10.5px; color: rgba(255,255,255,0.45); margin-top: 5px; letter-spacing: 0.5px; }
+
+/* ── SECTIONS ─────────────────────────────────────────── */
+section { padding: 88px 24px; }
+.container { max-width: 960px; margin: 0 auto; }
+.section-tag {
+  display: inline-block; font-size: 10px; font-weight: 600;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--blue); background: var(--light);
+  padding: 5px 14px; border-radius: 20px; margin-bottom: 18px;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 3.5vw, 42px);
+  font-weight: 300; color: var(--navy);
+  line-height: 1.2; margin-bottom: 14px;
+}
+.section-title strong { font-weight: 700; }
+.section-sub { font-size: 15.5px; color: var(--muted); line-height: 1.75; max-width: 520px; }
+
+/* ── PILLARS ──────────────────────────────────────────── */
+.pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 44px; }
+@media(max-width:700px) { .pillars { grid-template-columns: 1fr; } }
+.pillar {
+  background: var(--light); border: 1px solid #d4e8f8;
+  border-radius: 14px; padding: 28px 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pillar:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(13,46,92,0.08); }
+.pillar-icon { font-size: 28px; margin-bottom: 14px; }
+.pillar h3 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 7px; }
+.pillar p { font-size: 12.5px; color: var(--muted); line-height: 1.65; }
+
+/* ── SPECS ────────────────────────────────────────────── */
+.specs { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-top: 44px; }
+@media(max-width:600px) { .specs { grid-template-columns: 1fr; } }
+.spec {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: var(--light); border: 1px solid #d4e8f8;
+  border-radius: 12px; padding: 18px 20px;
+}
+.spec-dot { width: 8px; height: 8px; background: var(--blue); border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+.spec h4 { font-size: 13.5px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+.spec p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+/* ── PRICING ──────────────────────────────────────────── */
+.pricing-bg { background: var(--light); }
+.pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 44px; }
+@media(max-width:760px) { .pricing-grid { grid-template-columns: 1fr; } }
+.price-card {
+  background: var(--white); border: 1px solid #d4e8f8;
+  border-radius: 14px; overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.price-card:hover { box-shadow: 0 8px 28px rgba(13,46,92,0.1); }
+.price-header {
+  background: linear-gradient(135deg, var(--navy), #1a4a7a);
+  padding: 20px 22px; color: white;
+}
+.price-header.green { background: linear-gradient(135deg, #0a4a3a, #0d6e56); }
+.price-header.purple { background: linear-gradient(135deg, #2a1a5e, #4a2a8a); }
+.price-tag-sm { font-size: 9.5px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--sky); margin-bottom: 5px; }
+.price-header.green .price-tag-sm { color: #00C9A7; }
+.price-header.purple .price-tag-sm { color: #c9a7ff; }
+.price-header h3 { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 700; line-height: 1.3; }
+.price-body { padding: 20px 22px; }
+.price-body p { font-size: 12.5px; color: #3a5a7a; line-height: 1.7; }
+.price-note {
+  background: var(--light); border: 1px solid #c5dff5;
+  border-radius: 8px; padding: 11px 14px;
+  font-size: 12px; color: #2a4a6a; line-height: 1.6; margin-top: 14px;
+}
+.price-flex-note {
+  background: rgba(180,140,255,0.08);
+  border: 1px dashed rgba(180,140,255,0.3);
+  border-radius: 10px; padding: 13px 16px; margin-top: 12px;
+}
+.price-flex-note p { font-size: 12px; color: #4a2a7a; margin-top: 0; }
+
+/* ── PROCESS ──────────────────────────────────────────── */
+.steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-top: 44px; position: relative; }
+.steps::before {
+  content: ''; position: absolute;
+  top: 25px; left: 6%; right: 6%;
+  height: 2px; background: linear-gradient(90deg, var(--sky), var(--blue)); z-index: 0;
+}
+@media(max-width:640px) { .steps { grid-template-columns: repeat(2,1fr); } .steps::before { display:none; } }
+.step { text-align: center; position: relative; z-index: 1; }
+.step-n {
+  width: 50px; height: 50px;
+  background: var(--navy); border: 3px solid var(--sky); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 12px;
+  font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 700; color: var(--sky);
+}
+.step h4 { font-size: 12.5px; font-weight: 600; color: var(--navy); margin-bottom: 5px; }
+.step p { font-size: 11px; color: var(--muted); line-height: 1.55; padding: 0 4px; }
+
+/* ── CONTACT ──────────────────────────────────────────── */
+.contact-bg { background: linear-gradient(160deg, #061525, var(--navy)); }
+.contact-inner { max-width: 580px; margin: 0 auto; text-align: center; }
+.contact-bg .section-title { color: white; }
+.contact-bg .section-sub { color: rgba(255,255,255,0.6); max-width: 100%; }
+.contact-email {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(91,184,245,0.12);
+  border: 1px solid rgba(91,184,245,0.3);
+  color: var(--sky); padding: 14px 28px;
+  border-radius: 40px; text-decoration: none;
+  font-size: 14px; font-weight: 500; margin-top: 36px;
+  transition: background 0.2s, transform 0.2s;
+}
+.contact-email:hover { background: rgba(91,184,245,0.22); transform: translateY(-2px); }
+
+/* ── FOOTER ───────────────────────────────────────────── */
+footer {
+  background: #040f1e; padding: 22px;
+  text-align: center; color: rgba(255,255,255,0.25); font-size: 11.5px;
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(22px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-wordmark">Bona<strong>vista</strong></div>
+  <div class="hero-sub-brand">Talent Partners</div>
+  <h1>Senior Tech Talent,<br><em>delivered across LATAM</em></h1>
+  <p>We connect consulting and staffing firms with pre-vetted technical talent — ready to deploy in 48 hours, without the friction.</p>
+  <div class="hero-cta">
+    <a href="#contact" class="btn-primary">Let's Talk</a>
+    <a href="#services" class="btn-ghost">How We Work</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-n">100+</div><div class="stat-l">Active Candidates</div></div>
+  <div class="stat"><div class="stat-n">48h</div><div class="stat-l">Profile Delivery</div></div>
+  <div class="stat"><div class="stat-n">8+</div><div class="stat-l">LATAM Countries</div></div>
+  <div class="stat"><div class="stat-n">60d</div><div class="stat-l">Replacement Guarantee</div></div>
+</div>
+
+<!-- WHY US -->
+<section id="services">
+  <div class="container">
+    <div class="section-tag">Why Bonavista</div>
+    <h2 class="section-title">A <strong>silent extension</strong><br>of your delivery team</h2>
+    <p class="section-sub">We specialize in hard-to-find technical profiles across enterprise technology. No generalist recruiting — just deep expertise and a pre-vetted pipeline ready to move.</p>
+    <div class="pillars">
+      <div class="pillar"><div class="pillar-icon">⚡</div><h3>Speed</h3><p>Shortlisted profiles delivered within 48 hours of receiving a brief or job description.</p></div>
+      <div class="pillar"><div class="pillar-icon">🎯</div><h3>Precision</h3><p>We focus exclusively on enterprise tech talent. Deep niche expertise means better matches, faster.</p></div>
+      <div class="pillar"><div class="pillar-icon">🌎</div><h3>LATAM Coverage</h3><p>Active pipeline across Mexico, Colombia, Peru, Brazil, Chile, Argentina and beyond.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALIZATIONS -->
+<section style="padding-top:0">
+  <div class="container">
+    <div class="section-tag">What We Cover</div>
+    <h2 class="section-title">Enterprise tech talent<br><strong>across every stack</strong></h2>
+    <div class="specs">
+      <div class="spec"><div class="spec-dot"></div><div><h4>ERP & Enterprise Systems</h4><p>SAP S/4HANA, Oracle Cloud, Workday — functional, technical and architect profiles across all modules.</p></div></div>
+      <div class="spec"><div class="spec-dot"></div><div><h4>Cloud & DevOps</h4><p>AWS, Azure, GCP, Kubernetes, SRE, CI/CD — infrastructure and platform engineering talent.</p></div></div>
+      <div class="spec"><div class="spec-dot"></div><div><h4>Integration & Middleware</h4><p>MuleSoft, SAP BTP, Oracle OIC, ServiceNow, APIs — end-to-end integration specialists.</p></div></div>
+      <div class="spec"><div class="spec-dot"></div><div><h4>Data & AI</h4><p>Data Engineering, Machine Learning, BI, Analytics — from Snowflake to LLMs and beyond.</p></div></div>
+      <div class="spec"><div class="spec-dot"></div><div><h4>CRM & Digital Platforms</h4><p>Salesforce, HubSpot, digital transformation — commercial and technical profiles.</p></div></div>
+      <div class="spec"><div class="spec-dot"></div><div><h4>Project & Program Management</h4><p>PMOs, Scrum Masters, delivery leads — bilingual and multilingual profiles for global teams.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-bg" id="pricing">
+  <div class="container">
+    <div class="section-tag">Engagement Models</div>
+    <h2 class="section-title">Flexible models that<br><strong>adapt to your workflow</strong></h2>
+    <p class="section-sub">No retainers, no exclusivity required. We work the way you work.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-header">
+          <div class="price-tag-sm">Option A</div>
+          <h3>Placement Fee<br>per Hire</h3>
+        </div>
+        <div class="price-body">
+          <p>A one-time fee per successful placement, invoiced on the candidate's start date. Simple, transparent, no ongoing costs.</p>
+          <div class="price-note">✓ Includes 60-day replacement guarantee at no extra cost.</div>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-header green">
+          <div class="price-tag-sm">Option B</div>
+          <h3>Hourly Sourcing<br>Fee</h3>
+        </div>
+        <div class="price-body">
+          <p>A small sourcing fee per hour the candidate works on your project. Ideal for long-term contracts — cost spreads naturally over time.</p>
+          <div class="price-note">✓ Best suited for extended engagements and contract roles.</div>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-header purple">
+          <div class="price-tag-sm">Option C</div>
+          <h3>Contract /<br>Margin-Based</h3>
+        </div>
+        <div class="price-body">
+          <p>For ongoing or project-based support, we can also work on a margin-based model depending on the engagement.</p>
+          <div class="price-flex-note"><p>💬 Let's talk and find what makes sense for both sides.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section>
+  <div class="container">
+    <div class="section-tag">How It Works</div>
+    <h2 class="section-title">From brief to<br><strong>candidate in 48 hours</strong></h2>
+    <div class="steps">
+      <div class="step"><div class="step-n">1</div><h4>Share the Role</h4><p>Send a JD or quick brief — that's all we need to get started</p></div>
+      <div class="step"><div class="step-n">2</div><h4>We Match Fast</h4><p>2–3 pre-vetted profiles delivered within 48 hours</p></div>
+      <div class="step"><div class="step-n">3</div><h4>You Interview</h4><p>Talk to candidates directly and pick your fit</p></div>
+      <div class="step"><div class="step-n">4</div><h4>Done</h4><p>Candidate starts, fee is invoiced on start date</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-bg" id="contact">
+  <div class="container contact-inner">
+    <div class="section-tag" style="background:rgba(91,184,245,0.12);color:var(--sky)">Get In Touch</div>
+    <h2 class="section-title">Ready to scale<br><strong>with the right talent?</strong></h2>
+    <p class="section-sub">Tell us what you need and we'll get back to you within 24 hours.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:36px">
+      <a href="mailto:hola@bonavista.com.mx" class="contact-email">✉️ hola@bonavista.com.mx</a>
+      <a href="https://wa.me/543516353547" target="_blank" class="contact-email" style="background:rgba(37,211,102,0.12);border-color:rgba(37,211,102,0.35);color:#25d366">💬 WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Bonavista Talent Partners · Enterprise Tech Recruiting · LATAM</footer>
+
+</body>
+</html>
