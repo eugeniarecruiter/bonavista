@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bonavista Talent Partners</title>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8XQ2ZQNQQL"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -16,69 +15,45 @@
 <style>
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 :root {
-  --navy: #0D2E5C;
-  --blue: #1B6EC2;
-  --sky: #5BB8F5;
-  --ink: #111827;
-  --muted: #6B7280;
-  --border: #E5E7EB;
-  --bg: #F9FAFB;
-  --white: #FFFFFF;
+  --navy: #0D2E5C; --blue: #1B6EC2; --sky: #5BB8F5;
+  --ink: #111827; --muted: #6B7280; --border: #E5E7EB;
+  --bg: #F9FAFB; --white: #FFFFFF;
 }
 html { scroll-behavior: smooth; }
 body { font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--white); -webkit-font-smoothing: antialiased; }
 
-/* NAV */
 nav {
-  position: fixed; top:0; left:0; right:0;
-  height: 60px; padding: 0 48px;
+  position: fixed; top:0; left:0; right:0; height: 60px; padding: 0 48px;
   display: flex; align-items: center; justify-content: space-between;
   background: rgba(255,255,255,0.92); backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border); z-index: 100;
 }
 .nav-logo { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--navy); }
-.nav-links { display: flex; gap: 28px; }
+.nav-right { display: flex; align-items: center; gap: 14px; }
+.nav-links { display: flex; gap: 24px; }
 .nav-links a { font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .15s; }
 .nav-links a:hover { color: var(--ink); }
 .nav-btn { font-size: 13px; font-weight: 600; background: var(--navy); color: white; padding: 8px 20px; border-radius: 6px; text-decoration: none; transition: opacity .15s; }
 .nav-btn:hover { opacity: .8; }
-@media(max-width:680px){ .nav-links{display:none;} nav{padding:0 24px;} }
+.lang-switcher { display: flex; gap: 3px; }
+.lang-btn { font-size: 11px; font-weight: 600; padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; transition: all .15s; letter-spacing: .5px; }
+.lang-btn.active { background: var(--navy); color: white; border-color: var(--navy); }
+.lang-btn:hover:not(.active) { border-color: var(--navy); color: var(--navy); }
+@media(max-width:780px){ .nav-links{display:none;} nav{padding:0 20px;} }
 
-/* HERO */
-.hero {
-  min-height: 100vh; padding: 120px 48px 80px;
-  max-width: 1100px; margin: 0 auto;
-  display: flex; flex-direction: column; justify-content: center;
-}
-.hero-tag {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--blue); margin-bottom: 28px;
-  animation: fadeUp .7s ease both;
-}
+.hero { min-height: 100vh; padding: 120px 48px 80px; max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; justify-content: center; }
+.hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue); margin-bottom: 28px; animation: fadeUp .7s ease both; }
 .hero-tag::before { content:''; width:20px; height:1.5px; background:var(--blue); }
-.hero h1 {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(52px,7.5vw,96px); font-weight: 400;
-  line-height: 1.02; letter-spacing: -2px; color: var(--navy);
-  margin-bottom: 8px;
-  animation: fadeUp .7s .08s ease both;
-}
+.hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(52px,7.5vw,96px); font-weight: 400; line-height: 1.02; letter-spacing: -2px; color: var(--navy); margin-bottom: 8px; animation: fadeUp .7s .08s ease both; }
 .hero h1 em { font-style: italic; color: var(--blue); }
-.hero-sub {
-  font-family: 'DM Serif Display', serif; font-style: italic;
-  font-size: clamp(22px,3vw,36px); color: var(--muted);
-  letter-spacing: -.5px; margin-bottom: 32px;
-  animation: fadeUp .7s .14s ease both;
-}
-.hero p { font-size: 16px; color: var(--muted); max-width: 480px; line-height: 1.75; margin-bottom: 40px; animation: fadeUp .7s .2s ease both; }
+.hero-sub { font-family: 'DM Serif Display', serif; font-style: italic; font-size: clamp(22px,3vw,36px); color: var(--muted); letter-spacing: -.5px; margin-bottom: 32px; animation: fadeUp .7s .14s ease both; }
+.hero p { font-size: 17px; color: var(--muted); max-width: 520px; line-height: 1.75; margin-bottom: 40px; animation: fadeUp .7s .2s ease both; }
 .hero-actions { display:flex; gap:10px; flex-wrap:wrap; animation: fadeUp .7s .26s ease both; }
 .btn-dark { font-size:14px; font-weight:600; background:var(--navy); color:white; padding:12px 28px; border-radius:6px; text-decoration:none; transition:opacity .15s; }
 .btn-dark:hover { opacity:.8; }
 .btn-light { font-size:14px; font-weight:500; color:var(--muted); border:1px solid var(--border); padding:12px 28px; border-radius:6px; text-decoration:none; transition:border-color .15s,color .15s; }
 .btn-light:hover { border-color:var(--ink); color:var(--ink); }
 
-/* STATS */
 .stats-bar { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
 @media(max-width:640px){ .stats-bar{grid-template-columns:repeat(2,1fr);} }
 .stat { padding:36px 48px; border-right:1px solid var(--border); }
@@ -87,15 +62,13 @@ nav {
 .stat .n em { font-style:normal; color:var(--blue); font-size:32px; }
 .stat .l { font-size:12px; color:var(--muted); margin-top:6px; }
 
-/* SECTIONS */
 .sec { padding:100px 48px; }
 .sec-inner { max-width:1100px; margin:0 auto; }
 .sec-label { font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:20px; }
 .sec h2 { font-family:'DM Serif Display',serif; font-size:clamp(32px,4.5vw,56px); font-weight:400; letter-spacing:-1.5px; color:var(--navy); line-height:1.1; margin-bottom:14px; }
 .sec h2 em { font-style:italic; color:var(--blue); }
-.sec-desc { font-size:16px; color:var(--muted); line-height:1.75; max-width:480px; }
+.sec-desc { font-size:16px; color:var(--muted); line-height:1.75; max-width:500px; }
 
-/* WHY GRID */
 .why-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:56px; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
 @media(max-width:700px){ .why-grid{grid-template-columns:1fr;} }
 .why-item { padding:40px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); }
@@ -105,7 +78,6 @@ nav {
 .why-item h3 { font-family:'DM Serif Display',serif; font-size:22px; font-weight:400; color:var(--navy); margin-bottom:8px; }
 .why-item p { font-size:14px; color:var(--muted); line-height:1.7; }
 
-/* SOLUTIONS */
 .sol-bg { background:var(--bg); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
 .sol-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:52px; }
 @media(max-width:760px){ .sol-grid{grid-template-columns:1fr;} }
@@ -116,7 +88,6 @@ nav {
 .sol p { font-size:14px; color:var(--muted); line-height:1.7; margin-bottom:18px; }
 .sol-badge { display:inline-block; font-size:11px; font-weight:600; padding:4px 12px; border-radius:20px; background:var(--bg); color:var(--muted); border:1px solid var(--border); }
 
-/* EXPERTISE */
 .exp-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:52px; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
 @media(max-width:700px){ .exp-grid{grid-template-columns:1fr;} }
 .exp-item { padding:30px 34px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); }
@@ -125,7 +96,6 @@ nav {
 .exp-item h4 { font-size:14px; font-weight:600; color:var(--navy); margin-bottom:6px; }
 .exp-item p { font-size:13px; color:var(--muted); line-height:1.6; }
 
-/* PROCESS */
 .proc-bg { background:var(--navy); }
 .proc-bg .sec-label { color:rgba(255,255,255,.35); }
 .proc-bg .sec h2 { color:white; }
@@ -138,236 +108,175 @@ nav {
 .proc-step h4 { font-size:14px; font-weight:600; color:white; margin-bottom:6px; }
 .proc-step p { font-size:13px; color:rgba(255,255,255,.4); line-height:1.6; }
 
-/* CALCULATOR */
-.calc-bg { background:var(--bg); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-.calc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-top:52px; }
-@media(max-width:760px){ .calc-wrap{grid-template-columns:1fr;} }
-.calc-form { background:white; border:1px solid var(--border); border-radius:12px; padding:36px; }
-.calc-results { background:white; border:1px solid var(--border); border-radius:12px; padding:36px; display:flex; flex-direction:column; gap:20px; }
-.calc-section-title { font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--blue); margin-bottom:20px; }
-.field { margin-bottom:16px; }
-.field label { display:block; font-size:12px; font-weight:500; color:var(--muted); margin-bottom:5px; }
-.field input {
-  width:100%; padding:9px 12px;
-  border:1px solid var(--border); border-radius:6px;
-  font-size:14px; font-family:'DM Sans',sans-serif;
-  color:var(--ink); transition:border-color .15s;
-  background:white;
-}
-.field input:focus { outline:none; border-color:var(--blue); }
-.field-note { font-size:11px; color:var(--muted); margin-top:4px; }
-.calc-divider { height:1px; background:var(--border); margin:20px 0; }
-.result-card { background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:20px 24px; }
-.result-label { font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
-.result-value { font-family:'DM Serif Display',serif; font-size:48px; color:var(--navy); line-height:1; letter-spacing:-2px; }
-.result-value.positive { color:#15803d; }
-.result-value.negative { color:#dc2626; }
-.result-sub { font-size:12px; color:var(--muted); margin-top:4px; }
-.result-row { display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--border); font-size:13px; }
-.result-row:last-child { border-bottom:none; }
-.result-row span:first-child { color:var(--muted); }
-.result-row span:last-child { font-weight:600; color:var(--navy); }
-.bonavista-prompt {
-  background: linear-gradient(135deg, var(--navy), #1a4a7a);
-  border-radius:8px; padding:20px 24px; color:white; margin-top:8px;
-}
-.bonavista-prompt p { font-size:13px; line-height:1.6; color:rgba(255,255,255,.75); margin-bottom:12px; }
-.bonavista-prompt a { font-size:13px; font-weight:600; color:var(--sky); text-decoration:none; }
-
-/* CONTACT */
 .contact-sec { padding:120px 48px; }
-.contact-inner { max-width:640px; }
+.contact-inner { max-width:700px; }
 .contact-sec h2 { font-family:'DM Serif Display',serif; font-size:clamp(36px,5vw,64px); font-weight:400; letter-spacing:-2px; color:var(--navy); line-height:1.05; margin-bottom:14px; }
 .contact-sec h2 em { font-style:italic; color:var(--blue); }
-.contact-sec p { font-size:16px; color:var(--muted); line-height:1.75; margin-bottom:36px; }
+.lead { font-size:16px; color:var(--muted); line-height:1.75; margin-bottom:36px; }
+.contact-form { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 40px; margin-bottom: 32px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media(max-width:600px){ .form-grid { grid-template-columns: 1fr; } }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field.full { grid-column: 1 / -1; }
+.form-field label { font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: .5px; text-transform: uppercase; }
+.form-field input, .form-field select, .form-field textarea { padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--ink); background: white; transition: border-color .15s; resize: vertical; }
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: none; border-color: var(--blue); }
+.form-field textarea { min-height: 100px; }
+.form-submit { margin-top: 20px; width: 100%; padding: 13px; background: var(--navy); color: white; border: none; border-radius: 6px; font-size: 14px; font-weight: 600; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: opacity .15s; }
+.form-submit:hover { opacity: .85; }
+.form-success { display: none; text-align: center; padding: 24px; font-size: 15px; color: #15803d; font-weight: 500; }
 .contact-btns { display:flex; flex-wrap:wrap; gap:10px; }
 .c-btn { display:flex; align-items:center; gap:8px; font-size:14px; font-weight:500; padding:12px 24px; border-radius:6px; text-decoration:none; border:1px solid var(--border); color:var(--ink); transition:border-color .15s; }
 .c-btn:hover { border-color:var(--navy); }
 .c-btn-wa { border-color:#bbf7d0; color:#15803d; background:#f0fdf4; }
 .c-btn-wa:hover { background:#dcfce7; border-color:#86efac; }
 
-/* FOOTER */
 footer { border-top:1px solid var(--border); padding:24px 48px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
 .footer-logo { font-family:'DM Serif Display',serif; font-size:16px; color:var(--navy); }
 footer p { font-size:12px; color:var(--muted); }
-
 @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">Bonavista</div>
-  <div class="nav-links">
-    <a href="#why">Why Us</a>
-    <a href="#solutions">Solutions</a>
-    <a href="#expertise">Expertise</a>
-    <a href="#calculator">Calculator</a>
-    <a href="#contact">Contact</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#why" data-i18n="nav.why">Why Us</a>
+      <a href="#solutions" data-i18n="nav.solutions">Solutions</a>
+      <a href="#expertise" data-i18n="nav.expertise">Expertise</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </div>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('pt')">PT</button>
+    </div>
+    <a href="#contact" class="nav-btn" data-i18n="nav.cta">Talk to us</a>
   </div>
-  <a href="#contact" class="nav-btn">Talk to us</a>
 </nav>
 
-<!-- HERO -->
 <div style="max-width:100%;overflow:hidden">
 <div class="hero">
-  <div class="hero-tag">Your Talent Partner</div>
-  <h1>Great teams <em>start here.</em></h1>
-  <div class="hero-sub">Talent leaders scale organizations.</div>
-  <p>Bonavista connects consulting and staffing firms with pre-vetted senior technical talent across LATAM — fast, reliable, and ready to deploy.</p>
+  <div class="hero-tag" data-i18n="hero.tag">Your Talent Partner</div>
+  <h1 data-i18n-html="hero.h1">We find your <em>next hire</em><br>in 48 hours.</h1>
+  <div class="hero-sub" data-i18n="hero.sub">Pre-vetted. Ready to deploy.</div>
+  <p data-i18n="hero.p">Stop losing weeks searching for SAP, Oracle, Workday and cloud specialists. We deliver shortlisted, interview-ready candidates across LATAM — fast.</p>
   <div class="hero-actions">
-    <a href="#contact" class="btn-dark">Talk to us</a>
-    <a href="#solutions" class="btn-light">Our solutions</a>
+    <a href="#contact" class="btn-dark" data-i18n="hero.cta1">Talk to us</a>
+    <a href="#solutions" class="btn-light" data-i18n="hero.cta2">Our solutions</a>
+    <a href="https://www.linkedin.com/company/bonavista-recruitment/posts/?feedView=all" target="_blank" class="btn-light" data-i18n="hero.cta3">Work With Us</a>
   </div>
 </div>
 </div>
 
-<!-- STATS -->
 <div class="stats-bar">
-  <div class="stat"><div class="n">100<em>+</em></div><div class="l">Active candidates</div></div>
-  <div class="stat"><div class="n">48<em>h</em></div><div class="l">Avg. profile delivery</div></div>
-  <div class="stat"><div class="n">8<em>+</em></div><div class="l">LATAM countries</div></div>
-  <div class="stat"><div class="n">60<em>d</em></div><div class="l">Replacement guarantee</div></div>
+  <div class="stat"><div class="n">175<em>+</em></div><div class="l" data-i18n="stats.s1">Active candidates</div></div>
+  <div class="stat"><div class="n">48<em>h</em></div><div class="l" data-i18n="stats.s2">Avg. profile delivery</div></div>
+  <div class="stat"><div class="n">8<em>+</em></div><div class="l" data-i18n="stats.s3">LATAM countries</div></div>
+  <div class="stat"><div class="n">60<em>d</em></div><div class="l" data-i18n="stats.s4">Replacement guarantee</div></div>
 </div>
 
-<!-- WHY -->
 <div class="sec" id="why">
   <div class="sec-inner">
-    <div class="sec-label">Why Bonavista</div>
-    <h2>Your silent delivery <em>partner</em><br>in LATAM.</h2>
-    <p class="sec-desc">We don't enter markets opportunistically — we align with your hiring velocity to get the right talent in place, fast.</p>
+    <div class="sec-label" data-i18n="why.label">Why Bonavista</div>
+    <h2 data-i18n-html="why.h2">Recruiting that moves<br>at your <em>speed.</em></h2>
+    <p class="sec-desc" data-i18n="why.desc">No long waits, no generic CVs. We send you pre-screened candidates ready to interview — within 48 hours.</p>
     <div class="why-grid">
-      <div class="why-item"><div class="why-n">01</div><h3>Speed</h3><p>Shortlisted profiles delivered within 48 hours of receiving a brief. Pre-vetted, ready to interview.</p></div>
-      <div class="why-item"><div class="why-n">02</div><h3>Precision</h3><p>We focus exclusively on hard-to-find enterprise tech talent. Deep expertise means better matches, faster.</p></div>
-      <div class="why-item"><div class="why-n">03</div><h3>LATAM coverage</h3><p>Active pipeline across Mexico, Colombia, Peru, Brazil, Chile, Argentina and beyond.</p></div>
-      <div class="why-item"><div class="why-n">04</div><h3>Embedded partnership</h3><p>We become part of your team — aligned to outcomes, accountable to delivery, no friction.</p></div>
+      <div class="why-item"><div class="why-n">01</div><h3 data-i18n="why.i1h">48-hour delivery</h3><p data-i18n="why.i1p">You share the brief. We deliver shortlisted, pre-vetted profiles within 48 hours. No fluff, no bulk CVs.</p></div>
+      <div class="why-item"><div class="why-n">02</div><h3 data-i18n="why.i2h">Pre-screened talent</h3><p data-i18n="why.i2p">Every candidate is assessed before we present them. You talk to people who actually fit — not people who applied to a job board.</p></div>
+      <div class="why-item"><div class="why-n">03</div><h3 data-i18n="why.i3h">LATAM coverage</h3><p data-i18n="why.i3p">Active pipeline across Mexico, Colombia, Peru, Brazil, Chile, Argentina and beyond. 175+ consultants ready now.</p></div>
+      <div class="why-item"><div class="why-n">04</div><h3 data-i18n="why.i4h">Zero risk</h3><p data-i18n="why.i4p">60-day replacement guarantee on every placement. If it doesn't work out, we find a replacement at no extra cost.</p></div>
     </div>
   </div>
 </div>
 
-<!-- SOLUTIONS -->
 <div class="sec sol-bg" id="solutions">
   <div class="sec-inner">
-    <div class="sec-label">Our solutions</div>
-    <h2>Pick the model that fits<br>your <em>hiring moment.</em></h2>
-    <p class="sec-desc">No retainers, no exclusivity required. We adapt to how you work.</p>
+    <div class="sec-label" data-i18n="sol.label">Our solutions</div>
+    <h2 data-i18n-html="sol.h2">Simple models.<br><em>No surprises.</em></h2>
+    <p class="sec-desc" data-i18n="sol.desc">We adapt to how you work. No retainers, no exclusivity required.</p>
     <div class="sol-grid">
-      <div class="sol"><div class="sol-tag">Option A</div><h3>Placement Fee</h3><p>A one-time fee per successful placement, invoiced on the candidate's start date. Simple and transparent.</p><div class="sol-badge">✓ 60-day replacement guarantee</div></div>
-      <div class="sol"><div class="sol-tag">Option B</div><h3>Hourly Sourcing</h3><p>A small fee per hour the candidate works. Ideal for long-term contracts — cost spreads naturally over time.</p><div class="sol-badge" style="background:#f0fdf4;color:#15803d;border-color:#bbf7d0">✓ Best for extended engagements</div></div>
-      <div class="sol"><div class="sol-tag">Option C</div><h3>Margin-Based</h3><p>For ongoing or project-based support, we can work on a margin-based model depending on the engagement.</p><div class="sol-badge" style="background:#faf5ff;color:#7c3aed;border-color:#e9d5ff">💬 Let's discuss</div></div>
+      <div class="sol"><div class="sol-tag" data-i18n="sol.a.tag">Option A</div><h3 data-i18n="sol.a.h">Placement Fee</h3><p data-i18n="sol.a.p">One fee per successful hire, invoiced on start date. Simple, transparent, no strings attached.</p><div class="sol-badge" data-i18n="sol.a.badge">✓ 60-day replacement guarantee</div></div>
+      <div class="sol"><div class="sol-tag" data-i18n="sol.b.tag">Option B</div><h3 data-i18n="sol.b.h">Hourly Sourcing</h3><p data-i18n="sol.b.p">A small fee per hour the candidate works. Ideal for long-term contracts — cost spreads naturally over time.</p><div class="sol-badge" style="background:#f0fdf4;color:#15803d;border-color:#bbf7d0" data-i18n="sol.b.badge">✓ Best for extended engagements</div></div>
+      <div class="sol"><div class="sol-tag" data-i18n="sol.c.tag">Option C</div><h3 data-i18n="sol.c.h">Margin-Based</h3><p data-i18n="sol.c.p">For ongoing or project-based support, we work on a margin model tailored to the engagement.</p><div class="sol-badge" style="background:#faf5ff;color:#7c3aed;border-color:#e9d5ff" data-i18n="sol.c.badge">💬 Let's discuss</div></div>
     </div>
   </div>
 </div>
 
-<!-- EXPERTISE -->
 <div class="sec" id="expertise">
   <div class="sec-inner">
-    <div class="sec-label">What we cover</div>
-    <h2>Enterprise tech talent<br>across <em>every stack.</em></h2>
-    <p class="sec-desc">From ERP to cloud infrastructure — we cover the full spectrum of technical roles.</p>
+    <div class="sec-label" data-i18n="exp.label">What we cover</div>
+    <h2 data-i18n-html="exp.h2">Enterprise tech talent<br>across <em>every stack.</em></h2>
+    <p class="sec-desc" data-i18n="exp.desc">From ERP to cloud infrastructure — we cover the full spectrum of technical roles.</p>
     <div class="exp-grid">
-      <div class="exp-item"><h4>ERP & Enterprise Systems</h4><p>SAP S/4HANA, Oracle Cloud, Workday — functional, technical and architect profiles.</p></div>
-      <div class="exp-item"><h4>Cloud & DevOps</h4><p>AWS, Azure, GCP, Kubernetes, SRE — infrastructure and platform engineering.</p></div>
-      <div class="exp-item"><h4>Integration & Middleware</h4><p>MuleSoft, SAP BTP, Oracle OIC, ServiceNow — end-to-end specialists.</p></div>
-      <div class="exp-item"><h4>Data & AI</h4><p>Data Engineering, ML, BI, Analytics — from Snowflake to LLMs and beyond.</p></div>
-      <div class="exp-item"><h4>CRM & Digital Platforms</h4><p>Salesforce, digital transformation — commercial and technical profiles.</p></div>
-      <div class="exp-item"><h4>Project & Program Management</h4><p>PMOs, Scrum Masters, delivery leads — bilingual profiles for global teams.</p></div>
+      <div class="exp-item"><h4>SAP</h4><p data-i18n="exp.i1">S/4HANA, BTP, ABAP, Basis, Security, GRC, EWM, PP, SD, HCM, SuccessFactors.</p></div>
+      <div class="exp-item"><h4>Oracle</h4><p data-i18n="exp.i2">Oracle Retail, Oracle Cloud ERP, Oracle Integration Cloud — functional and technical.</p></div>
+      <div class="exp-item"><h4>Workday</h4><p data-i18n="exp.i3">HCM, Integrations, Financials, Payroll — certified consultants across LATAM.</p></div>
+      <div class="exp-item"><h4>Cloud & DevOps</h4><p data-i18n="exp.i4">AWS, Azure, GCP, Kubernetes, DevSecOps — infrastructure and platform engineering.</p></div>
+      <div class="exp-item"><h4>AI & Data</h4><p data-i18n="exp.i5">GenAI, LLMs, RAG, Data Engineering, ML, Snowflake, Databricks.</p></div>
+      <div class="exp-item"><h4>ServiceNow & CRM</h4><p data-i18n="exp.i6">ServiceNow, Salesforce, MuleSoft — integration and platform specialists.</p></div>
     </div>
   </div>
 </div>
 
-<!-- PROCESS -->
 <div class="proc-bg">
   <div class="sec">
     <div class="sec-inner">
-      <div class="sec-label">How it works</div>
-      <h2 style="color:white">Fast, flexible recruiting<br>in 4 simple steps.</h2>
-      <p class="sec-desc">A process designed to get you the right talent without the back-and-forth.</p>
+      <div class="sec-label" data-i18n="proc.label">How it works</div>
+      <h2 style="color:white" data-i18n-html="proc.h2">Your next hire<br>in <em style="color:var(--sky)">4 steps.</em></h2>
+      <p class="sec-desc" data-i18n="proc.desc">A lean process designed to get you the right talent without the back-and-forth.</p>
       <div class="proc-steps">
-        <div class="proc-step"><div class="proc-n">01</div><h4>You identify the gap</h4><p>Need a contractor, interim, or permanent hire? We scope the need together.</p></div>
-        <div class="proc-step"><div class="proc-n">02</div><h4>We source & present</h4><p>Vetted, available candidates delivered — often in 48 hours.</p></div>
-        <div class="proc-step"><div class="proc-n">03</div><h4>You interview</h4><p>Talk to candidates directly, pick your fit. No middleman friction.</p></div>
-        <div class="proc-step"><div class="proc-n">04</div><h4>You get to work</h4><p>Talent ramps up fast and integrates with your team from day one.</p></div>
+        <div class="proc-step"><div class="proc-n">01</div><h4 data-i18n="proc.s1h">You share the need</h4><p data-i18n="proc.s1p">Send us the brief — role, stack, timeline. 15 minutes is enough.</p></div>
+        <div class="proc-step"><div class="proc-n">02</div><h4 data-i18n="proc.s2h">We source & screen</h4><p data-i18n="proc.s2p">We search our pool of 175+ pre-vetted LATAM consultants and add targeted sourcing.</p></div>
+        <div class="proc-step"><div class="proc-n">03</div><h4 data-i18n="proc.s3h">You get profiles</h4><p data-i18n="proc.s3p">Shortlisted candidates delivered within 48 hours. You interview and decide.</p></div>
+        <div class="proc-step"><div class="proc-n">04</div><h4 data-i18n="proc.s4h">Talent starts</h4><p data-i18n="proc.s4p">Your new hire integrates from day one. We stay available for any follow-up.</p></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- CALCULATOR -->
-<div class="sec calc-bg" id="calculator">
-  <div class="sec-inner">
-    <div class="sec-label">Recruiting Capacity Calculator</div>
-    <h2>Can your team meet<br>your <em>hiring goals?</em></h2>
-    <p class="sec-desc">Find out if your current recruiting capacity can keep up with demand — and where Bonavista can close the gap.</p>
-    <div class="calc-wrap">
-      <!-- INPUTS -->
-      <div class="calc-form">
-        <div class="calc-section-title">1. Hiring Demand</div>
-        <div class="field"><label>Period length (months)</label><input type="number" id="months" value="12" min="1" oninput="calc()"></div>
-        <div class="field"><label>Starting headcount</label><input type="number" id="headcount" value="100" min="0" oninput="calc()"></div>
-        <div class="field"><label>Planned growth (%)</label><input type="number" id="growth" value="20" min="0" oninput="calc()"></div>
-        <div class="field"><label>Attrition (%)</label><input type="number" id="attrition" value="15" min="0" oninput="calc()"></div>
-        <div class="field"><label>Growth hires (override, optional)</label><input type="number" id="growthOverride" placeholder="Leave blank to calculate" oninput="calc()"><div class="field-note">Leave blank to auto-calculate</div></div>
-        <div class="field"><label>Backfills (override, optional)</label><input type="number" id="backfillOverride" placeholder="Leave blank to calculate" oninput="calc()"><div class="field-note">Leave blank to auto-calculate</div></div>
-
-        <div class="calc-divider"></div>
-        <div class="calc-section-title">2. Recruiting Team</div>
-        <div class="field"><label>Total recruiters</label><input type="number" id="recruiters" value="5" min="0" oninput="calc()"></div>
-        <div class="field"><label>FTE share (%)</label><input type="number" id="fteShare" value="80" min="0" max="100" oninput="calc()"></div>
-        <div class="field"><label>FTE hires / recruiter / month</label><input type="number" id="fteHires" value="4" min="0" oninput="calc()"></div>
-        <div class="field"><label>Outsourced hires / month</label><input type="number" id="outsourcedHires" value="5" min="0" oninput="calc()"></div>
-        <div class="field"><label>Ramp (months)</label><input type="number" id="ramp" value="2" min="0" oninput="calc()"><div class="field-note">Effective capacity multiplier = 1 − min(ramp/months, 1) ÷ 2</div></div>
-      </div>
-
-      <!-- RESULTS -->
-      <div class="calc-results">
-        <div class="calc-section-title">Results</div>
-        <div class="result-card">
-          <div class="result-label">Total hires needed</div>
-          <div class="result-value" id="r-demand">35</div>
-          <div class="result-sub">Growth + backfills</div>
-        </div>
-        <div class="result-card">
-          <div class="result-label">Recruiting capacity (adjusted)</div>
-          <div class="result-value" id="r-capacity">176</div>
-          <div class="result-sub">After ramp adjustment</div>
-        </div>
-        <div class="result-card">
-          <div class="result-label">Gap (capacity − demand)</div>
-          <div class="result-value positive" id="r-gap">+141</div>
-          <div class="result-sub" id="r-gap-label">Sufficient capacity</div>
-        </div>
-        <div class="calc-divider"></div>
-        <div class="result-row"><span>Growth hires</span><span id="r-growth">20</span></div>
-        <div class="result-row"><span>Backfills</span><span id="r-backfills">15</span></div>
-        <div class="result-row"><span>FTE recruiters</span><span id="r-fte">4.0</span></div>
-        <div class="result-row"><span>Outsourced recruiters</span><span id="r-outsourced">1.0</span></div>
-        <div class="result-row"><span>Raw capacity (before ramp)</span><span id="r-raw">192</span></div>
-        <div class="result-row"><span>Ramp multiplier</span><span id="r-ramp-mult">92%</span></div>
-        <div class="result-row"><span>Capacity utilization</span><span id="r-util">20%</span></div>
-        <div class="bonavista-prompt" id="bonavista-cta" style="display:none">
-          <p>Your team doesn't have enough capacity to meet demand. Bonavista can close the gap with pre-vetted LATAM talent — fast.</p>
-          <a href="#contact">Talk to us →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- CONTACT -->
 <div class="contact-sec" id="contact">
   <div class="sec-inner">
     <div class="contact-inner">
-      <div class="sec-label">Get in touch</div>
-      <h2>Ready to build a <em>repeatable</em><br>hiring engine?</h2>
-      <p>Tell us your hiring goals and we'll map the fastest path to the right talent. We get back within 24 hours.</p>
+      <div class="sec-label" data-i18n="contact.label">Get in touch</div>
+      <h2 data-i18n-html="contact.h2">Tell us what<br>you <em>need.</em></h2>
+      <p class="lead" data-i18n="contact.lead">Leave us your details and we'll get back to you within 24 hours.</p>
+      <div class="contact-form">
+        <form id="contactForm" onsubmit="submitForm(event)">
+          <div class="form-grid">
+            <div class="form-field"><label data-i18n="form.name">Name</label><input type="text" id="fname" placeholder="Maria Garcia" required></div>
+            <div class="form-field"><label data-i18n="form.company">Company</label><input type="text" id="fcompany" placeholder="Acme Corp"></div>
+            <div class="form-field"><label data-i18n="form.email">Email</label><input type="email" id="femail" placeholder="maria@company.com" required></div>
+            <div class="form-field"><label data-i18n="form.role">Looking for</label>
+              <select id="frole">
+                <option value="" data-i18n="form.role.opt0">Select a profile</option>
+                <option value="SAP">SAP</option>
+                <option value="Oracle">Oracle</option>
+                <option value="Workday">Workday</option>
+                <option value="Cloud/DevOps">Cloud / DevOps</option>
+                <option value="AI/Data">AI / Data</option>
+                <option value="ServiceNow">ServiceNow</option>
+                <option value="Other" data-i18n="form.role.other">Other</option>
+              </select>
+            </div>
+            <div class="form-field full"><label data-i18n="form.message">Tell us more</label><textarea id="fmessage" data-i18n-placeholder="form.message.ph" placeholder="Role, seniority, timeline, location..."></textarea></div>
+          </div>
+          <button type="submit" class="form-submit" data-i18n="form.submit">Send message →</button>
+          <div class="form-success" id="formSuccess" data-i18n="form.success">✓ Message sent! We'll get back to you within 24 hours.</div>
+        </form>
+      </div>
       <div class="contact-btns">
         <a href="mailto:hola@bonavista.com.mx" class="c-btn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           hola@bonavista.com.mx
         </a>
-        <a href="https://wa.me/543516353547" target="_blank" class="c-btn c-btn-wa">
+        <a href="tel:+13659939623" class="c-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +1 365 993 9623
+        </a>
+        <a href="https://wa.me/13659939623" target="_blank" class="c-btn c-btn-wa">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
           WhatsApp
         </a>
@@ -376,54 +285,152 @@ footer p { font-size:12px; color:var(--muted); }
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">Bonavista Talent Partners</div>
   <p>© 2026 · <em style="font-family:'DM Serif Display',serif;font-style:italic">Your Talent Partner</em> · LATAM</p>
 </footer>
 
 <script>
-function calc() {
-  const months = parseFloat(document.getElementById('months').value) || 12;
-  const headcount = parseFloat(document.getElementById('headcount').value) || 0;
-  const growth = parseFloat(document.getElementById('growth').value) || 0;
-  const attrition = parseFloat(document.getElementById('attrition').value) || 0;
-  const recruiters = parseFloat(document.getElementById('recruiters').value) || 0;
-  const fteShare = parseFloat(document.getElementById('fteShare').value) || 80;
-  const fteHires = parseFloat(document.getElementById('fteHires').value) || 4;
-  const outsourcedHires = parseFloat(document.getElementById('outsourcedHires').value) || 0;
-  const ramp = parseFloat(document.getElementById('ramp').value) || 0;
+const i18n = {
+  en: {
+    "nav.why":"Why Us","nav.solutions":"Solutions","nav.expertise":"Expertise","nav.contact":"Contact","nav.cta":"Talk to us",
+    "hero.tag":"Your Talent Partner","hero.h1":"We find your <em>next hire</em><br>in 48 hours.","hero.sub":"Pre-vetted. Ready to deploy.",
+    "hero.p":"Stop losing weeks searching for SAP, Oracle, Workday and cloud specialists. We deliver shortlisted, interview-ready candidates across LATAM — fast.",
+    "hero.cta1":"Talk to us","hero.cta2":"Our solutions","hero.cta3":"Work With Us",
+    "stats.s1":"Active candidates","stats.s2":"Avg. profile delivery","stats.s3":"LATAM countries","stats.s4":"Replacement guarantee",
+    "why.label":"Why Bonavista","why.h2":"Recruiting that moves<br>at your <em>speed.</em>",
+    "why.desc":"No long waits, no generic CVs. We send you pre-screened candidates ready to interview — within 48 hours.",
+    "why.i1h":"48-hour delivery","why.i1p":"You share the brief. We deliver shortlisted, pre-vetted profiles within 48 hours. No fluff, no bulk CVs.",
+    "why.i2h":"Pre-screened talent","why.i2p":"Every candidate is assessed before we present them. You talk to people who actually fit — not people who applied to a job board.",
+    "why.i3h":"LATAM coverage","why.i3p":"Active pipeline across Mexico, Colombia, Peru, Brazil, Chile, Argentina and beyond. 175+ consultants ready now.",
+    "why.i4h":"Zero risk","why.i4p":"60-day replacement guarantee on every placement. If it doesn't work out, we find a replacement at no extra cost.",
+    "sol.label":"Our solutions","sol.h2":"Simple models.<br><em>No surprises.</em>","sol.desc":"We adapt to how you work. No retainers, no exclusivity required.",
+    "sol.a.tag":"Option A","sol.a.h":"Placement Fee","sol.a.p":"One fee per successful hire, invoiced on start date. Simple, transparent, no strings attached.","sol.a.badge":"✓ 60-day replacement guarantee",
+    "sol.b.tag":"Option B","sol.b.h":"Hourly Sourcing","sol.b.p":"A small fee per hour the candidate works. Ideal for long-term contracts — cost spreads naturally over time.","sol.b.badge":"✓ Best for extended engagements",
+    "sol.c.tag":"Option C","sol.c.h":"Margin-Based","sol.c.p":"For ongoing or project-based support, we work on a margin model tailored to the engagement.","sol.c.badge":"💬 Let's discuss",
+    "exp.label":"What we cover","exp.h2":"Enterprise tech talent<br>across <em>every stack.</em>","exp.desc":"From ERP to cloud infrastructure — we cover the full spectrum of technical roles.",
+    "exp.i1":"S/4HANA, BTP, ABAP, Basis, Security, GRC, EWM, PP, SD, HCM, SuccessFactors.",
+    "exp.i2":"Oracle Retail, Oracle Cloud ERP, Oracle Integration Cloud — functional and technical.",
+    "exp.i3":"HCM, Integrations, Financials, Payroll — certified consultants across LATAM.",
+    "exp.i4":"AWS, Azure, GCP, Kubernetes, DevSecOps — infrastructure and platform engineering.",
+    "exp.i5":"GenAI, LLMs, RAG, Data Engineering, ML, Snowflake, Databricks.",
+    "exp.i6":"ServiceNow, Salesforce, MuleSoft — integration and platform specialists.",
+    "proc.label":"How it works","proc.h2":"Your next hire<br>in <em style='color:var(--sky)'>4 steps.</em>","proc.desc":"A lean process designed to get you the right talent without the back-and-forth.",
+    "proc.s1h":"You share the need","proc.s1p":"Send us the brief — role, stack, timeline. 15 minutes is enough.",
+    "proc.s2h":"We source & screen","proc.s2p":"We search our pool of 175+ pre-vetted LATAM consultants and add targeted sourcing.",
+    "proc.s3h":"You get profiles","proc.s3p":"Shortlisted candidates delivered within 48 hours. You interview and decide.",
+    "proc.s4h":"Talent starts","proc.s4p":"Your new hire integrates from day one. We stay available for any follow-up.",
+    "contact.label":"Get in touch","contact.h2":"Tell us what<br>you <em>need.</em>","contact.lead":"Leave us your details and we'll get back to you within 24 hours.",
+    "form.name":"Name","form.company":"Company","form.email":"Email","form.role":"Looking for",
+    "form.role.opt0":"Select a profile","form.role.other":"Other","form.message":"Tell us more",
+    "form.message.ph":"Role, seniority, timeline, location...","form.submit":"Send message →",
+    "form.success":"✓ Message sent! We'll get back to you within 24 hours."
+  },
+  es: {
+    "nav.why":"Por qué nosotros","nav.solutions":"Soluciones","nav.expertise":"Especialidades","nav.contact":"Contacto","nav.cta":"Hablemos",
+    "hero.tag":"Tu Socio de Talento","hero.h1":"Encontramos tu <em>próxima contratación</em><br>en 48 horas.","hero.sub":"Pre-evaluados. Listos para incorporarse.",
+    "hero.p":"Dejá de perder semanas buscando especialistas en SAP, Oracle, Workday y cloud. Entregamos candidatos pre-seleccionados en toda LATAM, rápido.",
+    "hero.cta1":"Hablemos","hero.cta2":"Nuestras soluciones","hero.cta3":"Trabajá con nosotros",
+    "stats.s1":"Candidatos activos","stats.s2":"Entrega promedio de perfiles","stats.s3":"Países en LATAM","stats.s4":"Garantía de reemplazo",
+    "why.label":"Por qué Bonavista","why.h2":"Recruiting que avanza<br>a tu <em>velocidad.</em>",
+    "why.desc":"Sin esperas largas, sin CVs genéricos. Te enviamos candidatos pre-evaluados listos para entrevistar — en 48 horas.",
+    "why.i1h":"Entrega en 48 horas","why.i1p":"Compartís el brief. Entregamos perfiles pre-evaluados en 48 horas. Sin relleno, sin CVs masivos.",
+    "why.i2h":"Talento pre-evaluado","why.i2p":"Cada candidato es evaluado antes de presentarlo. Hablás con personas que realmente encajan.",
+    "why.i3h":"Cobertura LATAM","why.i3p":"Pipeline activo en México, Colombia, Perú, Brasil, Chile, Argentina y más. Más de 175 consultores disponibles.",
+    "why.i4h":"Cero riesgo","why.i4p":"Garantía de reemplazo de 60 días en cada colocación. Si no funciona, buscamos reemplazo sin costo adicional.",
+    "sol.label":"Nuestras soluciones","sol.h2":"Modelos simples.<br><em>Sin sorpresas.</em>","sol.desc":"Nos adaptamos a cómo trabajás. Sin retenciones ni exclusividad.",
+    "sol.a.tag":"Opción A","sol.a.h":"Fee de Placement","sol.a.p":"Un fee por contratación exitosa, facturado en la fecha de inicio. Simple, transparente.","sol.a.badge":"✓ Garantía de reemplazo 60 días",
+    "sol.b.tag":"Opción B","sol.b.h":"Sourcing por Hora","sol.b.p":"Un pequeño fee por hora trabajada. Ideal para contratos de largo plazo.","sol.b.badge":"✓ Ideal para proyectos extendidos",
+    "sol.c.tag":"Opción C","sol.c.h":"Basado en Margen","sol.c.p":"Para soporte continuo o por proyecto, trabajamos con un modelo de margen adaptado al engagement.","sol.c.badge":"💬 Conversemos",
+    "exp.label":"Qué cubrimos","exp.h2":"Talento tech enterprise<br>en <em>todo el stack.</em>","exp.desc":"Desde ERP hasta infraestructura cloud — cubrimos el espectro completo de roles técnicos.",
+    "exp.i1":"S/4HANA, BTP, ABAP, Basis, Security, GRC, EWM, PP, SD, HCM, SuccessFactors.",
+    "exp.i2":"Oracle Retail, Oracle Cloud ERP, Oracle Integration Cloud — funcional y técnico.",
+    "exp.i3":"HCM, Integraciones, Financials, Payroll — consultores certificados en LATAM.",
+    "exp.i4":"AWS, Azure, GCP, Kubernetes, DevSecOps — ingeniería de infraestructura y plataforma.",
+    "exp.i5":"GenAI, LLMs, RAG, Ingeniería de Datos, ML, Snowflake, Databricks.",
+    "exp.i6":"ServiceNow, Salesforce, MuleSoft — especialistas en integración y plataforma.",
+    "proc.label":"Cómo funciona","proc.h2":"Tu próxima contratación<br>en <em style='color:var(--sky)'>4 pasos.</em>","proc.desc":"Un proceso ágil para conseguirte el talento correcto sin idas y vueltas.",
+    "proc.s1h":"Compartís la necesidad","proc.s1p":"Envianos el brief — rol, stack, timeline. 15 minutos es suficiente.",
+    "proc.s2h":"Sourcing y evaluación","proc.s2p":"Buscamos en nuestro pool de 175+ consultores LATAM pre-evaluados y hacemos sourcing dirigido.",
+    "proc.s3h":"Recibís los perfiles","proc.s3p":"Candidatos pre-seleccionados entregados en 48 horas. Vos entrevistás y decidís.",
+    "proc.s4h":"El talento empieza","proc.s4p":"Tu nueva incorporación se integra desde el día uno. Seguimos disponibles.",
+    "contact.label":"Contacto","contact.h2":"Contanos qué<br><em>necesitás.</em>","contact.lead":"Dejanos tus datos y te respondemos en menos de 24 horas.",
+    "form.name":"Nombre","form.company":"Empresa","form.email":"Email","form.role":"¿Qué perfil buscás?",
+    "form.role.opt0":"Seleccioná un perfil","form.role.other":"Otro","form.message":"Contanos más",
+    "form.message.ph":"Rol, seniority, timeline, ubicación...","form.submit":"Enviar mensaje →",
+    "form.success":"✓ ¡Mensaje enviado! Te respondemos en menos de 24 horas."
+  },
+  pt: {
+    "nav.why":"Por que nós","nav.solutions":"Soluções","nav.expertise":"Especialidades","nav.contact":"Contato","nav.cta":"Fale conosco",
+    "hero.tag":"Seu Parceiro de Talentos","hero.h1":"Encontramos sua <em>próxima contratação</em><br>em 48 horas.","hero.sub":"Pré-avaliados. Prontos para começar.",
+    "hero.p":"Pare de perder semanas procurando especialistas em SAP, Oracle, Workday e cloud. Entregamos candidatos pré-selecionados em toda a LATAM — rápido.",
+    "hero.cta1":"Fale conosco","hero.cta2":"Nossas soluções","hero.cta3":"Trabalhe Conosco",
+    "stats.s1":"Candidatos ativos","stats.s2":"Entrega média de perfis","stats.s3":"Países na LATAM","stats.s4":"Garantia de reposição",
+    "why.label":"Por que Bonavista","why.h2":"Recrutamento que avança<br>na sua <em>velocidade.</em>",
+    "why.desc":"Sem longas esperas, sem CVs genéricos. Enviamos candidatos pré-avaliados prontos para entrevista — em 48 horas.",
+    "why.i1h":"Entrega em 48 horas","why.i1p":"Você compartilha o brief. Entregamos perfis pré-avaliados em 48 horas.",
+    "why.i2h":"Talentos pré-avaliados","why.i2p":"Cada candidato é avaliado antes da apresentação. Você fala com pessoas que realmente se encaixam.",
+    "why.i3h":"Cobertura LATAM","why.i3p":"Pipeline ativo no México, Colômbia, Peru, Brasil, Chile, Argentina e mais. 175+ consultores disponíveis.",
+    "why.i4h":"Zero risco","why.i4p":"Garantia de reposição de 60 dias. Se não funcionar, encontramos um substituto sem custo adicional.",
+    "sol.label":"Nossas soluções","sol.h2":"Modelos simples.<br><em>Sem surpresas.</em>","sol.desc":"Nos adaptamos à sua forma de trabalhar. Sem retenções, sem exclusividade.",
+    "sol.a.tag":"Opção A","sol.a.h":"Taxa de Colocação","sol.a.p":"Uma taxa por contratação bem-sucedida, faturada na data de início.","sol.a.badge":"✓ Garantia de reposição 60 dias",
+    "sol.b.tag":"Opção B","sol.b.h":"Sourcing por Hora","sol.b.p":"Uma pequena taxa por hora trabalhada. Ideal para contratos de longo prazo.","sol.b.badge":"✓ Ideal para projetos estendidos",
+    "sol.c.tag":"Opção C","sol.c.h":"Baseado em Margem","sol.c.p":"Para suporte contínuo ou por projeto, trabalhamos com um modelo de margem adaptado.","sol.c.badge":"💬 Vamos conversar",
+    "exp.label":"O que cobrimos","exp.h2":"Talentos tech enterprise<br>em <em>toda a stack.</em>","exp.desc":"De ERP à infraestrutura cloud — cobrimos o espectro completo de funções técnicas.",
+    "exp.i1":"S/4HANA, BTP, ABAP, Basis, Security, GRC, EWM, PP, SD, HCM, SuccessFactors.",
+    "exp.i2":"Oracle Retail, Oracle Cloud ERP, Oracle Integration Cloud — funcional e técnico.",
+    "exp.i3":"HCM, Integrações, Financials, Payroll — consultores certificados na LATAM.",
+    "exp.i4":"AWS, Azure, GCP, Kubernetes, DevSecOps — engenharia de infraestrutura e plataforma.",
+    "exp.i5":"GenAI, LLMs, RAG, Engenharia de Dados, ML, Snowflake, Databricks.",
+    "exp.i6":"ServiceNow, Salesforce, MuleSoft — especialistas em integração e plataforma.",
+    "proc.label":"Como funciona","proc.h2":"Sua próxima contratação<br>em <em style='color:var(--sky)'>4 passos.</em>","proc.desc":"Um processo enxuto para encontrar o talento certo sem idas e vindas.",
+    "proc.s1h":"Você compartilha a necessidade","proc.s1p":"Envie o brief — função, stack, prazo. 15 minutos é suficiente.",
+    "proc.s2h":"Sourcing e triagem","proc.s2p":"Buscamos em nosso pool de 175+ consultores LATAM pré-avaliados.",
+    "proc.s3h":"Você recebe os perfis","proc.s3p":"Candidatos pré-selecionados entregues em 48 horas. Você entrevista e decide.",
+    "proc.s4h":"O talento começa","proc.s4p":"Sua nova contratação se integra desde o primeiro dia.",
+    "contact.label":"Entre em contato","contact.h2":"Conte-nos o que<br>você <em>precisa.</em>","contact.lead":"Deixe seus dados e respondemos em menos de 24 horas.",
+    "form.name":"Nome","form.company":"Empresa","form.email":"E-mail","form.role":"Que perfil você busca?",
+    "form.role.opt0":"Selecione um perfil","form.role.other":"Outro","form.message":"Conte-nos mais",
+    "form.message.ph":"Função, senioridade, prazo, localização...","form.submit":"Enviar mensagem →",
+    "form.success":"✓ Mensagem enviada! Respondemos em menos de 24 horas."
+  }
+};
 
-  const growthOverrideEl = document.getElementById('growthOverride').value;
-  const backfillOverrideEl = document.getElementById('backfillOverride').value;
+let currentLang = 'en';
 
-  const growthHires = growthOverrideEl !== '' ? parseFloat(growthOverrideEl) : Math.round(headcount * growth / 100);
-  const backfills = backfillOverrideEl !== '' ? parseFloat(backfillOverrideEl) : Math.round(headcount * attrition / 100);
-  const demand = growthHires + backfills;
-
-  const fteRecruiters = recruiters * fteShare / 100;
-  const outsourcedRecruiters = recruiters * (1 - fteShare / 100);
-  const rawCapacity = (fteRecruiters * fteHires * months) + (outsourcedHires * months);
-  const rampMult = 1 - Math.min(ramp / months, 1) / 2;
-  const capacity = Math.round(rawCapacity * rampMult);
-  const gap = capacity - demand;
-  const util = demand > 0 ? Math.round((demand / Math.max(capacity, 1)) * 100) : 0;
-
-  document.getElementById('r-demand').textContent = demand;
-  document.getElementById('r-capacity').textContent = capacity;
-  document.getElementById('r-gap').textContent = (gap >= 0 ? '+' : '') + gap;
-  document.getElementById('r-gap').className = 'result-value ' + (gap >= 0 ? 'positive' : 'negative');
-  document.getElementById('r-gap-label').textContent = gap >= 0 ? 'Sufficient capacity' : 'Capacity shortfall — ' + Math.abs(gap) + ' hires uncovered';
-  document.getElementById('r-growth').textContent = growthHires;
-  document.getElementById('r-backfills').textContent = backfills;
-  document.getElementById('r-fte').textContent = fteRecruiters.toFixed(1);
-  document.getElementById('r-outsourced').textContent = outsourcedRecruiters.toFixed(1);
-  document.getElementById('r-raw').textContent = Math.round(rawCapacity);
-  document.getElementById('r-ramp-mult').textContent = Math.round(rampMult * 100) + '%';
-  document.getElementById('r-util').textContent = util + '%';
-  document.getElementById('bonavista-cta').style.display = gap < 0 ? 'block' : 'none';
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
+  });
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (i18n[lang][key]) el.textContent = i18n[lang][key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if (i18n[lang][key]) el.innerHTML = i18n[lang][key];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (i18n[lang][key]) el.setAttribute('placeholder', i18n[lang][key]);
+  });
 }
-calc();
+
+function submitForm(e) {
+  e.preventDefault();
+  const btn = document.querySelector('.form-submit');
+  btn.textContent = '...';
+  btn.disabled = true;
+  setTimeout(() => {
+    document.getElementById('contactForm').style.display = 'none';
+    const s = document.getElementById('formSuccess');
+    s.style.display = 'block';
+    s.textContent = i18n[currentLang]['form.success'];
+  }, 800);
+}
+
+setLang('en');
 </script>
 </body>
 </html>
