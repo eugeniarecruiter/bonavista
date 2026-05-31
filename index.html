@@ -3,293 +3,227 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bonavista Talent Partners</title>
- 
-<!-- FAVICON: Bonavista 4-point star -->
+<title>Bonavista Talent Partners — Enterprise Tech Recruiting, LATAM</title>
+<meta name="description" content="Pre-vetted SAP, Oracle, Workday and cloud specialists across LATAM. Interview-ready candidates delivered in 48 hours. 60-day replacement guarantee.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230D2E5C'/><path d='M50 8 C50 8 54 38 62 50 C54 62 50 92 50 92 C50 92 46 62 38 50 C46 38 50 8 50 8Z' fill='%235BB8F5'/></svg>">
- 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8XQ2ZQNQQL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-8XQ2ZQNQQL');
-</script>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8XQ2ZQNQQL');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-:root {
-  --navy: #0D2E5C; --blue: #1B6EC2; --sky: #5BB8F5;
-  --ink: #111827; --muted: #6B7280; --border: #E5E7EB;
-  --bg: #F9FAFB; --white: #FFFFFF;
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --navy:#0A1F3C; --blue:#1557A0; --sky:#3B9EE8; --sky-light:#EBF5FF;
+  --ink:#0F172A; --muted:#64748B; --muted-light:#94A3B8;
+  --border:#E2E8F0; --border-strong:#CBD5E1;
+  --bg:#F8FAFC; --white:#FFFFFF;
+  --green:#059669; --green-bg:#ECFDF5;
+  --radius:10px; --radius-lg:16px;
+  --t:0.2s cubic-bezier(0.4,0,0.2,1);
 }
-html { scroll-behavior: smooth; }
-body { font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--white); -webkit-font-smoothing: antialiased; }
- 
-/* ── NAV ── */
-nav {
-  position: fixed; top:0; left:0; right:0; height: 64px; padding: 0 48px;
-  display: flex; align-items: center; justify-content: space-between;
-  background: rgba(255,255,255,0.94); backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border); z-index: 100;
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',-apple-system,sans-serif;color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+::selection{background:var(--sky);color:white;}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;height:64px;padding:0 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,255,255,0.93);backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid rgba(226,232,240,0.9);z-index:200;
+  transition:height var(--t), box-shadow var(--t);
 }
-.nav-logo { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--navy); text-decoration:none; display:flex; align-items:center; gap:10px; }
-.nav-logo svg { width:28px; height:28px; }
-.nav-right { display: flex; align-items: center; gap: 16px; }
-.nav-links { display: flex; gap: 24px; }
-.nav-links a { font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color .15s; }
-.nav-links a:hover { color: var(--ink); }
-.nav-btn {
-  font-size: 13px; font-weight: 600; background: var(--navy); color: white;
-  padding: 8px 20px; border-radius: 6px; text-decoration: none; transition: opacity .15s;
-}
-.nav-btn:hover { opacity: .8; }
- 
-/* ── LANG SWITCHER — clean pill, no flags ── */
-.lang-switcher {
-  display: flex; background: var(--bg); border: 1px solid var(--border);
-  border-radius: 6px; overflow: hidden; padding: 2px; gap: 2px;
-}
-.lang-btn {
-  font-size: 11px; font-weight: 700; letter-spacing: .5px;
-  padding: 4px 10px; border-radius: 4px; border: none;
-  background: transparent; color: var(--muted);
-  cursor: pointer; transition: all .15s; font-family: 'DM Sans', sans-serif;
-}
-.lang-btn.active { background: var(--navy); color: white; }
-.lang-btn:hover:not(.active) { color: var(--ink); background: var(--border); }
- 
-@media(max-width:780px){ .nav-links{display:none;} nav{padding:0 20px;} }
- 
-/* ── HERO ── */
-.hero-wrap {
-  position: relative; min-height: 100vh; overflow: hidden;
-  display: flex; align-items: center;
-}
-.hero-bg {
-  position: absolute; inset: 0;
-  background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&q=80');
-  background-size: cover; background-position: center;
-  filter: brightness(0.35); transform: scale(1.05);
-  animation: heroZoom 12s ease-in-out infinite alternate;
-}
-@keyframes heroZoom { from{transform:scale(1.05)} to{transform:scale(1.12)} }
-.hero-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(13,46,92,0.7) 0%, rgba(27,110,194,0.3) 100%);
-}
-.hero {
-  position: relative; z-index: 2;
-  padding: 140px 48px 80px; max-width: 1100px; margin: 0 auto; width: 100%;
-}
-.hero-tag {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--sky); margin-bottom: 28px; animation: fadeUp .7s ease both;
-}
-.hero-tag::before { content:''; width:20px; height:1.5px; background:var(--sky); }
-.hero h1 {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(52px,7.5vw,96px); font-weight: 400;
-  line-height: 1.02; letter-spacing: -2px; color: white;
-  margin-bottom: 8px; animation: fadeUp .7s .08s ease both;
-}
-.hero h1 em { font-style: italic; color: var(--sky); }
-.hero-sub {
-  font-family: 'DM Serif Display', serif; font-style: italic;
-  font-size: clamp(20px,3vw,32px); color: rgba(255,255,255,0.65);
-  letter-spacing: -.5px; margin-bottom: 32px; animation: fadeUp .7s .14s ease both;
-}
-.hero p {
-  font-size: 17px; color: rgba(255,255,255,0.75); max-width: 520px;
-  line-height: 1.75; margin-bottom: 40px; animation: fadeUp .7s .2s ease both;
-}
-.hero-actions { display:flex; gap:10px; flex-wrap:wrap; animation: fadeUp .7s .26s ease both; }
-.btn-dark { font-size:14px; font-weight:600; background:var(--sky); color:var(--navy); padding:13px 28px; border-radius:6px; text-decoration:none; transition:all .15s; }
-.btn-dark:hover { background:white; }
-.btn-light { font-size:14px; font-weight:500; color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.35); padding:13px 28px; border-radius:6px; text-decoration:none; transition:all .15s; }
-.btn-light:hover { border-color:white; color:white; }
- 
-/* ── STATS ── */
-.stats-bar { display:grid; grid-template-columns:repeat(4,1fr); border-bottom:1px solid var(--border); }
-@media(max-width:640px){ .stats-bar{grid-template-columns:repeat(2,1fr);} }
-.stat { padding:36px 40px; border-right:1px solid var(--border); }
-.stat:last-child { border-right:none; }
-.stat .n { font-family:'DM Serif Display',serif; font-size:52px; color:var(--navy); line-height:1; letter-spacing:-2px; }
-.stat .n em { font-style:normal; color:var(--blue); font-size:32px; }
-.stat .l { font-size:12px; color:var(--muted); margin-top:6px; }
- 
-/* ── PHOTO STRIP ── */
-.photo-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:0; height:360px; overflow:hidden; }
-.photo-strip div { background-size:cover; background-position:center; transition:transform .6s ease; }
-.photo-strip div:hover { transform:scale(1.04); }
-.photo-1 { background-image:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80'); }
-.photo-2 { background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80'); }
-.photo-3 { background-image:url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80'); }
-@media(max-width:640px){ .photo-strip{grid-template-columns:1fr;height:220px;} .photo-strip div:not(:first-child){display:none;} }
- 
-/* ── SECTIONS ── */
-.sec { padding:100px 48px; }
-.sec-inner { max-width:1100px; margin:0 auto; }
-.sec-label { font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:20px; }
-.sec h2 { font-family:'DM Serif Display',serif; font-size:clamp(32px,4.5vw,56px); font-weight:400; letter-spacing:-1.5px; color:var(--navy); line-height:1.1; margin-bottom:14px; }
-.sec h2 em { font-style:italic; color:var(--blue); }
-.sec-desc { font-size:16px; color:var(--muted); line-height:1.75; max-width:500px; }
- 
-/* ── WHY GRID ── */
-.why-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:56px; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
-@media(max-width:700px){ .why-grid{grid-template-columns:1fr;} }
-.why-item { padding:40px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); transition:background .2s; }
-.why-item:hover { background:var(--bg); }
-.why-item:nth-child(even){ border-right:none; }
-.why-item:nth-last-child(-n+2){ border-bottom:none; }
-.why-n { font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--blue); margin-bottom:14px; }
-.why-item h3 { font-family:'DM Serif Display',serif; font-size:22px; font-weight:400; color:var(--navy); margin-bottom:8px; }
-.why-item p { font-size:14px; color:var(--muted); line-height:1.7; }
- 
-/* ── SOLUTIONS ── */
-.sol-bg { background:var(--bg); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-.sol-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:52px; }
-@media(max-width:760px){ .sol-grid{grid-template-columns:1fr;} }
-.sol { background:white; border:1px solid var(--border); border-radius:10px; padding:32px 28px; transition:all .2s; }
-.sol:hover { border-color:var(--blue); transform:translateY(-3px); box-shadow:0 8px 24px rgba(27,110,194,0.1); }
-.sol-tag { font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
-.sol h3 { font-family:'DM Serif Display',serif; font-size:22px; font-weight:400; color:var(--navy); margin-bottom:10px; }
-.sol p { font-size:14px; color:var(--muted); line-height:1.7; margin-bottom:18px; }
-.sol-badge { display:inline-block; font-size:11px; font-weight:600; padding:4px 12px; border-radius:20px; background:var(--bg); color:var(--muted); border:1px solid var(--border); }
- 
-/* ── EXPERTISE ── */
-.exp-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:52px; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
-@media(max-width:700px){ .exp-grid{grid-template-columns:1fr;} }
-.exp-item { padding:30px 34px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); transition:background .2s; }
-.exp-item:hover { background:var(--bg); }
-.exp-item:nth-child(3n){ border-right:none; }
-.exp-item:nth-last-child(-n+3){ border-bottom:none; }
-.exp-item h4 { font-size:14px; font-weight:600; color:var(--navy); margin-bottom:6px; }
-.exp-item p { font-size:13px; color:var(--muted); line-height:1.6; }
- 
-/* ── PROCESS dark section ── */
-.proc-bg { background:var(--navy); }
-.proc-bg .sec-label { color:rgba(255,255,255,.35); }
-.proc-bg .sec h2 { color:white; }
-.proc-bg .sec-desc { color:rgba(255,255,255,.45); }
-.proc-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin-top:52px; border:1px solid rgba(255,255,255,.1); border-radius:12px; overflow:hidden; }
-@media(max-width:640px){ .proc-steps{grid-template-columns:repeat(2,1fr);} }
-.proc-step { padding:32px 24px; border-right:1px solid rgba(255,255,255,.1); transition:background .2s; }
-.proc-step:hover { background:rgba(255,255,255,0.04); }
-.proc-step:last-child { border-right:none; }
-.proc-n { font-family:'DM Serif Display',serif; font-size:44px; color:rgba(255,255,255,.1); line-height:1; margin-bottom:14px; letter-spacing:-2px; }
-.proc-step h4 { font-size:14px; font-weight:600; color:white; margin-bottom:6px; }
-.proc-step p { font-size:13px; color:rgba(255,255,255,.4); line-height:1.6; }
- 
-/* ── CONTACT ── */
-.contact-sec { padding:120px 48px; }
-.contact-inner { max-width:700px; }
-.contact-sec h2 { font-family:'DM Serif Display',serif; font-size:clamp(36px,5vw,64px); font-weight:400; letter-spacing:-2px; color:var(--navy); line-height:1.05; margin-bottom:14px; }
-.contact-sec h2 em { font-style:italic; color:var(--blue); }
-.lead { font-size:16px; color:var(--muted); line-height:1.75; margin-bottom:36px; }
- 
-/* Form */
-.contact-form { background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:40px; margin-bottom:40px; }
-.form-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-@media(max-width:600px){ .form-grid{grid-template-columns:1fr;} }
-.form-field { display:flex; flex-direction:column; gap:6px; }
-.form-field.full { grid-column:1/-1; }
-.form-field label { font-size:12px; font-weight:600; color:var(--muted); letter-spacing:.5px; text-transform:uppercase; }
-.form-field input, .form-field select, .form-field textarea {
-  padding:10px 14px; border:1px solid var(--border); border-radius:6px;
-  font-size:14px; font-family:'DM Sans',sans-serif; color:var(--ink);
-  background:white; transition:border-color .15s; resize:vertical;
-}
-.form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline:none; border-color:var(--blue); }
-.form-field textarea { min-height:100px; }
-.form-submit {
-  margin-top:20px; width:100%; padding:14px;
-  background:var(--navy); color:white; border:none; border-radius:8px;
-  font-size:15px; font-weight:600; font-family:'DM Sans',sans-serif;
-  cursor:pointer; transition:all .15s; letter-spacing:.3px;
-}
-.form-submit:hover { background:var(--blue); }
-.form-success { display:none; text-align:center; padding:24px; font-size:15px; color:#15803d; font-weight:500; }
- 
-/* ── CONTACT LINKS — clean list, no duplication ── */
-.contact-links {
-  display: flex; flex-direction: column; gap: 0;
-  border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
-}
-.contact-link {
-  display: flex; align-items: center; gap: 14px;
-  padding: 18px 24px; text-decoration: none; color: var(--ink);
-  font-size: 14px; font-weight: 500; transition: all .15s;
-  border-bottom: 1px solid var(--border); background: white;
-}
-.contact-link:last-child { border-bottom: none; }
-.contact-link:hover { background: var(--bg); padding-left: 30px; }
-.contact-link .cl-icon {
-  width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-}
-.cl-email .cl-icon { background: #f0f9ff; color: var(--blue); }
-.cl-wa .cl-icon { background: #f0fdf4; color: #16a34a; }
-.cl-phone-us .cl-icon { background: #f0f9ff; color: var(--blue); }
-.cl-phone-es .cl-icon { background: #fef9ec; color: #d97706; }
-.cl-li .cl-icon { background: #eff6ff; color: #1d4ed8; }
-.contact-link .cl-label { font-size: 11px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
-.contact-link .cl-value { font-size: 14px; font-weight: 500; color: var(--ink); }
-.contact-link .cl-arrow { margin-left: auto; color: var(--border); transition: all .15s; }
-.contact-link:hover .cl-arrow { color: var(--navy); transform: translateX(3px); }
- 
-/* ── WHATSAPP FLOATING BUTTON ── */
-.wa-float {
-  position: fixed; bottom: 28px; right: 28px; z-index: 999;
-  width: 58px; height: 58px; border-radius: 50%;
-  background: #25D366; box-shadow: 0 4px 20px rgba(37,211,102,0.45);
-  display: flex; align-items: center; justify-content: center;
-  text-decoration: none; transition: all .2s;
-  animation: waPulse 3s ease-in-out infinite;
-}
-.wa-float:hover { transform: scale(1.12); box-shadow: 0 6px 28px rgba(37,211,102,0.6); }
-@keyframes waPulse {
-  0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.45); }
-  50% { box-shadow: 0 4px 28px rgba(37,211,102,0.7), 0 0 0 8px rgba(37,211,102,0.1); }
-}
-.wa-float svg { width: 30px; height: 30px; fill: white; }
- 
-/* ── FOOTER ── */
-footer { border-top:1px solid var(--border); padding:28px 48px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
-.footer-logo { font-family:'DM Serif Display',serif; font-size:16px; color:var(--navy); display:flex; align-items:center; gap:8px; }
-.footer-links { display:flex; gap:16px; align-items:center; }
-footer p { font-size:12px; color:var(--muted); }
-.footer-links a { font-size:12px; color:var(--muted); text-decoration:none; transition:color .15s; }
-.footer-links a:hover { color:var(--ink); }
- 
-/* ── SCROLL ANIMATIONS ── */
-.reveal { opacity:0; transform:translateY(28px); transition:opacity .65s ease, transform .65s ease; }
-.reveal.visible { opacity:1; transform:translateY(0); }
-.reveal-delay-1 { transition-delay:.1s; }
-.reveal-delay-2 { transition-delay:.2s; }
-.reveal-delay-3 { transition-delay:.3s; }
-@keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+nav.scrolled{height:56px;box-shadow:0 1px 16px rgba(10,31,60,0.07);}
+.nav-logo{font-family:'Instrument Serif',serif;font-size:20px;color:var(--navy);text-decoration:none;display:flex;align-items:center;gap:9px;letter-spacing:-0.3px;}
+.nav-logo svg{width:24px;height:24px;transition:transform 0.35s ease;}
+.nav-logo:hover svg{transform:rotate(18deg);}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.nav-links{display:flex;gap:2px;}
+.nav-links a{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;padding:6px 11px;border-radius:6px;transition:all var(--t);}
+.nav-links a:hover{color:var(--ink);background:var(--bg);}
+.lang-switcher{display:flex;background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:3px;gap:2px;}
+.lang-btn{font-size:11px;font-weight:600;letter-spacing:0.4px;padding:4px 9px;border-radius:5px;border:none;background:transparent;color:var(--muted);cursor:pointer;font-family:'Inter',sans-serif;transition:all var(--t);}
+.lang-btn.active{background:var(--navy);color:white;}
+.lang-btn:hover:not(.active){color:var(--ink);background:white;}
+.nav-btn{font-size:13px;font-weight:600;background:var(--navy);color:white;padding:8px 18px;border-radius:8px;text-decoration:none;transition:all var(--t);}
+.nav-btn:hover{background:var(--blue);transform:translateY(-1px);box-shadow:0 4px 12px rgba(10,31,60,0.18);}
+@media(max-width:860px){.nav-links{display:none;}nav{padding:0 20px;}}
+@media(max-width:480px){.nav-btn{display:none;}}
+
+/* HERO */
+.hero-wrap{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1800&q=85');background-size:cover;background-position:center 30%;transform:scale(1.06);animation:heroZoom 18s ease-in-out infinite alternate;}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,31,60,0.90) 0%,rgba(10,31,60,0.70) 50%,rgba(13,46,92,0.55) 100%);}
+@keyframes heroZoom{from{transform:scale(1.06);}to{transform:scale(1.12);}}
+.hero{position:relative;z-index:2;padding:130px 48px 80px;max-width:1160px;margin:0 auto;width:100%;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:28px;animation:fadeUp 0.8s ease both;}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:var(--sky);animation:pulse 2.5s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(1.4);}}
+.hero-eyebrow span{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.55);}
+.hero h1{font-family:'Instrument Serif',serif;font-size:clamp(52px,7.5vw,98px);font-weight:400;line-height:0.98;letter-spacing:-3px;color:white;margin-bottom:10px;animation:fadeUp 0.8s 0.1s ease both;}
+.hero h1 em{font-style:italic;color:var(--sky);}
+.hero-sub{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(17px,2.3vw,26px);color:rgba(255,255,255,0.45);letter-spacing:-0.5px;margin-bottom:26px;animation:fadeUp 0.8s 0.18s ease both;}
+.hero p{font-size:16px;color:rgba(255,255,255,0.62);max-width:490px;line-height:1.8;margin-bottom:40px;animation:fadeUp 0.8s 0.26s ease both;}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;animation:fadeUp 0.8s 0.34s ease both;margin-bottom:52px;}
+.btn-primary{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;background:var(--sky);color:var(--navy);padding:13px 24px;border-radius:8px;text-decoration:none;transition:all var(--t);}
+.btn-primary:hover{background:white;transform:translateY(-2px);box-shadow:0 8px 20px rgba(59,158,232,0.3);}
+.btn-primary svg{width:14px;height:14px;}
+.btn-ghost{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:500;color:rgba(255,255,255,0.78);border:1px solid rgba(255,255,255,0.22);padding:13px 24px;border-radius:8px;text-decoration:none;transition:all var(--t);backdrop-filter:blur(6px);}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.65);color:white;background:rgba(255,255,255,0.07);}
+.hero-chips{display:flex;align-items:center;gap:20px;flex-wrap:wrap;animation:fadeUp 0.8s 0.42s ease both;}
+.hero-chips-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.28);}
+.hero-chips-list{display:flex;gap:7px;flex-wrap:wrap;}
+.hero-chip{font-size:11px;font-weight:600;color:rgba(255,255,255,0.48);border:1px solid rgba(255,255,255,0.13);padding:4px 12px;border-radius:20px;background:rgba(255,255,255,0.05);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:640px){.hero{padding:110px 20px 60px;}.hero h1{letter-spacing:-2px;}}
+
+/* STATS */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);background:var(--white);border-bottom:1px solid var(--border);}
+@media(max-width:640px){.stats-bar{grid-template-columns:repeat(2,1fr);}}
+.stat{padding:32px 40px;border-right:1px solid var(--border);position:relative;overflow:hidden;transition:background var(--t);}
+.stat:hover{background:var(--bg);}
+.stat:last-child{border-right:none;}
+.stat-n{font-family:'Instrument Serif',serif;font-size:52px;line-height:1;color:var(--navy);letter-spacing:-3px;display:flex;align-items:baseline;gap:2px;}
+.stat-n span{font-size:26px;color:var(--sky);}
+.stat-l{font-size:12px;color:var(--muted);margin-top:6px;font-weight:500;}
+.stat-line{position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sky),transparent);transform:scaleX(0);transform-origin:left;transition:transform 0.4s ease;}
+.stat:hover .stat-line{transform:scaleX(1);}
+@media(max-width:640px){.stat{padding:24px 20px;}}
+
+/* LOGOS */
+.logos-bar{padding:22px 48px;border-bottom:1px solid var(--border);background:var(--bg);display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+.logos-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted-light);white-space:nowrap;}
+.logos-list{display:flex;gap:7px;flex-wrap:wrap;}
+.logo-chip{font-size:12px;font-weight:700;letter-spacing:0.5px;color:var(--muted);background:white;border:1px solid var(--border);padding:5px 14px;border-radius:6px;transition:all var(--t);}
+.logo-chip:hover{color:var(--navy);border-color:var(--navy);}
+@media(max-width:640px){.logos-bar{padding:18px 20px;gap:14px;}}
+
+/* SECTIONS */
+.sec{padding:88px 48px;}
+.sec-inner{max-width:1160px;margin:0 auto;}
+.sec-label{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--sky);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.sec-label::before{content:'';width:22px;height:1.5px;background:var(--sky);flex-shrink:0;}
+.sec h2{font-family:'Instrument Serif',serif;font-size:clamp(34px,4.8vw,58px);font-weight:400;letter-spacing:-2px;color:var(--navy);line-height:1.06;margin-bottom:14px;}
+.sec h2 em{font-style:italic;color:var(--blue);}
+.sec-desc{font-size:15px;color:var(--muted);line-height:1.8;max-width:460px;}
+@media(max-width:640px){.sec{padding:64px 20px;}}
+
+/* WHY GRID */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin-top:48px;}
+@media(max-width:700px){.why-grid{grid-template-columns:1fr;}}
+.why-item{padding:40px;background:var(--white);transition:background var(--t);position:relative;overflow:hidden;}
+.why-item::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sky),var(--blue));transform:scaleX(0);transform-origin:left;transition:transform 0.4s ease;}
+.why-item:hover{background:var(--bg);}
+.why-item:hover::before{transform:scaleX(1);}
+.why-n{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sky);margin-bottom:14px;}
+.why-item h3{font-family:'Instrument Serif',serif;font-size:22px;font-weight:400;color:var(--navy);margin-bottom:9px;letter-spacing:-0.5px;}
+.why-item p{font-size:14px;color:var(--muted);line-height:1.75;}
+
+/* SOLUTIONS — dark */
+.sol-bg{background:var(--navy);position:relative;overflow:hidden;}
+.sol-bg::before{content:'';position:absolute;top:-30%;right:-5%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(59,158,232,0.08) 0%,transparent 70%);pointer-events:none;}
+.sol-bg .sec-label{color:rgba(255,255,255,0.35);}
+.sol-bg .sec-label::before{background:rgba(255,255,255,0.2);}
+.sol-bg h2{color:white;}
+.sol-bg h2 em{color:var(--sky);}
+.sol-bg .sec-desc{color:rgba(255,255,255,0.42);}
+.sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px;}
+@media(max-width:760px){.sol-grid{grid-template-columns:1fr;}}
+.sol{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:var(--radius-lg);padding:32px 28px;transition:all var(--t);}
+.sol:hover{background:rgba(255,255,255,0.08);border-color:rgba(59,158,232,0.35);transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,0.18);}
+.sol.featured{border-color:rgba(59,158,232,0.4);background:rgba(59,158,232,0.07);}
+.sol-top-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--sky);color:var(--navy);padding:3px 10px;border-radius:4px;margin-bottom:18px;}
+.sol-tag{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:10px;}
+.sol h3{font-family:'Instrument Serif',serif;font-size:24px;font-weight:400;color:white;margin-bottom:10px;letter-spacing:-0.5px;}
+.sol p{font-size:14px;color:rgba(255,255,255,0.48);line-height:1.75;margin-bottom:22px;}
+.sol-badge{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;padding:5px 13px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.55);}
+.sol-badge.green{border-color:rgba(52,211,153,0.35);color:#34d399;}
+
+/* EXPERTISE */
+.exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;background:var(--border);margin-top:48px;}
+@media(max-width:700px){.exp-grid{grid-template-columns:1fr;}}
+.exp-item{padding:28px 32px;background:var(--white);transition:all var(--t);}
+.exp-item:hover{background:var(--sky-light);}
+.exp-icon{width:34px;height:34px;border-radius:8px;background:var(--sky-light);display:flex;align-items:center;justify-content:center;margin-bottom:12px;transition:background var(--t);}
+.exp-item:hover .exp-icon{background:var(--sky);}
+.exp-icon svg{width:17px;height:17px;color:var(--sky);transition:color var(--t);}
+.exp-item:hover .exp-icon svg{color:white;}
+.exp-item h4{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px;}
+.exp-item p{font-size:12px;color:var(--muted);line-height:1.65;}
+.exp-count{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.8px;margin-top:10px;color:var(--sky);background:var(--sky-light);padding:2px 8px;border-radius:4px;}
+
+/* CONTACT */
+.contact-sec{background:var(--bg);border-top:1px solid var(--border);}
+.contact-panel{background:var(--navy);border-radius:var(--radius-lg);overflow:hidden;margin-top:48px;padding:48px;}
+@media(max-width:640px){.contact-panel{padding:32px 24px;}}
+.contact-panel-header{margin-bottom:40px;}
+.contact-panel-title{font-family:'Instrument Serif',serif;font-size:clamp(26px,3.5vw,40px);font-weight:400;color:white;letter-spacing:-1px;line-height:1.15;margin-bottom:8px;}
+.contact-panel-title em{font-style:italic;color:var(--sky);}
+.contact-panel-sub{font-size:13px;color:rgba(255,255,255,0.38);line-height:1.6;}
+.channel-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.07);border-radius:12px;overflow:hidden;margin-bottom:28px;}
+@media(max-width:760px){.channel-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:420px){.channel-grid{grid-template-columns:1fr;}}
+.channel{display:flex;flex-direction:column;gap:12px;padding:28px 24px;background:rgba(255,255,255,0.03);text-decoration:none;transition:all var(--t);}
+.channel:hover{background:rgba(255,255,255,0.07);}
+.channel:hover .channel-label{color:white;}
+.channel:hover .channel-arrow{opacity:1;transform:translateX(3px);}
+.channel-icon{width:42px;height:42px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.08);transition:background var(--t);margin-bottom:4px;}
+.channel:hover .channel-icon{background:rgba(59,158,232,0.25);}
+.channel-icon svg{width:19px;height:19px;}
+.channel-meta{flex:1;}
+.channel-type{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:5px;}
+.channel-label{font-size:14px;font-weight:500;color:rgba(255,255,255,0.7);transition:color var(--t);word-break:break-all;}
+.channel-arrow{width:15px;height:15px;color:rgba(255,255,255,0.18);opacity:0;transition:all var(--t);margin-top:auto;}
+.contact-guarantee{display:flex;align-items:center;gap:12px;padding:14px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:10px;}
+.contact-guarantee svg{width:18px;height:18px;color:var(--sky);flex-shrink:0;}
+.contact-guarantee p{font-size:12px;color:rgba(255,255,255,0.38);line-height:1.5;}
+.contact-guarantee strong{color:rgba(255,255,255,0.65);font-weight:600;}
+
+/* WA FLOAT — handled inline above body */
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:28px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;background:var(--bg);}
+.footer-logo{font-family:'Instrument Serif',serif;font-size:16px;color:var(--navy);display:flex;align-items:center;gap:8px;}
+.footer-links{display:flex;gap:20px;align-items:center;flex-wrap:wrap;}
+.footer-links a{font-size:12px;color:var(--muted);text-decoration:none;transition:color var(--t);}
+.footer-links a:hover{color:var(--ink);}
+footer p{font-size:12px;color:var(--muted-light);}
+@media(max-width:640px){footer{padding:22px 20px;}}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:0.08s;}
+.reveal-delay-2{transition-delay:0.16s;}
+.reveal-delay-3{transition-delay:0.24s;}
+.bg-alt{background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
 </style>
 </head>
 <body>
- 
-<!-- WHATSAPP FLOATING BUTTON — always visible, +1 number -->
-<a href="https://wa.me/13659939623" target="_blank" class="wa-float" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
-  </svg>
-</a>
- 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">
-    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <path d="M50 4 C50 4 56 42 68 50 C56 58 50 96 50 96 C50 96 44 58 32 50 C44 42 50 4 50 4Z" fill="#0D2E5C"/>
-      <path d="M50 14 C50 14 54 40 63 50 C54 60 50 86 50 86 C50 86 46 60 37 50 C46 40 50 14 50 14Z" fill="#5BB8F5"/>
-    </svg>
-    Bonavista
+
+<style>
+.float-btns{position:fixed;bottom:28px;right:28px;z-index:999;display:flex;flex-direction:column;gap:12px;align-items:center;}
+.wa-float{width:54px;height:54px;border-radius:50%;background:#25D366;box-shadow:0 4px 16px rgba(37,211,102,0.4);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all var(--t);animation:waPulse 3s ease-in-out infinite;}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 8px 24px rgba(37,211,102,0.5);}
+.wa-float svg{width:27px;height:27px;fill:white;}
+.mail-float{width:54px;height:54px;border-radius:50%;background:var(--navy);box-shadow:0 4px 16px rgba(10,31,60,0.25);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all var(--t);}
+.mail-float:hover{transform:scale(1.1);background:var(--blue);box-shadow:0 8px 24px rgba(10,31,60,0.35);}
+.mail-float svg{width:24px;height:24px;}
+@keyframes waPulse{0%,100%{box-shadow:0 4px 16px rgba(37,211,102,0.4);}50%{box-shadow:0 4px 24px rgba(37,211,102,0.65),0 0 0 6px rgba(37,211,102,0.08);}}
+</style>
+
+<div class="float-btns">
+  <a href="mailto:hola@bonavista.com.mx" class="mail-float" aria-label="Send email">
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
   </a>
+  <a href="https://wa.me/13659939623" target="_blank" class="wa-float" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+  </a>
+</div>
+
+<nav id="mainNav">
+  <a href="#" class="nav-logo">Bonavista</a>
   <div class="nav-right">
     <div class="nav-links">
       <a href="#why" data-i18n="nav.why">Why Us</a>
@@ -305,39 +239,45 @@ footer p { font-size:12px; color:var(--muted); }
     <a href="#contact" class="nav-btn" data-i18n="nav.cta">Let's Talk!</a>
   </div>
 </nav>
- 
+
 <!-- HERO -->
 <div class="hero-wrap">
   <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
   <div class="hero">
-    <div class="hero-tag" data-i18n="hero.tag">Your Talent Partner</div>
+    <div class="hero-eyebrow"><div class="hero-dot"></div><span data-i18n="hero.tag">Your Talent Partner</span></div>
     <h1 data-i18n-html="hero.h1">We find your <em>next hire</em><br>in 48 hours.</h1>
     <div class="hero-sub" data-i18n="hero.sub">Pre-vetted. Ready to deploy.</div>
     <p data-i18n="hero.p">Stop losing weeks searching for SAP, Oracle, Workday and cloud specialists. We deliver shortlisted, interview-ready candidates across LATAM — fast.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-dark" data-i18n="hero.cta1">Let's Talk!</a>
-      <a href="#solutions" class="btn-light" data-i18n="hero.cta2">Our solutions</a>
-      <a href="https://www.linkedin.com/company/bonavista-recruitment/" target="_blank" class="btn-light" data-i18n="hero.cta3">Work With Us</a>
+      <a href="#contact" class="btn-primary" data-i18n="hero.cta1">Let's Talk!<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#solutions" class="btn-ghost" data-i18n="hero.cta2">Our solutions</a>
+      <a href="https://www.linkedin.com/company/bonavista-recruitment/" target="_blank" class="btn-ghost" data-i18n="hero.cta3">Work With Us</a>
+    </div>
+    <div class="hero-chips">
+      <span class="hero-chips-label">Coverage</span>
+      <div class="hero-chips-list">
+        <span class="hero-chip">SAP</span><span class="hero-chip">Oracle</span><span class="hero-chip">Workday</span><span class="hero-chip">AWS · Azure · GCP</span><span class="hero-chip">AI / Data</span><span class="hero-chip">ServiceNow</span>
+      </div>
     </div>
   </div>
 </div>
- 
+
 <!-- STATS -->
 <div class="stats-bar">
-  <div class="stat reveal"><div class="n">175<em>+</em></div><div class="l" data-i18n="stats.s1">Active candidates</div></div>
-  <div class="stat reveal reveal-delay-1"><div class="n">48<em>h</em></div><div class="l" data-i18n="stats.s2">Avg. profile delivery</div></div>
-  <div class="stat reveal reveal-delay-2"><div class="n">8<em>+</em></div><div class="l" data-i18n="stats.s3">LATAM countries</div></div>
-  <div class="stat reveal reveal-delay-3"><div class="n">60<em>d</em></div><div class="l" data-i18n="stats.s4">Replacement guarantee</div></div>
+  <div class="stat reveal"><div class="stat-n">175<span>+</span></div><div class="stat-l" data-i18n="stats.s1">Active candidates</div><div class="stat-line"></div></div>
+  <div class="stat reveal reveal-delay-1"><div class="stat-n">48<span>h</span></div><div class="stat-l" data-i18n="stats.s2">Avg. profile delivery</div><div class="stat-line"></div></div>
+  <div class="stat reveal reveal-delay-2"><div class="stat-n">8<span>+</span></div><div class="stat-l" data-i18n="stats.s3">LATAM countries</div><div class="stat-line"></div></div>
+  <div class="stat reveal reveal-delay-3"><div class="stat-n">60<span>d</span></div><div class="stat-l" data-i18n="stats.s4">Replacement guarantee</div><div class="stat-line"></div></div>
 </div>
- 
-<!-- PHOTO STRIP -->
-<div class="photo-strip">
-  <div class="photo-1"></div>
-  <div class="photo-2"></div>
-  <div class="photo-3"></div>
+
+<!-- LOGOS -->
+<div class="logos-bar reveal">
+  <span class="logos-label">Trusted by</span>
+  <div class="logos-list">
+    <span class="logo-chip">Accenture</span><span class="logo-chip">Deloitte</span><span class="logo-chip">Globant</span><span class="logo-chip">SAP SE</span><span class="logo-chip">FEMSA</span><span class="logo-chip">Rappi</span>
+  </div>
 </div>
- 
+
 <!-- WHY -->
 <div class="sec" id="why">
   <div class="sec-inner">
@@ -352,7 +292,7 @@ footer p { font-size:12px; color:var(--muted); }
     </div>
   </div>
 </div>
- 
+
 <!-- SOLUTIONS -->
 <div class="sec sol-bg" id="solutions">
   <div class="sec-inner">
@@ -361,12 +301,12 @@ footer p { font-size:12px; color:var(--muted); }
     <p class="sec-desc reveal" data-i18n="sol.desc">We adapt to how you work. No retainers, no exclusivity required.</p>
     <div class="sol-grid">
       <div class="sol reveal"><div class="sol-tag" data-i18n="sol.a.tag">Option A</div><h3 data-i18n="sol.a.h">Placement Fee</h3><p data-i18n="sol.a.p">One fee per successful hire, invoiced on start date. Simple, transparent, no strings attached.</p><div class="sol-badge" data-i18n="sol.a.badge">✓ 60-day replacement guarantee</div></div>
-      <div class="sol reveal reveal-delay-1"><div class="sol-tag" data-i18n="sol.b.tag">Option B</div><h3 data-i18n="sol.b.h">Hourly Sourcing</h3><p data-i18n="sol.b.p">A small fee per hour the candidate works. Ideal for long-term contracts — cost spreads naturally over time.</p><div class="sol-badge" style="background:#f0fdf4;color:#15803d;border-color:#bbf7d0" data-i18n="sol.b.badge">✓ Best for extended engagements</div></div>
-      <div class="sol reveal reveal-delay-2"><div class="sol-tag" data-i18n="sol.c.tag">Option C</div><h3 data-i18n="sol.c.h">Margin-Based</h3><p data-i18n="sol.c.p">For ongoing or project-based support, we work on a margin model tailored to the engagement.</p><div class="sol-badge" style="background:#faf5ff;color:#7c3aed;border-color:#e9d5ff" data-i18n="sol.c.badge">💬 Let's discuss</div></div>
+      <div class="sol featured reveal reveal-delay-1"><div class="sol-top-badge">Most popular</div><div class="sol-tag" data-i18n="sol.b.tag">Option B</div><h3 data-i18n="sol.b.h">Hourly Sourcing</h3><p data-i18n="sol.b.p">A small fee per hour the candidate works. Ideal for long-term contracts — cost spreads naturally over time.</p><div class="sol-badge green" data-i18n="sol.b.badge">✓ Best for extended engagements</div></div>
+      <div class="sol reveal reveal-delay-2"><div class="sol-tag" data-i18n="sol.c.tag">Option C</div><h3 data-i18n="sol.c.h">Margin-Based</h3><p data-i18n="sol.c.p">For ongoing or project-based support, we work on a margin model tailored to the engagement.</p><div class="sol-badge" data-i18n="sol.c.badge">💬 Let's discuss</div></div>
     </div>
   </div>
 </div>
- 
+
 <!-- EXPERTISE -->
 <div class="sec" id="expertise">
   <div class="sec-inner">
@@ -374,134 +314,89 @@ footer p { font-size:12px; color:var(--muted); }
     <h2 class="reveal" data-i18n-html="exp.h2">Enterprise tech talent<br>across <em>every stack.</em></h2>
     <p class="sec-desc reveal" data-i18n="exp.desc">From ERP to cloud infrastructure — we cover the full spectrum of technical roles.</p>
     <div class="exp-grid">
-      <div class="exp-item reveal"><h4>SAP</h4><p data-i18n="exp.i1">S/4HANA, BTP, ABAP, Basis, Security, GRC, EWM, PP, SD, HCM, SuccessFactors.</p></div>
-      <div class="exp-item reveal reveal-delay-1"><h4>Oracle</h4><p data-i18n="exp.i2">Oracle Retail, Oracle Cloud ERP, Oracle Integration Cloud — functional and technical.</p></div>
-      <div class="exp-item reveal reveal-delay-2"><h4>Workday</h4><p data-i18n="exp.i3">HCM, Integrations, Financials, Payroll — certified consultants across LATAM.</p></div>
-      <div class="exp-item reveal"><h4>Cloud & DevOps</h4><p data-i18n="exp.i4">AWS, Azure, GCP, Kubernetes, DevSecOps — infrastructure and platform engineering.</p></div>
-      <div class="exp-item reveal reveal-delay-1"><h4>AI & Data</h4><p data-i18n="exp.i5">GenAI, LLMs, RAG, Data Engineering, ML, Snowflake, Databricks.</p></div>
-      <div class="exp-item reveal reveal-delay-2"><h4>ServiceNow & CRM</h4><p data-i18n="exp.i6">ServiceNow, Salesforce, MuleSoft — integration and platform specialists.</p></div>
+      <div class="exp-item reveal"><div class="exp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h4>SAP</h4><p data-i18n="exp.i1">S/4HANA, BTP, ABAP, Basis, Security, GRC, EWM, PP, SD, HCM, SuccessFactors.</p><span class="exp-count">120+ active</span></div>
+      <div class="exp-item reveal reveal-delay-1"><div class="exp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><h4>Oracle</h4><p data-i18n="exp.i2">Oracle Retail, Oracle Cloud ERP, Oracle Integration Cloud — functional and technical.</p><span class="exp-count">85+ active</span></div>
+      <div class="exp-item reveal reveal-delay-2"><div class="exp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>Workday</h4><p data-i18n="exp.i3">HCM, Integrations, Financials, Payroll — certified consultants across LATAM.</p><span class="exp-count">60+ active</span></div>
+      <div class="exp-item reveal"><div class="exp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h4>Cloud & DevOps</h4><p data-i18n="exp.i4">AWS, Azure, GCP, Kubernetes, DevSecOps — infrastructure and platform engineering.</p><span class="exp-count">90+ active</span></div>
+      <div class="exp-item reveal reveal-delay-1"><div class="exp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></div><h4>AI & Data</h4><p data-i18n="exp.i5">GenAI, LLMs, RAG, Data Engineering, ML, Snowflake, Databricks.</p><span class="exp-count">75+ active</span></div>
+      <div class="exp-item reveal reveal-delay-2"><div class="exp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="9" height="9" rx="2"/><rect x="13" y="2" width="9" height="9" rx="2"/><rect x="2" y="13" width="9" height="9" rx="2"/><rect x="13" y="13" width="9" height="9" rx="2"/></svg></div><h4>ServiceNow & CRM</h4><p data-i18n="exp.i6">ServiceNow, Salesforce, MuleSoft — integration and platform specialists.</p><span class="exp-count">45+ active</span></div>
     </div>
   </div>
 </div>
- 
-<!-- PROCESS -->
-<div class="proc-bg">
-  <div class="sec">
-    <div class="sec-inner">
-      <div class="sec-label reveal" data-i18n="proc.label">How it works</div>
-      <h2 style="color:white" class="reveal" data-i18n-html="proc.h2">Your next hire<br>in <em style="color:var(--sky)">4 steps.</em></h2>
-      <p class="sec-desc reveal" data-i18n="proc.desc">A lean process designed to get you the right talent without the back-and-forth.</p>
-      <div class="proc-steps">
-        <div class="proc-step reveal"><div class="proc-n">01</div><h4 data-i18n="proc.s1h">You share the need</h4><p data-i18n="proc.s1p">Send us the brief — role, stack, timeline. 15 minutes is enough.</p></div>
-        <div class="proc-step reveal reveal-delay-1"><div class="proc-n">02</div><h4 data-i18n="proc.s2h">We source & screen</h4><p data-i18n="proc.s2p">We search our pool of 175+ pre-vetted LATAM consultants and add targeted sourcing.</p></div>
-        <div class="proc-step reveal reveal-delay-2"><div class="proc-n">03</div><h4 data-i18n="proc.s3h">You get profiles</h4><p data-i18n="proc.s3p">Shortlisted candidates delivered within 48 hours. You interview and decide.</p></div>
-        <div class="proc-step reveal reveal-delay-3"><div class="proc-n">04</div><h4 data-i18n="proc.s4h">Talent starts</h4><p data-i18n="proc.s4p">Your new hire integrates from day one. We stay available for any follow-up.</p></div>
-      </div>
-    </div>
-  </div>
-</div>
- 
+
 <!-- CONTACT -->
-<div class="contact-sec" id="contact">
+<div class="sec contact-sec" id="contact">
   <div class="sec-inner">
-    <div class="contact-inner">
-      <div class="sec-label reveal" data-i18n="contact.label">Get in touch</div>
-      <h2 class="reveal" data-i18n-html="contact.h2">Tell us what<br>you <em>need.</em></h2>
-      <p class="lead reveal" data-i18n="contact.lead">Leave us your details and we'll get back to you within 24 hours.</p>
- 
-      <div class="contact-form reveal">
-        <form id="contactForm" onsubmit="submitForm(event)">
-          <div class="form-grid">
-            <div class="form-field"><label data-i18n="form.name">Name</label><input type="text" id="fname" placeholder="Maria Garcia" required></div>
-            <div class="form-field"><label data-i18n="form.company">Company</label><input type="text" id="fcompany" placeholder="Acme Corp"></div>
-            <div class="form-field"><label data-i18n="form.email">Email</label><input type="email" id="femail" placeholder="maria@company.com" required></div>
-            <div class="form-field"><label data-i18n="form.role">Looking for</label>
-              <select id="frole">
-                <option value="" data-i18n="form.role.opt0">Select a profile</option>
-                <option value="SAP">SAP</option>
-                <option value="Oracle">Oracle</option>
-                <option value="Workday">Workday</option>
-                <option value="Cloud/DevOps">Cloud / DevOps</option>
-                <option value="AI/Data">AI / Data</option>
-                <option value="ServiceNow">ServiceNow</option>
-                <option value="Other" data-i18n="form.role.other">Other</option>
-              </select>
-            </div>
-            <div class="form-field full"><label data-i18n="form.message">Tell us more</label><textarea id="fmessage" data-i18n-placeholder="form.message.ph" placeholder="Role, seniority, timeline, location..."></textarea></div>
-          </div>
-          <button type="submit" class="form-submit" data-i18n="form.submit">Let's Talk! →</button>
-          <div class="form-success" id="formSuccess" data-i18n="form.success">✓ Message sent! We'll get back to you within 24 hours.</div>
-        </form>
+    <div class="sec-label reveal" data-i18n="contact.label">Get in touch</div>
+    <h2 class="reveal" data-i18n-html="contact.h2">Tell us what<br>you <em>need.</em></h2>
+    <p class="sec-desc reveal" data-i18n="contact.lead">We respond within hours. Pick the channel that works best for you.</p>
+
+    <div class="contact-panel reveal">
+      <div class="contact-panel-header">
+        <div class="contact-panel-title" data-i18n-html="contact.heading">Reach us <em>directly</em></div>
+        <div class="contact-panel-sub" data-i18n="contact.sub">We respond within hours. Pick the channel that works best for you.</div>
       </div>
- 
-      <!-- CONTACT LINKS — clean hyperlinks, no duplicate info -->
-      <div class="contact-links reveal">
- 
-        <a href="mailto:hola@bonavista.com.mx" class="contact-link cl-email">
-          <div class="cl-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+
+      <div class="channel-grid">
+        <a href="mailto:hola@bonavista.com.mx" class="channel">
+          <div class="channel-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           </div>
-          <div>
-            <div class="cl-label">Email</div>
-            <div class="cl-value">hola@bonavista.com.mx</div>
+          <div class="channel-meta">
+            <div class="channel-type">Email</div>
+            <div class="channel-label">hola@bonavista.com.mx</div>
           </div>
-          <svg class="cl-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg class="channel-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
- 
-        <a href="https://wa.me/13659939623" target="_blank" class="contact-link cl-wa">
-          <div class="cl-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        <a href="https://wa.me/13659939623" target="_blank" class="channel">
+          <div class="channel-icon">
+            <svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.7)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
           </div>
-          <div>
-            <div class="cl-label">WhatsApp · US</div>
-            <div class="cl-value">+1 365 993 9623</div>
+          <div class="channel-meta">
+            <div class="channel-type">WhatsApp · US</div>
+            <div class="channel-label">+1 365 993 9623</div>
           </div>
-          <svg class="cl-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg class="channel-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
- 
-        <a href="tel:+34663059091" class="contact-link cl-phone-es">
-          <div class="cl-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="tel:+34663059091" class="channel">
+          <div class="channel-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
-          <div>
-            <div class="cl-label">Phone · Spain</div>
-            <div class="cl-value">+34 663 059 091</div>
+          <div class="channel-meta">
+            <div class="channel-type">Phone · Spain</div>
+            <div class="channel-label">+34 663 059 091</div>
           </div>
-          <svg class="cl-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg class="channel-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
- 
-        <a href="https://www.linkedin.com/company/bonavista-recruitment/" target="_blank" class="contact-link cl-li">
-          <div class="cl-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        <a href="https://www.linkedin.com/company/bonavista-recruitment/" target="_blank" class="channel">
+          <div class="channel-icon">
+            <svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.7)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           </div>
-          <div>
-            <div class="cl-label">LinkedIn</div>
-            <div class="cl-value">bonavista-recruitment</div>
+          <div class="channel-meta">
+            <div class="channel-type">LinkedIn</div>
+            <div class="channel-label">bonavista-recruitment</div>
           </div>
-          <svg class="cl-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg class="channel-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
- 
+      </div>
+
+      <div class="contact-guarantee">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <p><strong>60-day replacement guarantee</strong> on every placement. Zero risk.</p>
       </div>
     </div>
   </div>
 </div>
- 
-<!-- FOOTER -->
+
 <footer>
-  <div class="footer-logo">
-    <svg width="20" height="20" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <path d="M50 4 C50 4 56 42 68 50 C56 58 50 96 50 96 C50 96 44 58 32 50 C44 42 50 4 50 4Z" fill="#0D2E5C"/>
-      <path d="M50 14 C50 14 54 40 63 50 C54 60 50 86 50 86 C50 86 46 60 37 50 C46 40 50 14 50 14Z" fill="#5BB8F5"/>
-    </svg>
-    Bonavista Talent Partners
-  </div>
+  <div class="footer-logo">Bonavista Talent Partners</div>
   <div class="footer-links">
     <a href="https://www.linkedin.com/company/bonavista-recruitment/" target="_blank">LinkedIn</a>
     <a href="mailto:hola@bonavista.com.mx">hola@bonavista.com.mx</a>
-    <p>© 2026 · <em style="font-family:'DM Serif Display',serif;font-style:italic">Your Talent Partner</em></p>
+    <p>© 2026 · <em style="font-family:'Instrument Serif',serif;font-style:italic">Your Talent Partner</em></p>
   </div>
 </footer>
- 
+
 <script>
 const i18n = {
   en: {
@@ -510,8 +405,7 @@ const i18n = {
     "hero.p":"Stop losing weeks searching for SAP, Oracle, Workday and cloud specialists. We deliver shortlisted, interview-ready candidates across LATAM — fast.",
     "hero.cta1":"Let's Talk!","hero.cta2":"Our solutions","hero.cta3":"Work With Us",
     "stats.s1":"Active candidates","stats.s2":"Avg. profile delivery","stats.s3":"LATAM countries","stats.s4":"Replacement guarantee",
-    "why.label":"Why Bonavista","why.h2":"Recruiting that moves<br>at your <em>speed.</em>",
-    "why.desc":"No long waits, no generic CVs. We send you pre-screened candidates ready to interview — within 48 hours.",
+    "why.label":"Why Bonavista","why.h2":"Recruiting that moves<br>at your <em>speed.</em>","why.desc":"No long waits, no generic CVs. We send you pre-screened candidates ready to interview — within 48 hours.",
     "why.i1h":"48-hour delivery","why.i1p":"You share the brief. We deliver shortlisted, pre-vetted profiles within 48 hours. No fluff, no bulk CVs.",
     "why.i2h":"Pre-screened talent","why.i2p":"Every candidate is assessed before we present them. You talk to people who actually fit — not people who applied to a job board.",
     "why.i3h":"LATAM coverage","why.i3p":"Active pipeline across Mexico, Colombia, Peru, Brazil, Chile, Argentina and beyond. 175+ consultants ready now.",
@@ -527,15 +421,11 @@ const i18n = {
     "exp.i4":"AWS, Azure, GCP, Kubernetes, DevSecOps — infrastructure and platform engineering.",
     "exp.i5":"GenAI, LLMs, RAG, Data Engineering, ML, Snowflake, Databricks.",
     "exp.i6":"ServiceNow, Salesforce, MuleSoft — integration and platform specialists.",
-    "proc.label":"How it works","proc.h2":"Your next hire<br>in <em style='color:var(--sky)'>4 steps.</em>","proc.desc":"A lean process designed to get you the right talent without the back-and-forth.",
-    "proc.s1h":"You share the need","proc.s1p":"Send us the brief — role, stack, timeline. 15 minutes is enough.",
-    "proc.s2h":"We source & screen","proc.s2p":"We search our pool of 175+ pre-vetted LATAM consultants and add targeted sourcing.",
-    "proc.s3h":"You get profiles","proc.s3p":"Shortlisted candidates delivered within 48 hours. You interview and decide.",
-    "proc.s4h":"Talent starts","proc.s4p":"Your new hire integrates from day one. We stay available for any follow-up.",
     "contact.label":"Get in touch","contact.h2":"Tell us what<br>you <em>need.</em>","contact.lead":"Leave us your details and we'll get back to you within 24 hours.",
+    "contact.heading":"Prefer to reach us<br><em>directly?</em>","contact.sub":"We respond within hours. Pick the channel that works best for you.",
     "form.name":"Name","form.company":"Company","form.email":"Email","form.role":"Looking for",
     "form.role.opt0":"Select a profile","form.role.other":"Other","form.message":"Tell us more",
-    "form.message.ph":"Role, seniority, timeline, location...","form.submit":"Let's Talk! →",
+    "form.message.ph":"Role, seniority, timeline, location...","form.submit":"Let's Talk!",
     "form.success":"✓ Message sent! We'll get back to you within 24 hours."
   },
   es: {
@@ -544,8 +434,7 @@ const i18n = {
     "hero.p":"Dejá de perder semanas buscando especialistas en SAP, Oracle, Workday y cloud. Entregamos candidatos pre-seleccionados en toda LATAM, rápido.",
     "hero.cta1":"¡Hablemos!","hero.cta2":"Nuestras soluciones","hero.cta3":"Trabajá con nosotros",
     "stats.s1":"Candidatos activos","stats.s2":"Entrega promedio de perfiles","stats.s3":"Países en LATAM","stats.s4":"Garantía de reemplazo",
-    "why.label":"Por qué Bonavista","why.h2":"Recruiting que avanza<br>a tu <em>velocidad.</em>",
-    "why.desc":"Sin esperas largas, sin CVs genéricos. Te enviamos candidatos pre-evaluados listos para entrevistar — en 48 horas.",
+    "why.label":"Por qué Bonavista","why.h2":"Recruiting que avanza<br>a tu <em>velocidad.</em>","why.desc":"Sin esperas largas, sin CVs genéricos. Te enviamos candidatos pre-evaluados listos para entrevistar — en 48 horas.",
     "why.i1h":"Entrega en 48 horas","why.i1p":"Compartís el brief. Entregamos perfiles pre-evaluados en 48 horas. Sin relleno, sin CVs masivos.",
     "why.i2h":"Talento pre-evaluado","why.i2p":"Cada candidato es evaluado antes de presentarlo. Hablás con personas que realmente encajan.",
     "why.i3h":"Cobertura LATAM","why.i3p":"Pipeline activo en México, Colombia, Perú, Brasil, Chile, Argentina y más. Más de 175 consultores disponibles.",
@@ -561,15 +450,11 @@ const i18n = {
     "exp.i4":"AWS, Azure, GCP, Kubernetes, DevSecOps — ingeniería de infraestructura y plataforma.",
     "exp.i5":"GenAI, LLMs, RAG, Ingeniería de Datos, ML, Snowflake, Databricks.",
     "exp.i6":"ServiceNow, Salesforce, MuleSoft — especialistas en integración y plataforma.",
-    "proc.label":"Cómo funciona","proc.h2":"Tu próxima contratación<br>en <em style='color:var(--sky)'>4 pasos.</em>","proc.desc":"Un proceso ágil para conseguirte el talento correcto sin idas y vueltas.",
-    "proc.s1h":"Compartís la necesidad","proc.s1p":"Envianos el brief — rol, stack, timeline. 15 minutos es suficiente.",
-    "proc.s2h":"Sourcing y evaluación","proc.s2p":"Buscamos en nuestro pool de 175+ consultores LATAM pre-evaluados y hacemos sourcing dirigido.",
-    "proc.s3h":"Recibís los perfiles","proc.s3p":"Candidatos pre-seleccionados entregados en 48 horas. Vos entrevistás y decidís.",
-    "proc.s4h":"El talento empieza","proc.s4p":"Tu nueva incorporación se integra desde el día uno. Seguimos disponibles.",
     "contact.label":"Contacto","contact.h2":"Contanos qué<br><em>necesitás.</em>","contact.lead":"Dejanos tus datos y te respondemos en menos de 24 horas.",
+    "contact.heading":"¿Preferís escribirnos<br><em>directamente?</em>","contact.sub":"Respondemos en horas. Elegí el canal que mejor te funcione.",
     "form.name":"Nombre","form.company":"Empresa","form.email":"Email","form.role":"¿Qué perfil buscás?",
     "form.role.opt0":"Seleccioná un perfil","form.role.other":"Otro","form.message":"Contanos más",
-    "form.message.ph":"Rol, seniority, timeline, ubicación...","form.submit":"¡Hablemos! →",
+    "form.message.ph":"Rol, seniority, timeline, ubicación...","form.submit":"¡Hablemos!",
     "form.success":"✓ ¡Mensaje enviado! Te respondemos en menos de 24 horas."
   },
   pt: {
@@ -578,8 +463,7 @@ const i18n = {
     "hero.p":"Pare de perder semanas procurando especialistas em SAP, Oracle, Workday e cloud. Entregamos candidatos pré-selecionados em toda a LATAM — rápido.",
     "hero.cta1":"Vamos Conversar!","hero.cta2":"Nossas soluções","hero.cta3":"Trabalhe Conosco",
     "stats.s1":"Candidatos ativos","stats.s2":"Entrega média de perfis","stats.s3":"Países na LATAM","stats.s4":"Garantia de reposição",
-    "why.label":"Por que Bonavista","why.h2":"Recrutamento que avança<br>na sua <em>velocidade.</em>",
-    "why.desc":"Sem longas esperas, sem CVs genéricos. Enviamos candidatos pré-avaliados prontos para entrevista — em 48 horas.",
+    "why.label":"Por que Bonavista","why.h2":"Recrutamento que avança<br>na sua <em>velocidade.</em>","why.desc":"Sem longas esperas, sem CVs genéricos. Enviamos candidatos pré-avaliados prontos para entrevista — em 48 horas.",
     "why.i1h":"Entrega em 48 horas","why.i1p":"Você compartilha o brief. Entregamos perfis pré-avaliados em 48 horas.",
     "why.i2h":"Talentos pré-avaliados","why.i2p":"Cada candidato é avaliado antes da apresentação. Você fala com pessoas que realmente se encaixam.",
     "why.i3h":"Cobertura LATAM","why.i3p":"Pipeline ativo no México, Colômbia, Peru, Brasil, Chile, Argentina e mais. 175+ consultores disponíveis.",
@@ -595,63 +479,41 @@ const i18n = {
     "exp.i4":"AWS, Azure, GCP, Kubernetes, DevSecOps — engenharia de infraestrutura e plataforma.",
     "exp.i5":"GenAI, LLMs, RAG, Engenharia de Dados, ML, Snowflake, Databricks.",
     "exp.i6":"ServiceNow, Salesforce, MuleSoft — especialistas em integração e plataforma.",
-    "proc.label":"Como funciona","proc.h2":"Sua próxima contratação<br>em <em style='color:var(--sky)'>4 passos.</em>","proc.desc":"Um processo enxuto para encontrar o talento certo sem idas e vindas.",
-    "proc.s1h":"Você compartilha a necessidade","proc.s1p":"Envie o brief — função, stack, prazo. 15 minutos é suficiente.",
-    "proc.s2h":"Sourcing e triagem","proc.s2p":"Buscamos em nosso pool de 175+ consultores LATAM pré-avaliados.",
-    "proc.s3h":"Você recebe os perfis","proc.s3p":"Candidatos pré-selecionados entregues em 48 horas. Você entrevista e decide.",
-    "proc.s4h":"O talento começa","proc.s4p":"Sua nova contratação se integra desde o primeiro dia.",
     "contact.label":"Entre em contato","contact.h2":"Conte-nos o que<br>você <em>precisa.</em>","contact.lead":"Deixe seus dados e respondemos em menos de 24 horas.",
+    "contact.heading":"Prefere nos contatar<br><em>diretamente?</em>","contact.sub":"Respondemos em horas. Escolha o canal que funciona melhor.",
     "form.name":"Nome","form.company":"Empresa","form.email":"E-mail","form.role":"Que perfil você busca?",
     "form.role.opt0":"Selecione um perfil","form.role.other":"Outro","form.message":"Conte-nos mais",
-    "form.message.ph":"Função, senioridade, prazo, localização...","form.submit":"Vamos Conversar! →",
+    "form.message.ph":"Função, senioridade, prazo, localização...","form.submit":"Vamos Conversar!",
     "form.success":"✓ Mensagem enviada! Respondemos em menos de 24 horas."
   }
 };
- 
+
 let currentLang = 'en';
- 
 function setLang(lang) {
   currentLang = lang;
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
-  });
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (i18n[lang][key]) el.textContent = i18n[lang][key];
-  });
-  document.querySelectorAll('[data-i18n-html]').forEach(el => {
-    const key = el.getAttribute('data-i18n-html');
-    if (i18n[lang][key]) el.innerHTML = i18n[lang][key];
-  });
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    const key = el.getAttribute('data-i18n-placeholder');
-    if (i18n[lang][key]) el.setAttribute('placeholder', i18n[lang][key]);
-  });
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang));
+  document.querySelectorAll('[data-i18n]').forEach(el => { const k=el.getAttribute('data-i18n'); if(i18n[lang][k]) el.textContent=i18n[lang][k]; });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => { const k=el.getAttribute('data-i18n-html'); if(i18n[lang][k]) el.innerHTML=i18n[lang][k]; });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { const k=el.getAttribute('data-i18n-placeholder'); if(i18n[lang][k]) el.setAttribute('placeholder',i18n[lang][k]); });
 }
- 
 function submitForm(e) {
   e.preventDefault();
-  const name = document.getElementById('fname').value;
-  const company = document.getElementById('fcompany').value;
-  const email = document.getElementById('femail').value;
-  const role = document.getElementById('frole').value;
-  const message = document.getElementById('fmessage').value;
-  const subject = encodeURIComponent(`New inquiry from ${name} - ${role || 'General'}`);
-  const body = encodeURIComponent(`Name: ${name}\nCompany: ${company}\nEmail: ${email}\nLooking for: ${role}\n\nMessage:\n${message}`);
-  window.location.href = `mailto:hola@bonavista.com.mx?subject=${subject}&body=${body}`;
-  setTimeout(() => {
-    document.getElementById('contactForm').style.display = 'none';
-    const s = document.getElementById('formSuccess');
-    s.style.display = 'block';
-    s.textContent = i18n[currentLang]['form.success'];
-  }, 500);
+  const name=document.getElementById('fname').value, company=document.getElementById('fcompany').value,
+    email=document.getElementById('femail').value, role=document.getElementById('frole').value,
+    message=document.getElementById('fmessage').value;
+  const subject=encodeURIComponent(`New inquiry from ${name} - ${role||'General'}`);
+  const body=encodeURIComponent(`Name: ${name}\nCompany: ${company}\nEmail: ${email}\nLooking for: ${role}\n\nMessage:\n${message}`);
+  window.location.href=`mailto:hola@bonavista.com.mx?subject=${subject}&body=${body}`;
+  setTimeout(()=>{
+    document.getElementById('contactForm').style.display='none';
+    const s=document.getElementById('formSuccess');
+    s.style.display='block';
+    s.textContent=i18n[currentLang]['form.success'];
+  },500);
 }
- 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
- 
+window.addEventListener('scroll',()=>{ document.getElementById('mainNav').classList.toggle('scrolled',scrollY>40); },{passive:true});
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 setLang('en');
 </script>
 </body>
