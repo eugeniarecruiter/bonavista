@@ -47,7 +47,9 @@ nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid va
 .nav-links a:hover{background:var(--bg-soft);}
 .nav-right{display:flex;align-items:center;gap:10px;}
 .lang{display:flex;background:var(--bg-soft);border-radius:999px;padding:3px;}
-.lang button{border:0;background:none;font-weight:700;font-size:12px;color:var(--muted);padding:6px 10px;border-radius:999px;cursor:pointer;}
+.lang button{display:flex;align-items:center;gap:6px;border:0;background:none;font-weight:700;font-size:12px;color:var(--muted);padding:6px 10px;border-radius:999px;cursor:pointer;}
+.lang .flag{width:18px;height:12px;border-radius:2px;box-shadow:0 0 0 1px rgba(26,43,72,.12);flex-shrink:0;}
+@media(max-width:420px){.lang button{padding:6px 8px;gap:5px;}}
 .lang button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(26,43,72,.15);}
 .pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:15px;padding:12px 22px;border-radius:999px;border:0;cursor:pointer;transition:background .15s,transform .15s;white-space:nowrap;}
 .pill-coral{background:var(--coral);color:#fff;}
@@ -216,9 +218,9 @@ footer{background:var(--ink);color:#fff;margin-top:72px;padding:56px 0 28px;}
     </div>
     <div class="nav-right">
       <div class="lang" role="group" aria-label="Language">
-        <button data-lang="en" aria-pressed="true">EN</button>
-        <button data-lang="es" aria-pressed="false">ES</button>
-        <button data-lang="pt" aria-pressed="false">PT</button>
+        <button data-lang="en" aria-pressed="true" title="English"><svg class="flag" viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="12" fill="#B22234"/><g fill="#fff"><rect y=".923" width="18" height=".923"/><rect y="2.769" width="18" height=".923"/><rect y="4.615" width="18" height=".923"/><rect y="6.462" width="18" height=".923"/><rect y="8.308" width="18" height=".923"/><rect y="10.154" width="18" height=".923"/></g><rect width="7.2" height="6.46" fill="#3C3B6E"/></svg>EN</button>
+        <button data-lang="es" aria-pressed="false" title="Español"><svg class="flag" viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="12" fill="#74ACDF"/><rect y="4" width="18" height="4" fill="#fff"/><circle cx="9" cy="6" r="1.5" fill="#F6B40E"/></svg>ES</button>
+        <button data-lang="pt" aria-pressed="false" title="Português"><svg class="flag" viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="12" fill="#009C3B"/><polygon points="9,1.3 16.6,6 9,10.7 1.4,6" fill="#FFDF00"/><circle cx="9" cy="6" r="2.6" fill="#002776"/></svg>PT</button>
       </div>
       <a href="#contact" class="pill pill-coral" data-i18n="nav.cta">Send a brief</a>
     </div>
