@@ -10,511 +10,521 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8XQ2ZQNQQL');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 :root{
-  --navy:#0A1F3C; --blue:#1557A0; --sky:#3B9EE8; --sky-light:#EBF5FF;
-  --ink:#0F172A; --muted:#64748B; --muted-light:#94A3B8;
-  --border:#E2E8F0; --border-strong:#CBD5E1;
-  --bg:#F8FAFC; --white:#FFFFFF;
-  --green:#059669; --green-bg:#ECFDF5;
-  --radius:10px; --radius-lg:16px;
-  --t:0.2s cubic-bezier(0.4,0,0.2,1);
+  --ink:#1A2B48;
+  --ink-soft:#4A5872;
+  --muted:#6B7891;
+  --line:#E4E7EC;
+  --bg:#FFFFFF;
+  --bg-soft:#F5F6F8;
+  --coral:#FF5B37;
+  --coral-dark:#E8462A;
+  --coral-soft:#FFEDE8;
+  --r:16px;
+  --max:1240px;
+  --gutter:40px;
 }
 html{scroll-behavior:smooth;}
-body{font-family:'Inter',-apple-system,sans-serif;color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-::selection{background:var(--sky);color:white;}
+body{font-family:'Figtree',system-ui,sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.55;}
+a{color:inherit;text-decoration:none;}
+button,input,select{font-family:inherit;}
+:focus-visible{outline:3px solid var(--coral);outline-offset:2px;border-radius:6px;}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);}
+@media(max-width:720px){:root{--gutter:18px;}}
 
 /* NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;height:64px;padding:0 48px;
-  display:flex;align-items:center;justify-content:space-between;
-  background:rgba(255,255,255,0.93);backdrop-filter:blur(20px) saturate(180%);
-  border-bottom:1px solid rgba(226,232,240,0.9);z-index:200;
-  transition:height var(--t), box-shadow var(--t);
-}
-nav.scrolled{height:56px;box-shadow:0 1px 16px rgba(10,31,60,0.07);}
-.nav-logo{font-family:'Instrument Serif',serif;font-size:20px;color:var(--navy);text-decoration:none;display:flex;align-items:center;gap:9px;letter-spacing:-0.3px;}
-.nav-logo svg{width:24px;height:24px;transition:transform 0.35s ease;}
-.nav-logo:hover svg{transform:rotate(18deg);}
+nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px;}
+.brand{display:flex;align-items:center;gap:10px;}
+.brand-mark{width:34px;height:34px;border-radius:10px;background:var(--coral);display:grid;place-items:center;color:#fff;font-weight:900;font-size:19px;}
+.brand b{font-weight:800;font-size:20px;letter-spacing:-.02em;}
+.brand small{display:block;font-size:12px;color:var(--muted);font-weight:500;margin-top:-3px;}
+.nav-links{display:flex;gap:4px;}
+.nav-links a{font-weight:600;font-size:15px;padding:9px 14px;border-radius:999px;}
+.nav-links a:hover{background:var(--bg-soft);}
 .nav-right{display:flex;align-items:center;gap:10px;}
-.nav-links{display:flex;gap:2px;}
-.nav-links a{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;padding:6px 11px;border-radius:6px;transition:all var(--t);}
-.nav-links a:hover{color:var(--ink);background:var(--bg);}
-.lang-switcher{display:flex;background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:3px;gap:2px;}
-.lang-btn{font-size:11px;font-weight:600;letter-spacing:0.4px;padding:4px 9px;border-radius:5px;border:none;background:transparent;color:var(--muted);cursor:pointer;font-family:'Inter',sans-serif;transition:all var(--t);}
-.lang-btn.active{background:var(--navy);color:white;}
-.lang-btn:hover:not(.active){color:var(--ink);background:white;}
-.nav-btn{font-size:13px;font-weight:600;background:var(--navy);color:white;padding:8px 18px;border-radius:8px;text-decoration:none;transition:all var(--t);}
-.nav-btn:hover{background:var(--blue);transform:translateY(-1px);box-shadow:0 4px 12px rgba(10,31,60,0.18);}
-@media(max-width:860px){.nav-links{display:none;}nav{padding:0 20px;}}
-@media(max-width:480px){.nav-btn{display:none;}}
+.lang{display:flex;background:var(--bg-soft);border-radius:999px;padding:3px;}
+.lang button{border:0;background:none;font-weight:700;font-size:12px;color:var(--muted);padding:6px 10px;border-radius:999px;cursor:pointer;}
+.lang button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(26,43,72,.15);}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:15px;padding:12px 22px;border-radius:999px;border:0;cursor:pointer;transition:background .15s,transform .15s;white-space:nowrap;}
+.pill-coral{background:var(--coral);color:#fff;}
+.pill-coral:hover{background:var(--coral-dark);}
+.pill-white{background:#fff;color:var(--ink);}
+.pill-white:hover{background:var(--bg-soft);}
+.pill-line{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.7);}
+.pill-line:hover{background:rgba(255,255,255,.12);}
+@media(max-width:1000px){.nav-links{display:none;}}
+@media(max-width:520px){.brand small,.nav-right .pill{display:none;}}
 
 /* HERO */
-.hero-wrap{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;}
-.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1800&q=85');background-size:cover;background-position:center 30%;transform:scale(1.06);animation:heroZoom 18s ease-in-out infinite alternate;}
-.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,31,60,0.90) 0%,rgba(10,31,60,0.70) 50%,rgba(13,46,92,0.55) 100%);}
-@keyframes heroZoom{from{transform:scale(1.06);}to{transform:scale(1.12);}}
-.hero{position:relative;z-index:2;padding:130px 48px 80px;max-width:1160px;margin:0 auto;width:100%;}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:28px;animation:fadeUp 0.8s ease both;}
-.hero-dot{width:6px;height:6px;border-radius:50%;background:var(--sky);animation:pulse 2.5s ease-in-out infinite;}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(1.4);}}
-.hero-eyebrow span{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.55);}
-.hero h1{font-family:'Instrument Serif',serif;font-size:clamp(52px,7.5vw,98px);font-weight:400;line-height:0.98;letter-spacing:-3px;color:white;margin-bottom:10px;animation:fadeUp 0.8s 0.1s ease both;}
-.hero h1 em{font-style:italic;color:var(--sky);}
-.hero-sub{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(17px,2.3vw,26px);color:rgba(255,255,255,0.45);letter-spacing:-0.5px;margin-bottom:26px;animation:fadeUp 0.8s 0.18s ease both;}
-.hero p{font-size:16px;color:rgba(255,255,255,0.62);max-width:490px;line-height:1.8;margin-bottom:40px;animation:fadeUp 0.8s 0.26s ease both;}
-.hero-actions{display:flex;gap:10px;flex-wrap:wrap;animation:fadeUp 0.8s 0.34s ease both;margin-bottom:52px;}
-.btn-primary{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;background:var(--sky);color:var(--navy);padding:13px 24px;border-radius:8px;text-decoration:none;transition:all var(--t);}
-.btn-primary:hover{background:white;transform:translateY(-2px);box-shadow:0 8px 20px rgba(59,158,232,0.3);}
-.btn-primary svg{width:14px;height:14px;}
-.btn-ghost{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:500;color:rgba(255,255,255,0.78);border:1px solid rgba(255,255,255,0.22);padding:13px 24px;border-radius:8px;text-decoration:none;transition:all var(--t);backdrop-filter:blur(6px);}
-.btn-ghost:hover{border-color:rgba(255,255,255,0.65);color:white;background:rgba(255,255,255,0.07);}
-.hero-chips{display:flex;align-items:center;gap:20px;flex-wrap:wrap;animation:fadeUp 0.8s 0.42s ease both;}
-.hero-chips-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.28);}
-.hero-chips-list{display:flex;gap:7px;flex-wrap:wrap;}
-.hero-chip{font-size:11px;font-weight:600;color:rgba(255,255,255,0.48);border:1px solid rgba(255,255,255,0.13);padding:4px 12px;border-radius:20px;background:rgba(255,255,255,0.05);}
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
-@media(max-width:640px){.hero{padding:110px 20px 60px;}.hero h1{letter-spacing:-2px;}}
+.hero{padding:20px 0 0;}
+.hero-card{position:relative;border-radius:24px;overflow:hidden;min-height:520px;display:flex;align-items:center;background:var(--ink) center/cover no-repeat;background-image:linear-gradient(180deg,rgba(17,26,44,.25) 0%,rgba(17,26,44,.55) 100%),url('https://images.unsplash.com/photo-1557974040-3bec341da09b?auto=format&fit=crop&w=2000&q=75');}
+.hero-in{position:relative;padding:72px 64px;width:100%;}
+.hero h1{color:#fff;font-weight:900;font-size:clamp(36px,5.6vw,68px);line-height:1.02;letter-spacing:-.035em;max-width:15ch;text-shadow:0 2px 24px rgba(0,0,0,.25);}
+.hero-sub{color:rgba(255,255,255,.92);font-size:19px;font-weight:500;margin:16px 0 34px;max-width:48ch;}
+.search{display:flex;align-items:center;background:#fff;border-radius:999px;padding:8px;max-width:780px;box-shadow:0 12px 40px rgba(0,0,0,.22);}
+.search label{display:flex;flex-direction:column;padding:6px 22px;flex:1;min-width:0;}
+.search label + label{border-left:1px solid var(--line);flex:.7;}
+.search span{font-size:12px;font-weight:700;color:var(--ink);}
+.search input,.search select{border:0;outline:0;background:none;font-size:16px;color:var(--ink);padding:2px 0;width:100%;font-weight:500;}
+.search input::placeholder{color:var(--muted);}
+.search select{cursor:pointer;appearance:none;}
+.search .pill{padding:16px 28px;font-size:16px;}
+.search .pill svg{width:18px;height:18px;}
+@media(max-width:760px){
+  .hero-in{padding:44px 22px;}
+  .hero-card{min-height:0;border-radius:18px;}
+  .search{flex-direction:column;align-items:stretch;border-radius:18px;padding:10px;}
+  .search label{padding:10px 12px;}
+  .search label + label{border-left:0;border-top:1px solid var(--line);}
+  .search .pill{margin-top:6px;}
+}
 
-/* STATS */
-.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);background:var(--white);border-bottom:1px solid var(--border);}
-@media(max-width:640px){.stats-bar{grid-template-columns:repeat(2,1fr);}}
-.stat{padding:32px 40px;border-right:1px solid var(--border);position:relative;overflow:hidden;transition:background var(--t);}
-.stat:hover{background:var(--bg);}
-.stat:last-child{border-right:none;}
-.stat-n{font-family:'Instrument Serif',serif;font-size:52px;line-height:1;color:var(--navy);letter-spacing:-3px;display:flex;align-items:baseline;gap:2px;}
-.stat-n span{font-size:26px;color:var(--sky);}
-.stat-l{font-size:12px;color:var(--muted);margin-top:6px;font-weight:500;}
-.stat-line{position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sky),transparent);transform:scaleX(0);transform-origin:left;transition:transform 0.4s ease;}
-.stat:hover .stat-line{transform:scaleX(1);}
-@media(max-width:640px){.stat{padding:24px 20px;}}
+/* CHIPS */
+.chips{display:flex;gap:10px;overflow-x:auto;padding:28px 0 4px;scrollbar-width:none;}
+.chips::-webkit-scrollbar{display:none;}
+.chip{flex-shrink:0;display:flex;align-items:center;gap:8px;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:10px 18px;font-weight:700;font-size:15px;color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s;}
+.chip:hover{border-color:var(--ink);}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff;}
+.chip em{font-style:normal;font-weight:600;font-size:13px;color:var(--muted);}
+.chip[aria-pressed="true"] em{color:rgba(255,255,255,.7);}
 
-/* LOGOS */
-.logos-bar{padding:22px 48px;border-bottom:1px solid var(--border);background:var(--bg);display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
-.logos-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted-light);white-space:nowrap;}
-.logos-list{display:flex;gap:7px;flex-wrap:wrap;}
-.logo-chip{font-size:12px;font-weight:700;letter-spacing:0.5px;color:var(--muted);background:white;border:1px solid var(--border);padding:5px 14px;border-radius:6px;transition:all var(--t);}
-.logo-chip:hover{color:var(--navy);border-color:var(--navy);}
-@media(max-width:640px){.logos-bar{padding:18px 20px;gap:14px;}}
+/* SECTION HEAD */
+.sec{padding:64px 0 0;}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:22px;}
+.sec-head h2{font-size:clamp(24px,2.8vw,32px);font-weight:800;letter-spacing:-.025em;line-height:1.15;}
+.sec-head p{color:var(--muted);margin-top:4px;}
+.arrows{display:flex;gap:8px;}
+.arrow{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--line);background:#fff;display:grid;place-items:center;cursor:pointer;color:var(--ink);}
+.arrow:hover{border-color:var(--ink);}
+.arrow svg{width:18px;height:18px;}
+@media(max-width:640px){.arrows{display:none;}}
 
-/* SECTIONS */
-.sec{padding:88px 48px;}
-.sec-inner{max-width:1160px;margin:0 auto;}
-.sec-label{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--sky);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
-.sec-label::before{content:'';width:22px;height:1.5px;background:var(--sky);flex-shrink:0;}
-.sec h2{font-family:'Instrument Serif',serif;font-size:clamp(34px,4.8vw,58px);font-weight:400;letter-spacing:-2px;color:var(--navy);line-height:1.06;margin-bottom:14px;}
-.sec h2 em{font-style:italic;color:var(--blue);}
-.sec-desc{font-size:15px;color:var(--muted);line-height:1.8;max-width:460px;}
-@media(max-width:640px){.sec{padding:64px 20px;}}
+/* ROLE CARDS */
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 3*20px)/4);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 18px;scrollbar-width:none;}
+.rail::-webkit-scrollbar{display:none;}
+@media(max-width:1000px){.rail{grid-auto-columns:calc((100% - 20px)/2.3);}}
+@media(max-width:560px){.rail{grid-auto-columns:78%;gap:14px;}}
+.role{scroll-snap-align:start;display:flex;flex-direction:column;border-radius:var(--r);background:#fff;border:1px solid var(--line);overflow:hidden;transition:box-shadow .2s,transform .2s;}
+.role:hover{box-shadow:0 10px 30px rgba(26,43,72,.13);transform:translateY(-2px);}
+.role[hidden]{display:none;}
+.role-top{position:relative;height:150px;display:flex;align-items:flex-end;padding:16px 18px;color:#fff;}
+.role-top b{font-size:34px;font-weight:900;letter-spacing:-.03em;line-height:1;}
+.role-badge{position:absolute;top:12px;left:12px;background:#fff;color:var(--ink);font-size:12px;font-weight:800;padding:5px 10px;border-radius:999px;}
+.t-sap{background:linear-gradient(135deg,#1A4FA0,#2D7DDB);}
+.t-oracle{background:linear-gradient(135deg,#B7261B,#E5533C);}
+.t-wd{background:linear-gradient(135deg,#E67A00,#F7A21B);}
+.t-cloud{background:linear-gradient(135deg,#0F6E66,#1FA393);}
+.t-data{background:linear-gradient(135deg,#5B2EA6,#8A5CD6);}
+.t-snow{background:linear-gradient(135deg,#21364F,#4D6B8C);}
+.role-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1;}
+.role-cat{font-size:13px;font-weight:700;color:var(--muted);text-transform:none;}
+.role h3{font-size:18px;font-weight:800;line-height:1.25;margin:4px 0 8px;letter-spacing:-.01em;}
+.role-meta{font-size:14px;color:var(--ink-soft);}
+.role-fast{display:flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:#0E7A3E;margin-top:10px;}
+.role-fast svg{width:16px;height:16px;}
+.role-cta{margin-top:auto;padding-top:16px;font-weight:800;font-size:15px;color:var(--coral);}
+.role:hover .role-cta{text-decoration:underline;}
 
-/* WHY GRID */
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin-top:48px;}
-@media(max-width:700px){.why-grid{grid-template-columns:1fr;}}
-.why-item{padding:40px;background:var(--white);transition:background var(--t);position:relative;overflow:hidden;}
-.why-item::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sky),var(--blue));transform:scaleX(0);transform-origin:left;transition:transform 0.4s ease;}
-.why-item:hover{background:var(--bg);}
-.why-item:hover::before{transform:scaleX(1);}
-.why-n{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sky);margin-bottom:14px;}
-.why-item h3{font-family:'Instrument Serif',serif;font-size:22px;font-weight:400;color:var(--navy);margin-bottom:9px;letter-spacing:-0.5px;}
-.why-item p{font-size:14px;color:var(--muted);line-height:1.75;}
+/* WHY */
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;background:var(--bg-soft);border-radius:24px;padding:40px;}
+.why-item svg{width:30px;height:30px;color:var(--coral);}
+.why-item h3{font-size:17px;font-weight:800;margin:12px 0 6px;}
+.why-item p{font-size:15px;color:var(--ink-soft);}
+@media(max-width:900px){.why{grid-template-columns:1fr 1fr;padding:28px;}}
+@media(max-width:520px){.why{grid-template-columns:1fr;}}
 
-/* SOLUTIONS — dark */
-.sol-bg{background:var(--navy);position:relative;overflow:hidden;}
-.sol-bg::before{content:'';position:absolute;top:-30%;right:-5%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(59,158,232,0.08) 0%,transparent 70%);pointer-events:none;}
-.sol-bg .sec-label{color:rgba(255,255,255,0.35);}
-.sol-bg .sec-label::before{background:rgba(255,255,255,0.2);}
-.sol-bg h2{color:white;}
-.sol-bg h2 em{color:var(--sky);}
-.sol-bg .sec-desc{color:rgba(255,255,255,0.42);}
-.sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px;}
-@media(max-width:760px){.sol-grid{grid-template-columns:1fr;}}
-.sol{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:var(--radius-lg);padding:32px 28px;transition:all var(--t);}
-.sol:hover{background:rgba(255,255,255,0.08);border-color:rgba(59,158,232,0.35);transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,0.18);}
-.sol.featured{border-color:rgba(59,158,232,0.4);background:rgba(59,158,232,0.07);}
-.sol-top-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--sky);color:var(--navy);padding:3px 10px;border-radius:4px;margin-bottom:18px;}
-.sol-tag{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:10px;}
-.sol h3{font-family:'Instrument Serif',serif;font-size:24px;font-weight:400;color:white;margin-bottom:10px;letter-spacing:-0.5px;}
-.sol p{font-size:14px;color:rgba(255,255,255,0.48);line-height:1.75;margin-bottom:22px;}
-.sol-badge{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;padding:5px 13px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.55);}
-.sol-badge.green{border-color:rgba(52,211,153,0.35);color:#34d399;}
+/* COUNTRIES */
+.places{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.place{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;background:var(--ink);display:block;}
+.place img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.place:hover img{transform:scale(1.05);}
+.place::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(10,18,32,.78) 100%);}
+.place-txt{position:absolute;left:20px;bottom:18px;right:20px;z-index:1;color:#fff;}
+.place-txt b{display:block;font-size:26px;font-weight:900;letter-spacing:-.02em;line-height:1.1;}
+.place-txt span{font-size:14px;font-weight:600;opacity:.9;}
+@media(max-width:900px){.places{grid-template-columns:1fr 1fr;}}
+@media(max-width:520px){.places{grid-template-columns:1fr 1fr;gap:12px;}.place-txt b{font-size:20px;}.place-txt{left:14px;bottom:12px;}}
 
-/* EXPERTISE */
-.exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;background:var(--border);margin-top:48px;}
-@media(max-width:700px){.exp-grid{grid-template-columns:1fr;}}
-.exp-item{padding:28px 32px;background:var(--white);transition:all var(--t);}
-.exp-item:hover{background:var(--sky-light);}
-.exp-icon{width:34px;height:34px;border-radius:8px;background:var(--sky-light);display:flex;align-items:center;justify-content:center;margin-bottom:12px;transition:background var(--t);}
-.exp-item:hover .exp-icon{background:var(--sky);}
-.exp-icon svg{width:17px;height:17px;color:var(--sky);transition:color var(--t);}
-.exp-item:hover .exp-icon svg{color:white;}
-.exp-item h4{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px;}
-.exp-item p{font-size:12px;color:var(--muted);line-height:1.65;}
-.exp-count{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.8px;margin-top:10px;color:var(--sky);background:var(--sky-light);padding:2px 8px;border-radius:4px;}
+/* MODELS */
+.models{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.model{border:1px solid var(--line);border-radius:var(--r);padding:28px;position:relative;background:#fff;}
+.model.pick{border:2px solid var(--coral);}
+.model-tag{position:absolute;top:-13px;left:24px;background:var(--coral);color:#fff;font-size:12px;font-weight:800;padding:5px 12px;border-radius:999px;}
+.model h3{font-size:21px;font-weight:800;letter-spacing:-.015em;}
+.model p{color:var(--ink-soft);margin:10px 0 18px;font-size:15px;}
+.model-foot{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:#0E7A3E;}
+.model-foot svg{width:16px;height:16px;flex-shrink:0;}
+@media(max-width:860px){.models{grid-template-columns:1fr;}}
 
-/* CONTACT */
-.contact-sec{background:var(--bg);border-top:1px solid var(--border);}
-.contact-panel{background:var(--navy);border-radius:var(--radius-lg);overflow:hidden;margin-top:48px;padding:48px;}
-@media(max-width:640px){.contact-panel{padding:32px 24px;}}
-.contact-panel-header{margin-bottom:40px;}
-.contact-panel-title{font-family:'Instrument Serif',serif;font-size:clamp(26px,3.5vw,40px);font-weight:400;color:white;letter-spacing:-1px;line-height:1.15;margin-bottom:8px;}
-.contact-panel-title em{font-style:italic;color:var(--sky);}
-.contact-panel-sub{font-size:13px;color:rgba(255,255,255,0.38);line-height:1.6;}
-.channel-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.07);border-radius:12px;overflow:hidden;margin-bottom:28px;}
-@media(max-width:760px){.channel-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:420px){.channel-grid{grid-template-columns:1fr;}}
-.channel{display:flex;flex-direction:column;gap:12px;padding:28px 24px;background:rgba(255,255,255,0.03);text-decoration:none;transition:all var(--t);}
-.channel:hover{background:rgba(255,255,255,0.07);}
-.channel:hover .channel-label{color:white;}
-.channel:hover .channel-arrow{opacity:1;transform:translateX(3px);}
-.channel-icon{width:42px;height:42px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.08);transition:background var(--t);margin-bottom:4px;}
-.channel:hover .channel-icon{background:rgba(59,158,232,0.25);}
-.channel-icon svg{width:19px;height:19px;}
-.channel-meta{flex:1;}
-.channel-type{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:5px;}
-.channel-label{font-size:14px;font-weight:500;color:rgba(255,255,255,0.7);transition:color var(--t);word-break:break-all;}
-.channel-arrow{width:15px;height:15px;color:rgba(255,255,255,0.18);opacity:0;transition:all var(--t);margin-top:auto;}
-.contact-guarantee{display:flex;align-items:center;gap:12px;padding:14px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:10px;}
-.contact-guarantee svg{width:18px;height:18px;color:var(--sky);flex-shrink:0;}
-.contact-guarantee p{font-size:12px;color:rgba(255,255,255,0.38);line-height:1.5;}
-.contact-guarantee strong{color:rgba(255,255,255,0.65);font-weight:600;}
+/* TRUST */
+.trust{display:flex;flex-wrap:wrap;align-items:center;gap:12px 36px;padding:40px 0 0;}
+.trust span{color:var(--muted);font-weight:600;font-size:14px;}
+.trust b{font-weight:800;font-size:19px;color:#8A93A5;letter-spacing:-.01em;}
 
-/* WA FLOAT — handled inline above body */
+/* CTA BANNER */
+.cta{margin:72px 0 0;}
+.cta-card{background:var(--coral);border-radius:24px;padding:48px 56px;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center;color:#fff;}
+.cta-card h2{font-size:clamp(28px,3.6vw,42px);font-weight:900;letter-spacing:-.03em;line-height:1.05;}
+.cta-card p{font-size:17px;font-weight:500;opacity:.95;margin-top:10px;}
+.cta-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end;}
+@media(max-width:860px){.cta-card{grid-template-columns:1fr;padding:34px 26px;}.cta-actions{justify-content:flex-start;}}
 
 /* FOOTER */
-footer{border-top:1px solid var(--border);padding:28px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;background:var(--bg);}
-.footer-logo{font-family:'Instrument Serif',serif;font-size:16px;color:var(--navy);display:flex;align-items:center;gap:8px;}
-.footer-links{display:flex;gap:20px;align-items:center;flex-wrap:wrap;}
-.footer-links a{font-size:12px;color:var(--muted);text-decoration:none;transition:color var(--t);}
-.footer-links a:hover{color:var(--ink);}
-footer p{font-size:12px;color:var(--muted-light);}
-@media(max-width:640px){footer{padding:22px 20px;}}
+footer{background:var(--ink);color:#fff;margin-top:72px;padding:56px 0 28px;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;}
+.foot-grid h4{font-size:14px;font-weight:800;margin-bottom:14px;}
+.foot-grid p,.foot-grid a{display:block;font-size:15px;color:rgba(255,255,255,.72);margin-bottom:8px;}
+.foot-grid a:hover{color:#fff;}
+.foot-brand b{font-size:22px;font-weight:900;letter-spacing:-.02em;}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.15);margin-top:40px;padding-top:22px;font-size:13px;color:rgba(255,255,255,.6);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr;gap:28px;}}
 
-/* ANIMATIONS */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.6s ease,transform 0.6s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.reveal-delay-1{transition-delay:0.08s;}
-.reveal-delay-2{transition-delay:0.16s;}
-.reveal-delay-3{transition-delay:0.24s;}
-.bg-alt{background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+/* FLOATING */
+.float-btns{position:fixed;bottom:22px;right:22px;z-index:999;display:flex;flex-direction:column;gap:12px;}
+.float-btns a{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;transition:transform .15s;}
+.float-btns a:hover{transform:scale(1.08);}
+.wa-float{background:#25D366;box-shadow:0 6px 18px rgba(37,211,102,.4);}
+.wa-float svg{width:27px;height:27px;fill:#fff;}
+.mail-float{background:var(--ink);box-shadow:0 6px 18px rgba(26,43,72,.3);}
+.mail-float svg{width:24px;height:24px;}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important;}}
 </style>
 </head>
 <body>
 
-<style>
-.float-btns{position:fixed;bottom:28px;right:28px;z-index:999;display:flex;flex-direction:column;gap:12px;align-items:center;}
-.wa-float{width:54px;height:54px;border-radius:50%;background:#25D366;box-shadow:0 4px 16px rgba(37,211,102,0.4);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all var(--t);animation:waPulse 3s ease-in-out infinite;}
-.wa-float:hover{transform:scale(1.1);box-shadow:0 8px 24px rgba(37,211,102,0.5);}
-.wa-float svg{width:27px;height:27px;fill:white;}
-.mail-float{width:54px;height:54px;border-radius:50%;background:var(--navy);box-shadow:0 4px 16px rgba(10,31,60,0.25);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all var(--t);}
-.mail-float:hover{transform:scale(1.1);background:var(--blue);box-shadow:0 8px 24px rgba(10,31,60,0.35);}
-.mail-float svg{width:24px;height:24px;}
-@keyframes waPulse{0%,100%{box-shadow:0 4px 16px rgba(37,211,102,0.4);}50%{box-shadow:0 4px 24px rgba(37,211,102,0.65),0 0 0 6px rgba(37,211,102,0.08);}}
-</style>
-
 <div class="float-btns">
-  <a href="https://mail.google.com/mail/?view=cm&to=info@bonavista.com.mx&su=Enterprise+Recruiting+Inquiry" target="_blank" class="mail-float" aria-label="Send email">
+  <a href="https://mail.google.com/mail/?view=cm&to=info@bonavista.com.mx&su=Enterprise+Recruiting+Inquiry" target="_blank" rel="noopener" class="mail-float" aria-label="Send email">
     <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
   </a>
-  <a href="https://wa.me/13659939623" target="_blank" class="wa-float" aria-label="WhatsApp">
+  <a href="https://wa.me/13659939623" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
   </a>
 </div>
 
-<nav id="mainNav">
-  <a href="#" class="nav-logo">Bonavista</a>
-  <div class="nav-right">
+<nav>
+  <div class="wrap nav-in">
+    <a href="#" class="brand"><div class="brand-mark">B</div><div><b>Bonavista</b><small>Talent Partners</small></div></a>
     <div class="nav-links">
-      <a href="#why" data-i18n="nav.why">Why Us</a>
-      <a href="#solutions" data-i18n="nav.solutions">Solutions</a>
-      <a href="#expertise" data-i18n="nav.expertise">Expertise</a>
+      <a href="#roles" data-i18n="nav.roles">Profiles</a>
+      <a href="#countries" data-i18n="nav.countries">Countries</a>
+      <a href="#models" data-i18n="nav.models">How to work with us</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
     </div>
-    <div class="lang-switcher">
-      <button class="lang-btn active" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('es')">ES</button>
-      <button class="lang-btn" onclick="setLang('pt')">PT</button>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button data-lang="en" aria-pressed="true">EN</button>
+        <button data-lang="es" aria-pressed="false">ES</button>
+        <button data-lang="pt" aria-pressed="false">PT</button>
+      </div>
+      <a href="#contact" class="pill pill-coral" data-i18n="nav.cta">Send a brief</a>
     </div>
-    <a href="#contact" class="nav-btn" data-i18n="nav.cta">Let's Talk!</a>
   </div>
 </nav>
 
 <!-- HERO -->
-<div class="hero-wrap">
-  <div class="hero-bg"></div>
-  <div class="hero">
-    <div class="hero-eyebrow"><div class="hero-dot"></div><span data-i18n="hero.tag">Your Talent Partner</span></div>
-    <h1 data-i18n-html="hero.h1">We find your <em>next hire</em><br>in 48 hours.</h1>
-    <div class="hero-sub" data-i18n="hero.sub">Pre-vetted. Ready to deploy.</div>
-    <p data-i18n="hero.p">Stop losing weeks searching for SAP, Oracle, Workday and cloud specialists. We deliver shortlisted, interview-ready candidates across LATAM — fast.</p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn-primary" data-i18n="hero.cta1">Let's Talk!<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="#solutions" class="btn-ghost" data-i18n="hero.cta2">Our solutions</a>
-      <a href="https://www.linkedin.com/company/bonavista-recruitment/" target="_blank" class="btn-ghost" data-i18n="hero.cta3">Work With Us</a>
-    </div>
-    <div class="hero-chips">
-      <span class="hero-chips-label">Coverage</span>
-      <div class="hero-chips-list">
-        <span class="hero-chip">SAP</span><span class="hero-chip">Oracle</span><span class="hero-chip">Workday</span><span class="hero-chip">AWS · Azure · GCP</span><span class="hero-chip">AI / Data</span><span class="hero-chip">ServiceNow</span>
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-card">
+      <div class="hero-in">
+        <h1 data-i18n="hero.h1">Enterprise tech talent from Latin America</h1>
+        <p class="hero-sub" data-i18n="hero.sub">SAP, Oracle, Workday and cloud specialists. Pre-screened and shortlisted in 48 hours.</p>
+        <form class="search" id="searchForm">
+          <label>
+            <span data-i18n="s.role">What profile do you need?</span>
+            <input id="sRole" type="text" autocomplete="off" data-i18n-ph="s.role.ph" placeholder="e.g. SAP FI/CO senior consultant">
+          </label>
+          <label>
+            <span data-i18n="s.country">Where</span>
+            <select id="sCountry">
+              <option value="any" data-i18n="s.any">Anywhere in LATAM</option>
+              <option value="mx" data-i18n="c.mx">Mexico</option>
+              <option value="co">Colombia</option>
+              <option value="pe" data-i18n="c.pe">Peru</option>
+              <option value="cl">Chile</option>
+              <option value="ar">Argentina</option>
+              <option value="br" data-i18n="c.br">Brazil</option>
+            </select>
+          </label>
+          <button class="pill pill-coral" type="submit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <span data-i18n="s.btn">Find talent</span>
+          </button>
+        </form>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- STATS -->
-<div class="stats-bar">
-  <div class="stat reveal"><div class="stat-n">175<span>+</span></div><div class="stat-l" data-i18n="stats.s1">Active candidates</div><div class="stat-line"></div></div>
-  <div class="stat reveal reveal-delay-1"><div class="stat-n">48<span>h</span></div><div class="stat-l" data-i18n="stats.s2">Avg. profile delivery</div><div class="stat-line"></div></div>
-  <div class="stat reveal reveal-delay-2"><div class="stat-n">8<span>+</span></div><div class="stat-l" data-i18n="stats.s3">LATAM countries</div><div class="stat-line"></div></div>
-  <div class="stat reveal reveal-delay-3"><div class="stat-n">60<span>d</span></div><div class="stat-l" data-i18n="stats.s4">Replacement guarantee</div><div class="stat-line"></div></div>
-</div>
-
-<!-- LOGOS -->
-<div class="logos-bar reveal">
-  <span class="logos-label">Trusted by</span>
-  <div class="logos-list">
-    <span class="logo-chip">Accenture</span><span class="logo-chip">Deloitte</span><span class="logo-chip">Globant</span><span class="logo-chip">SAP SE</span><span class="logo-chip">FEMSA</span><span class="logo-chip">Rappi</span>
+    <div class="chips" role="group" aria-label="Filter by platform">
+      <button class="chip" data-cat="all" aria-pressed="true" data-i18n="chip.all">All profiles</button>
+      <button class="chip" data-cat="sap" aria-pressed="false">SAP <em>120+</em></button>
+      <button class="chip" data-cat="oracle" aria-pressed="false">Oracle <em>85+</em></button>
+      <button class="chip" data-cat="wd" aria-pressed="false">Workday <em>60+</em></button>
+      <button class="chip" data-cat="cloud" aria-pressed="false"><span data-i18n="chip.cloud">Cloud and DevOps</span> <em>90+</em></button>
+      <button class="chip" data-cat="data" aria-pressed="false"><span data-i18n="chip.data">AI and Data</span> <em>75+</em></button>
+      <button class="chip" data-cat="snow" aria-pressed="false">ServiceNow &amp; CRM <em>45+</em></button>
+    </div>
   </div>
-</div>
+</header>
+
+<!-- ROLES -->
+<section class="sec" id="roles">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 data-i18n="roles.h">Profiles our clients ask for most</h2>
+        <p data-i18n="roles.p">Pick one and we start the search today.</p>
+      </div>
+      <div class="arrows">
+        <button class="arrow" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button class="arrow" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+      </div>
+    </div>
+
+    <div class="rail" id="rail">
+      <a class="role" data-cat="sap" data-role="SAP S/4HANA FI/CO Consultant" href="#">
+        <div class="role-top t-sap"><b>FI/CO</b></div>
+        <div class="role-body"><div class="role-cat">SAP</div><h3>S/4HANA FI/CO Consultant</h3><div class="role-meta" data-i18n="m.func">Functional, senior, remote</div><div class="role-fast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="m.fast">Shortlist in 48 hours</span></div><div class="role-cta" data-i18n="m.cta">Request profiles</div></div>
+      </a>
+      <a class="role" data-cat="sap" data-role="SAP ABAP / RAP Developer" href="#">
+        <div class="role-top t-sap"><b>ABAP</b></div>
+        <div class="role-body"><div class="role-cat">SAP</div><h3>ABAP / RAP Developer</h3><div class="role-meta" data-i18n="m.tech">Technical, mid to senior, remote</div><div class="role-fast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="m.fast">Shortlist in 48 hours</span></div><div class="role-cta" data-i18n="m.cta">Request profiles</div></div>
+      </a>
+      <a class="role" data-cat="sap" data-role="SAP Basis / BTP Consultant" href="#">
+        <div class="role-top t-sap"><b>BTP</b></div>
+        <div class="role-body"><div class="role-cat">SAP</div><h3>Basis / BTP Consultant</h3><div class="role-meta" data-i18n="m.tech">Technical, mid to senior, remote</div><div class="role-fast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="m.fast">Shortlist in 48 hours</span></div><div class="role-cta" data-i18n="m.cta">Request profiles</div></div>
+      </a>
+      <a class="role" data-cat="sap" data-role="SAP EWM Consultant" href="#">
+        <div class="role-top t-sap"><b>EWM</b></div>
+        <div class="role-body"><div class="role-cat">SAP</div><h3>EWM Consultant</h3><div class="role-meta" data-i18n="m.func">Functional, senior, remote</div><div class="role-fast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="m.fast">Shortlist in 48 hours</span></div><div class="role-cta" data-i18n="m.cta">Request profiles</div></div>
+      </a>
+      <a class="role" data-cat="oracle" data-role="Oracle Cloud ERP Financials Consultant" href="#">
+        <div class="role-top t-oracle"><b>ERP</b></div>
+        <div class="role-body"><div class="role-cat">Oracle</div><h3>Cloud ERP Financials Consultant</h3><div class="role-meta" data-i18n="m.func">Functional, senior, remote</div><div class="role-fast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="m.fast">Shortlist in 48 hours</span></div><div class="role-cta" data-i18n="m.cta">Request profiles</div></div>
+      </a>
+      <a class="role" data-cat="oracle" data-role="Oracle Retail Consultant" href="#">
+        <div class="role-top t-oracle"><b>Retail</b></div>
+        <div class="role-body"><div class="role-cat">Oracle</div><h3>Oracle Retail Consultant</h3><div class="role-meta" data-i18n="m.both">Functional and technical, remote</div><div class="role-fast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="m.fast">Shortlist in 48 hours</span></div><div class="role-cta" data-i18n="m.cta">Request profiles</div></div>
+      </a>
+      <a class="role" data-cat="wd" data-role="Workday HCM Consultant" href="#">
+        <div class="role-top t-wd"><b>HCM</b></div>
+        <div class="role-body"><div class="role-cat">Workday</div><h3>Workday HCM Consultant</h3><div class="role-meta" data-i18n="m.cert">Certified, senior, remote</div><div class="role-fast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="m.fast">Shortlist in 48 hours</span></div><div class="role-cta" data-i18n="m.cta">Request profiles</div></div>
+      </a>
+      <a class="role" data-cat="cloud" data-role="Cloud / DevOps Engineer (AWS, Azure, GCP)" href="#">
+        <div class="role-top t-cloud"><b>DevOps</b></div>
+        <div class="role-body"><div class="role-cat" data-i18n="chip.cloud">Cloud and DevOps</div><h3>Cloud / DevOps Engineer</h3><div class="role-meta">AWS, Azure, GCP, Kubernetes</div><div class="role-fast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="m.fast">Shortlist in 48 hours</span></div><div class="role-cta" data-i18n="m.cta">Request profiles</div></div>
+      </a>
+      <a class="role" data-cat="data" data-role="Data Engineer (Databricks / Snowflake)" href="#">
+        <div class="role-top t-data"><b>Data</b></div>
+        <div class="role-body"><div class="role-cat" data-i18n="chip.data">AI and Data</div><h3>Data Engineer</h3><div class="role-meta">Databricks, Snowflake, ML</div><div class="role-fast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="m.fast">Shortlist in 48 hours</span></div><div class="role-cta" data-i18n="m.cta">Request profiles</div></div>
+      </a>
+      <a class="role" data-cat="data" data-role="GenAI / LLM Engineer" href="#">
+        <div class="role-top t-data"><b>GenAI</b></div>
+        <div class="role-body"><div class="role-cat" data-i18n="chip.data">AI and Data</div><h3>GenAI / LLM Engineer</h3><div class="role-meta">LLMs, RAG, Python</div><div class="role-fast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="m.fast">Shortlist in 48 hours</span></div><div class="role-cta" data-i18n="m.cta">Request profiles</div></div>
+      </a>
+      <a class="role" data-cat="snow" data-role="ServiceNow Developer" href="#">
+        <div class="role-top t-snow"><b>ITSM</b></div>
+        <div class="role-body"><div class="role-cat">ServiceNow &amp; CRM</div><h3>ServiceNow Developer</h3><div class="role-meta">ITSM, ITOM, integrations</div><div class="role-fast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="m.fast">Shortlist in 48 hours</span></div><div class="role-cta" data-i18n="m.cta">Request profiles</div></div>
+      </a>
+      <a class="role" data-cat="snow" data-role="Salesforce / MuleSoft Developer" href="#">
+        <div class="role-top t-snow"><b>CRM</b></div>
+        <div class="role-body"><div class="role-cat">ServiceNow &amp; CRM</div><h3>Salesforce / MuleSoft Developer</h3><div class="role-meta" data-i18n="m.int">Integrations, mid to senior</div><div class="role-fast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="m.fast">Shortlist in 48 hours</span></div><div class="role-cta" data-i18n="m.cta">Request profiles</div></div>
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- WHY -->
-<div class="sec" id="why">
-  <div class="sec-inner">
-    <div class="sec-label reveal" data-i18n="why.label">Why Bonavista</div>
-    <h2 class="reveal" data-i18n-html="why.h2">Recruiting that moves<br>at your <em>speed.</em></h2>
-    <p class="sec-desc reveal" data-i18n="why.desc">No long waits, no generic CVs. We send you pre-screened candidates ready to interview — within 48 hours.</p>
-    <div class="why-grid">
-      <div class="why-item reveal"><div class="why-n">01</div><h3 data-i18n="why.i1h">48-hour delivery</h3><p data-i18n="why.i1p">You share the brief. We deliver shortlisted, pre-vetted profiles within 48 hours. No fluff, no bulk CVs.</p></div>
-      <div class="why-item reveal reveal-delay-1"><div class="why-n">02</div><h3 data-i18n="why.i2h">Pre-screened talent</h3><p data-i18n="why.i2p">Every candidate is assessed before we present them. You talk to people who actually fit — not people who applied to a job board.</p></div>
-      <div class="why-item reveal reveal-delay-2"><div class="why-n">03</div><h3 data-i18n="why.i3h">LATAM coverage</h3><p data-i18n="why.i3p">Active pipeline across Mexico, Colombia, Peru, Brazil, Chile, Argentina and beyond. 175+ consultants ready now.</p></div>
-      <div class="why-item reveal reveal-delay-3"><div class="why-n">04</div><h3 data-i18n="why.i4h">Zero risk</h3><p data-i18n="why.i4p">60-day replacement guarantee on every placement. If it doesn't work out, we find a replacement at no extra cost.</p></div>
+<section class="sec">
+  <div class="wrap">
+    <div class="why">
+      <div class="why-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3 data-i18n="w1.h">Shortlist in 48 hours</h3><p data-i18n="w1.p">Share the brief today and review screened profiles in two working days.</p></div>
+      <div class="why-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><h3 data-i18n="w2.h">Pre-screened, not bulk CVs</h3><p data-i18n="w2.p">Every candidate is assessed on modules, projects and availability before you see them.</p></div>
+      <div class="why-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><h3 data-i18n="w3.h">Your time zone</h3><p data-i18n="w3.p">Consultants within three hours of US Eastern time, so meetings happen live.</p></div>
+      <div class="why-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><h3 data-i18n="w4.h">60-day guarantee</h3><p data-i18n="w4.p">If a placement doesn't work out, we replace it at no extra cost.</p></div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- SOLUTIONS -->
-<div class="sec sol-bg" id="solutions">
-  <div class="sec-inner">
-    <div class="sec-label reveal" data-i18n="sol.label">Our solutions</div>
-    <h2 class="reveal" data-i18n-html="sol.h2">Simple models.<br><em>No surprises.</em></h2>
-    <p class="sec-desc reveal" data-i18n="sol.desc">We adapt to how you work. No retainers, no exclusivity required.</p>
-    <div class="sol-grid">
-      <div class="sol reveal"><div class="sol-tag" data-i18n="sol.a.tag">Option A</div><h3 data-i18n="sol.a.h">Placement Fee</h3><p data-i18n="sol.a.p">One fee per successful hire, invoiced on start date. Simple, transparent, no strings attached.</p><div class="sol-badge" data-i18n="sol.a.badge">✓ 60-day replacement guarantee</div></div>
-      <div class="sol featured reveal reveal-delay-1"><div class="sol-top-badge">Most popular</div><div class="sol-tag" data-i18n="sol.b.tag">Option B</div><h3 data-i18n="sol.b.h">Hourly Sourcing</h3><p data-i18n="sol.b.p">A small fee per hour the candidate works. Ideal for long-term contracts — cost spreads naturally over time.</p><div class="sol-badge green" data-i18n="sol.b.badge">✓ Best for extended engagements</div></div>
-      <div class="sol reveal reveal-delay-2"><div class="sol-tag" data-i18n="sol.c.tag">Option C</div><h3 data-i18n="sol.c.h">Margin-Based</h3><p data-i18n="sol.c.p">For ongoing or project-based support, we work on a margin model tailored to the engagement.</p><div class="sol-badge" data-i18n="sol.c.badge">💬 Let's discuss</div></div>
+<!-- COUNTRIES -->
+<section class="sec" id="countries">
+  <div class="wrap">
+    <div class="sec-head"><div><h2 data-i18n="pl.h">Talent across Latin America</h2><p data-i18n="pl.p">Remote or on-site, from the hubs where enterprise tech teams already work.</p></div></div>
+    <div class="places">
+      <a class="place" href="#" data-country="mx"><img loading="lazy" alt="" src="https://images.unsplash.com/photo-1580934738416-ad531f2920f7?auto=format&fit=crop&w=900&q=70"><div class="place-txt"><b data-i18n="c.mx">Mexico</b><span data-i18n="city.mx">Mexico City, Guadalajara, Monterrey</span></div></a>
+      <a class="place" href="#" data-country="co"><img loading="lazy" alt="" src="https://images.unsplash.com/photo-1568632234157-ce7aecd03d0d?auto=format&fit=crop&w=900&q=70"><div class="place-txt"><b>Colombia</b><span>Bogotá, Medellín</span></div></a>
+      <a class="place" href="#" data-country="br"><img loading="lazy" alt="" src="https://images.unsplash.com/photo-1572894234976-d961418c709d?auto=format&fit=crop&w=900&q=70"><div class="place-txt"><b data-i18n="c.br">Brazil</b><span>São Paulo</span></div></a>
+      <a class="place" href="#" data-country="ar"><img loading="lazy" alt="" src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&fit=crop&w=900&q=70"><div class="place-txt"><b>Argentina</b><span>Buenos Aires, Córdoba</span></div></a>
+      <a class="place" href="#" data-country="cl"><img loading="lazy" alt="" src="https://images.unsplash.com/photo-1689850543263-01a52ccc6943?auto=format&fit=crop&w=900&q=70"><div class="place-txt"><b>Chile</b><span>Santiago</span></div></a>
+      <a class="place" href="#" data-country="pe"><img loading="lazy" alt="" src="https://images.unsplash.com/photo-1531968455001-5c5272a41129?auto=format&fit=crop&w=900&q=70"><div class="place-txt"><b data-i18n="c.pe">Peru</b><span>Lima</span></div></a>
     </div>
   </div>
-</div>
+</section>
 
-<!-- EXPERTISE -->
-<div class="sec" id="expertise">
-  <div class="sec-inner">
-    <div class="sec-label reveal" data-i18n="exp.label">What we cover</div>
-    <h2 class="reveal" data-i18n-html="exp.h2">Enterprise tech talent<br>across <em>every stack.</em></h2>
-    <p class="sec-desc reveal" data-i18n="exp.desc">From ERP to cloud infrastructure — we cover the full spectrum of technical roles.</p>
-    <div class="exp-grid">
-      <div class="exp-item reveal"><div class="exp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h4>SAP</h4><p data-i18n="exp.i1">S/4HANA, BTP, ABAP, Basis, Security, GRC, EWM, PP, SD, HCM, SuccessFactors.</p><span class="exp-count">120+ active</span></div>
-      <div class="exp-item reveal reveal-delay-1"><div class="exp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><h4>Oracle</h4><p data-i18n="exp.i2">Oracle Retail, Oracle Cloud ERP, Oracle Integration Cloud — functional and technical.</p><span class="exp-count">85+ active</span></div>
-      <div class="exp-item reveal reveal-delay-2"><div class="exp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>Workday</h4><p data-i18n="exp.i3">HCM, Integrations, Financials, Payroll — certified consultants across LATAM.</p><span class="exp-count">60+ active</span></div>
-      <div class="exp-item reveal"><div class="exp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h4>Cloud & DevOps</h4><p data-i18n="exp.i4">AWS, Azure, GCP, Kubernetes, DevSecOps — infrastructure and platform engineering.</p><span class="exp-count">90+ active</span></div>
-      <div class="exp-item reveal reveal-delay-1"><div class="exp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg></div><h4>AI & Data</h4><p data-i18n="exp.i5">GenAI, LLMs, RAG, Data Engineering, ML, Snowflake, Databricks.</p><span class="exp-count">75+ active</span></div>
-      <div class="exp-item reveal reveal-delay-2"><div class="exp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="9" height="9" rx="2"/><rect x="13" y="2" width="9" height="9" rx="2"/><rect x="2" y="13" width="9" height="9" rx="2"/><rect x="13" y="13" width="9" height="9" rx="2"/></svg></div><h4>ServiceNow & CRM</h4><p data-i18n="exp.i6">ServiceNow, Salesforce, MuleSoft — integration and platform specialists.</p><span class="exp-count">45+ active</span></div>
+<!-- MODELS -->
+<section class="sec" id="models">
+  <div class="wrap">
+    <div class="sec-head"><div><h2 data-i18n="mod.h">Three ways to work with us</h2><p data-i18n="mod.p">No retainers and no exclusivity.</p></div></div>
+    <div class="models">
+      <div class="model"><h3 data-i18n="a.h">Placement fee</h3><p data-i18n="a.p">One fee per successful hire, invoiced on the start date.</p><div class="model-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="a.f">60-day replacement guarantee</span></div></div>
+      <div class="model pick"><span class="model-tag" data-i18n="b.tag">Most popular</span><h3 data-i18n="b.h">Hourly sourcing</h3><p data-i18n="b.p">A small fee for each hour the consultant works. Ideal for long-term contracts.</p><div class="model-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="b.f">Cost spread across the engagement</span></div></div>
+      <div class="model"><h3 data-i18n="c.h">Margin-based</h3><p data-i18n="c.p">For ongoing or project-based teams, a margin agreed for each engagement.</p><div class="model-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="c.f">Terms set together</span></div></div>
     </div>
+    <div class="trust"><span data-i18n="trust">Trusted by</span><b>Accenture</b><b>Deloitte</b><b>Globant</b><b>SAP SE</b><b>FEMSA</b><b>Rappi</b></div>
   </div>
-</div>
+</section>
 
-<!-- CONTACT -->
-<div class="sec contact-sec" id="contact">
-  <div class="sec-inner">
-    <div class="sec-label reveal" data-i18n="contact.label">Get in touch</div>
-    <h2 class="reveal" data-i18n-html="contact.h2">Tell us what<br>you <em>need.</em></h2>
-    <p class="sec-desc reveal" data-i18n="contact.lead">We respond within hours. Pick the channel that works best for you.</p>
-
-    <div class="contact-panel reveal">
-      <div class="contact-panel-header">
-        <div class="contact-panel-title" data-i18n-html="contact.heading">Reach us <em>directly</em></div>
-        <div class="contact-panel-sub" data-i18n="contact.sub">We respond within hours. Pick the channel that works best for you.</div>
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="wrap">
+    <div class="cta-card">
+      <div>
+        <h2 data-i18n="cta.h">Need a consultant this month?</h2>
+        <p data-i18n="cta.p">Tell us the role. We reply within a few hours on working days.</p>
       </div>
-
-      <div class="channel-grid">
-        <a href="mailto:hola@bonavista.com.mx" class="channel">
-          <div class="channel-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          </div>
-          <div class="channel-meta">
-            <div class="channel-type">Email</div>
-            <div class="channel-label">hola@bonavista.com.mx</div>
-          </div>
-          <svg class="channel-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="https://wa.me/13659939623" target="_blank" class="channel">
-          <div class="channel-icon">
-            <svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.7)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-          </div>
-          <div class="channel-meta">
-            <div class="channel-type">WhatsApp · US</div>
-            <div class="channel-label">+1 365 993 9623</div>
-          </div>
-          <svg class="channel-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="tel:+34663059091" class="channel">
-          <div class="channel-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </div>
-          <div class="channel-meta">
-            <div class="channel-type">Phone · Spain</div>
-            <div class="channel-label">+34 663 059 091</div>
-          </div>
-          <svg class="channel-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/company/bonavista-recruitment/" target="_blank" class="channel">
-          <div class="channel-icon">
-            <svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.7)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </div>
-          <div class="channel-meta">
-            <div class="channel-type">LinkedIn</div>
-            <div class="channel-label">bonavista-recruitment</div>
-          </div>
-          <svg class="channel-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-
-      <div class="contact-guarantee">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <p><strong>60-day replacement guarantee</strong> on every placement. Zero risk.</p>
+      <div class="cta-actions">
+        <a class="pill pill-white" href="https://wa.me/13659939623" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="pill pill-line" href="mailto:hola@bonavista.com.mx?subject=Enterprise%20Recruiting%20Inquiry" data-i18n="cta.mail">Email us</a>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <footer>
-  <div class="footer-logo">Bonavista Talent Partners</div>
-  <div class="footer-links">
-    <a href="https://www.linkedin.com/company/bonavista-recruitment/" target="_blank">LinkedIn</a>
-    <a href="mailto:hola@bonavista.com.mx">hola@bonavista.com.mx</a>
-    <p>© 2026 · <em style="font-family:'Instrument Serif',serif;font-style:italic">Your Talent Partner</em></p>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand"><b>Bonavista</b><p style="margin-top:8px" data-i18n="foot.tag">Enterprise tech recruiting for Latin America.</p></div>
+      <div><h4 data-i18n="foot.c">Contact</h4>
+        <a href="mailto:hola@bonavista.com.mx">hola@bonavista.com.mx</a>
+        <a href="https://wa.me/13659939623" target="_blank" rel="noopener">WhatsApp +1 365 993 9623</a>
+        <a href="tel:+34663059091"><span data-i18n="foot.ph">Phone (Spain)</span> +34 663 059 091</a>
+      </div>
+      <div><h4 data-i18n="foot.f">Follow us</h4>
+        <a href="https://www.linkedin.com/company/bonavista-recruitment/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 Bonavista Talent Partners</span><span data-i18n="hero.note">Every placement includes a 60-day replacement guarantee.</span></div>
   </div>
 </footer>
 
 <script>
+const WA = 'https://wa.me/13659939623?text=';
 const i18n = {
-  en: {
-    "nav.why":"Why Us","nav.solutions":"Solutions","nav.expertise":"Expertise","nav.contact":"Contact","nav.cta":"Let's Talk!",
-    "hero.tag":"Your Talent Partner","hero.h1":"We find your <em>next hire</em><br>in 48 hours.","hero.sub":"Pre-vetted. Ready to deploy.",
-    "hero.p":"Stop losing weeks searching for SAP, Oracle, Workday and cloud specialists. We deliver shortlisted, interview-ready candidates across LATAM — fast.",
-    "hero.cta1":"Let's Talk!","hero.cta2":"Our solutions","hero.cta3":"Work With Us",
-    "stats.s1":"Active candidates","stats.s2":"Avg. profile delivery","stats.s3":"LATAM countries","stats.s4":"Replacement guarantee",
-    "why.label":"Why Bonavista","why.h2":"Recruiting that moves<br>at your <em>speed.</em>","why.desc":"No long waits, no generic CVs. We send you pre-screened candidates ready to interview — within 48 hours.",
-    "why.i1h":"48-hour delivery","why.i1p":"You share the brief. We deliver shortlisted, pre-vetted profiles within 48 hours. No fluff, no bulk CVs.",
-    "why.i2h":"Pre-screened talent","why.i2p":"Every candidate is assessed before we present them. You talk to people who actually fit — not people who applied to a job board.",
-    "why.i3h":"LATAM coverage","why.i3p":"Active pipeline across Mexico, Colombia, Peru, Brazil, Chile, Argentina and beyond. 175+ consultants ready now.",
-    "why.i4h":"Zero risk","why.i4p":"60-day replacement guarantee on every placement. If it doesn't work out, we find a replacement at no extra cost.",
-    "sol.label":"Our solutions","sol.h2":"Simple models.<br><em>No surprises.</em>","sol.desc":"We adapt to how you work. No retainers, no exclusivity required.",
-    "sol.a.tag":"Option A","sol.a.h":"Placement Fee","sol.a.p":"One fee per successful hire, invoiced on start date. Simple, transparent, no strings attached.","sol.a.badge":"✓ 60-day replacement guarantee",
-    "sol.b.tag":"Option B","sol.b.h":"Hourly Sourcing","sol.b.p":"A small fee per hour the candidate works. Ideal for long-term contracts — cost spreads naturally over time.","sol.b.badge":"✓ Best for extended engagements",
-    "sol.c.tag":"Option C","sol.c.h":"Margin-Based","sol.c.p":"For ongoing or project-based support, we work on a margin model tailored to the engagement.","sol.c.badge":"💬 Let's discuss",
-    "exp.label":"What we cover","exp.h2":"Enterprise tech talent<br>across <em>every stack.</em>","exp.desc":"From ERP to cloud infrastructure — we cover the full spectrum of technical roles.",
-    "exp.i1":"S/4HANA, BTP, ABAP, Basis, Security, GRC, EWM, PP, SD, HCM, SuccessFactors.",
-    "exp.i2":"Oracle Retail, Oracle Cloud ERP, Oracle Integration Cloud — functional and technical.",
-    "exp.i3":"HCM, Integrations, Financials, Payroll — certified consultants across LATAM.",
-    "exp.i4":"AWS, Azure, GCP, Kubernetes, DevSecOps — infrastructure and platform engineering.",
-    "exp.i5":"GenAI, LLMs, RAG, Data Engineering, ML, Snowflake, Databricks.",
-    "exp.i6":"ServiceNow, Salesforce, MuleSoft — integration and platform specialists.",
-    "contact.label":"Get in touch","contact.h2":"Tell us what<br>you <em>need.</em>","contact.lead":"Leave us your details and we'll get back to you within 24 hours.",
-    "contact.heading":"Prefer to reach us<br><em>directly?</em>","contact.sub":"We respond within hours. Pick the channel that works best for you.",
-    "form.name":"Name","form.company":"Company","form.email":"Email","form.role":"Looking for",
-    "form.role.opt0":"Select a profile","form.role.other":"Other","form.message":"Tell us more",
-    "form.message.ph":"Role, seniority, timeline, location...","form.submit":"Let's Talk!",
-    "form.success":"✓ Message sent! We'll get back to you within 24 hours."
+  en:{
+    "nav.roles":"Profiles","nav.countries":"Countries","nav.models":"How to work with us","nav.contact":"Contact","nav.cta":"Send a brief",
+    "hero.h1":"Enterprise tech talent from Latin America","hero.sub":"SAP, Oracle, Workday and cloud specialists. Pre-screened and shortlisted in 48 hours.",
+    "s.role":"What profile do you need?","s.role.ph":"e.g. SAP FI/CO senior consultant","s.country":"Where","s.any":"Anywhere in LATAM","s.btn":"Find talent",
+    "c.mx":"Mexico","c.pe":"Peru","c.br":"Brazil","city.mx":"Mexico City, Guadalajara, Monterrey",
+    "chip.all":"All profiles","chip.cloud":"Cloud and DevOps","chip.data":"AI and Data",
+    "roles.h":"Profiles our clients ask for most","roles.p":"Pick one and we start the search today.",
+    "m.func":"Functional, senior, remote","m.tech":"Technical, mid to senior, remote","m.both":"Functional and technical, remote","m.cert":"Certified, senior, remote","m.int":"Integrations, mid to senior","m.fast":"Shortlist in 48 hours","m.cta":"Request profiles",
+    "w1.h":"Shortlist in 48 hours","w1.p":"Share the brief today and review screened profiles in two working days.",
+    "w2.h":"Pre-screened, not bulk CVs","w2.p":"Every candidate is assessed on modules, projects and availability before you see them.",
+    "w3.h":"Your time zone","w3.p":"Consultants within three hours of US Eastern time, so meetings happen live.",
+    "w4.h":"60-day guarantee","w4.p":"If a placement doesn't work out, we replace it at no extra cost.",
+    "pl.h":"Talent across Latin America","pl.p":"Remote or on-site, from the hubs where enterprise tech teams already work.",
+    "mod.h":"Three ways to work with us","mod.p":"No retainers and no exclusivity.",
+    "a.h":"Placement fee","a.p":"One fee per successful hire, invoiced on the start date.","a.f":"60-day replacement guarantee",
+    "b.tag":"Most popular","b.h":"Hourly sourcing","b.p":"A small fee for each hour the consultant works. Ideal for long-term contracts.","b.f":"Cost spread across the engagement",
+    "c.h":"Margin-based","c.p":"For ongoing or project-based teams, a margin agreed for each engagement.","c.f":"Terms set together",
+    "trust":"Trusted by","cta.h":"Need a consultant this month?","cta.p":"Tell us the role. We reply within a few hours on working days.","cta.mail":"Email us",
+    "foot.tag":"Enterprise tech recruiting for Latin America.","foot.c":"Contact","foot.ph":"Phone (Spain)","foot.f":"Follow us",
+    "hero.note":"Every placement includes a 60-day replacement guarantee.",
+    "msg.hi":"Hi Bonavista, I'm looking for","msg.in":"in","msg.any":"Latin America","msg.gen":"a consultant"
   },
-  es: {
-    "nav.why":"Por qué nosotros","nav.solutions":"Soluciones","nav.expertise":"Especialidades","nav.contact":"Contacto","nav.cta":"¡Hablemos!",
-    "hero.tag":"Tu Socio de Talento","hero.h1":"Encontramos tu <em>próxima contratación</em><br>en 48 horas.","hero.sub":"Pre-evaluados. Listos para incorporarse.",
-    "hero.p":"Dejá de perder semanas buscando especialistas en SAP, Oracle, Workday y cloud. Entregamos candidatos pre-seleccionados en toda LATAM, rápido.",
-    "hero.cta1":"¡Hablemos!","hero.cta2":"Nuestras soluciones","hero.cta3":"Trabajá con nosotros",
-    "stats.s1":"Candidatos activos","stats.s2":"Entrega promedio de perfiles","stats.s3":"Países en LATAM","stats.s4":"Garantía de reemplazo",
-    "why.label":"Por qué Bonavista","why.h2":"Recruiting que avanza<br>a tu <em>velocidad.</em>","why.desc":"Sin esperas largas, sin CVs genéricos. Te enviamos candidatos pre-evaluados listos para entrevistar — en 48 horas.",
-    "why.i1h":"Entrega en 48 horas","why.i1p":"Compartís el brief. Entregamos perfiles pre-evaluados en 48 horas. Sin relleno, sin CVs masivos.",
-    "why.i2h":"Talento pre-evaluado","why.i2p":"Cada candidato es evaluado antes de presentarlo. Hablás con personas que realmente encajan.",
-    "why.i3h":"Cobertura LATAM","why.i3p":"Pipeline activo en México, Colombia, Perú, Brasil, Chile, Argentina y más. Más de 175 consultores disponibles.",
-    "why.i4h":"Cero riesgo","why.i4p":"Garantía de reemplazo de 60 días en cada colocación. Si no funciona, buscamos reemplazo sin costo adicional.",
-    "sol.label":"Nuestras soluciones","sol.h2":"Modelos simples.<br><em>Sin sorpresas.</em>","sol.desc":"Nos adaptamos a cómo trabajás. Sin retenciones ni exclusividad.",
-    "sol.a.tag":"Opción A","sol.a.h":"Fee de Placement","sol.a.p":"Un fee por contratación exitosa, facturado en la fecha de inicio.","sol.a.badge":"✓ Garantía de reemplazo 60 días",
-    "sol.b.tag":"Opción B","sol.b.h":"Sourcing por Hora","sol.b.p":"Un pequeño fee por hora trabajada. Ideal para contratos de largo plazo.","sol.b.badge":"✓ Ideal para proyectos extendidos",
-    "sol.c.tag":"Opción C","sol.c.h":"Basado en Margen","sol.c.p":"Para soporte continuo o por proyecto, trabajamos con un modelo de margen adaptado al engagement.","sol.c.badge":"💬 Conversemos",
-    "exp.label":"Qué cubrimos","exp.h2":"Talento tech enterprise<br>en <em>todo el stack.</em>","exp.desc":"Desde ERP hasta infraestructura cloud — cubrimos el espectro completo de roles técnicos.",
-    "exp.i1":"S/4HANA, BTP, ABAP, Basis, Security, GRC, EWM, PP, SD, HCM, SuccessFactors.",
-    "exp.i2":"Oracle Retail, Oracle Cloud ERP, Oracle Integration Cloud — funcional y técnico.",
-    "exp.i3":"HCM, Integraciones, Financials, Payroll — consultores certificados en LATAM.",
-    "exp.i4":"AWS, Azure, GCP, Kubernetes, DevSecOps — ingeniería de infraestructura y plataforma.",
-    "exp.i5":"GenAI, LLMs, RAG, Ingeniería de Datos, ML, Snowflake, Databricks.",
-    "exp.i6":"ServiceNow, Salesforce, MuleSoft — especialistas en integración y plataforma.",
-    "contact.label":"Contacto","contact.h2":"Contanos qué<br><em>necesitás.</em>","contact.lead":"Dejanos tus datos y te respondemos en menos de 24 horas.",
-    "contact.heading":"¿Preferís escribirnos<br><em>directamente?</em>","contact.sub":"Respondemos en horas. Elegí el canal que mejor te funcione.",
-    "form.name":"Nombre","form.company":"Empresa","form.email":"Email","form.role":"¿Qué perfil buscás?",
-    "form.role.opt0":"Seleccioná un perfil","form.role.other":"Otro","form.message":"Contanos más",
-    "form.message.ph":"Rol, seniority, timeline, ubicación...","form.submit":"¡Hablemos!",
-    "form.success":"✓ ¡Mensaje enviado! Te respondemos en menos de 24 horas."
+  es:{
+    "nav.roles":"Perfiles","nav.countries":"Países","nav.models":"Modelos de trabajo","nav.contact":"Contacto","nav.cta":"Enviar una búsqueda",
+    "hero.h1":"Talento tech enterprise de Latinoamérica","hero.sub":"Especialistas en SAP, Oracle, Workday y cloud. Evaluados y preseleccionados en 48 horas.",
+    "s.role":"¿Qué perfil necesita?","s.role.ph":"ej. Consultor SAP FI/CO senior","s.country":"Dónde","s.any":"Cualquier país de LATAM","s.btn":"Buscar talento",
+    "c.mx":"México","c.pe":"Perú","c.br":"Brasil","city.mx":"Ciudad de México, Guadalajara, Monterrey",
+    "chip.all":"Todos los perfiles","chip.cloud":"Cloud y DevOps","chip.data":"IA y Datos",
+    "roles.h":"Los perfiles más solicitados","roles.p":"Elija uno y empezamos la búsqueda hoy.",
+    "m.func":"Funcional, senior, remoto","m.tech":"Técnico, semi senior a senior, remoto","m.both":"Funcional y técnico, remoto","m.cert":"Certificado, senior, remoto","m.int":"Integraciones, semi senior a senior","m.fast":"Shortlist en 48 horas","m.cta":"Solicitar perfiles",
+    "w1.h":"Shortlist en 48 horas","w1.p":"Comparta el brief hoy y revise perfiles evaluados en dos días hábiles.",
+    "w2.h":"Evaluados, no CVs masivos","w2.p":"Cada candidato se evalúa por módulos, proyectos y disponibilidad antes de presentarlo.",
+    "w3.h":"Su misma zona horaria","w3.p":"Consultores a no más de tres horas de la costa este de EE. UU., para reuniones en tiempo real.",
+    "w4.h":"Garantía de 60 días","w4.p":"Si una colocación no funciona, la reemplazamos sin costo adicional.",
+    "pl.h":"Talento en toda Latinoamérica","pl.p":"Remoto o presencial, desde los polos donde ya trabajan los equipos de tecnología enterprise.",
+    "mod.h":"Tres formas de trabajar juntos","mod.p":"Sin retainers ni exclusividad.",
+    "a.h":"Fee por colocación","a.p":"Un fee por contratación exitosa, facturado en la fecha de inicio.","a.f":"Garantía de reemplazo de 60 días",
+    "b.tag":"El más elegido","b.h":"Sourcing por hora","b.p":"Un fee reducido por cada hora que trabaja el consultor. Ideal para contratos largos.","b.f":"El costo se distribuye en el tiempo",
+    "c.h":"Basado en margen","c.p":"Para equipos continuos o por proyecto, un margen acordado en cada caso.","c.f":"Condiciones definidas en conjunto",
+    "trust":"Confían en nosotros","cta.h":"¿Necesita un consultor este mes?","cta.p":"Cuéntenos el perfil. Respondemos en pocas horas en días hábiles.","cta.mail":"Escribir un email",
+    "foot.tag":"Reclutamiento de tecnología enterprise en Latinoamérica.","foot.c":"Contacto","foot.ph":"Teléfono (España)","foot.f":"Síganos",
+    "hero.note":"Cada colocación incluye garantía de reemplazo de 60 días.",
+    "msg.hi":"Hola Bonavista, estoy buscando","msg.in":"en","msg.any":"Latinoamérica","msg.gen":"un consultor"
   },
-  pt: {
-    "nav.why":"Por que nós","nav.solutions":"Soluções","nav.expertise":"Especialidades","nav.contact":"Contato","nav.cta":"Vamos Conversar!",
-    "hero.tag":"Seu Parceiro de Talentos","hero.h1":"Encontramos sua <em>próxima contratação</em><br>em 48 horas.","hero.sub":"Pré-avaliados. Prontos para começar.",
-    "hero.p":"Pare de perder semanas procurando especialistas em SAP, Oracle, Workday e cloud. Entregamos candidatos pré-selecionados em toda a LATAM — rápido.",
-    "hero.cta1":"Vamos Conversar!","hero.cta2":"Nossas soluções","hero.cta3":"Trabalhe Conosco",
-    "stats.s1":"Candidatos ativos","stats.s2":"Entrega média de perfis","stats.s3":"Países na LATAM","stats.s4":"Garantia de reposição",
-    "why.label":"Por que Bonavista","why.h2":"Recrutamento que avança<br>na sua <em>velocidade.</em>","why.desc":"Sem longas esperas, sem CVs genéricos. Enviamos candidatos pré-avaliados prontos para entrevista — em 48 horas.",
-    "why.i1h":"Entrega em 48 horas","why.i1p":"Você compartilha o brief. Entregamos perfis pré-avaliados em 48 horas.",
-    "why.i2h":"Talentos pré-avaliados","why.i2p":"Cada candidato é avaliado antes da apresentação. Você fala com pessoas que realmente se encaixam.",
-    "why.i3h":"Cobertura LATAM","why.i3p":"Pipeline ativo no México, Colômbia, Peru, Brasil, Chile, Argentina e mais. 175+ consultores disponíveis.",
-    "why.i4h":"Zero risco","why.i4p":"Garantia de reposição de 60 dias. Se não funcionar, encontramos um substituto sem custo adicional.",
-    "sol.label":"Nossas soluções","sol.h2":"Modelos simples.<br><em>Sem surpresas.</em>","sol.desc":"Nos adaptamos à sua forma de trabalhar. Sem retenções, sem exclusividade.",
-    "sol.a.tag":"Opção A","sol.a.h":"Taxa de Colocação","sol.a.p":"Uma taxa por contratação bem-sucedida, faturada na data de início.","sol.a.badge":"✓ Garantia de reposição 60 dias",
-    "sol.b.tag":"Opção B","sol.b.h":"Sourcing por Hora","sol.b.p":"Uma pequena taxa por hora trabalhada. Ideal para contratos de longo prazo.","sol.b.badge":"✓ Ideal para projetos estendidos",
-    "sol.c.tag":"Opção C","sol.c.h":"Baseado em Margem","sol.c.p":"Para suporte contínuo ou por projeto, trabalhamos com um modelo de margem adaptado.","sol.c.badge":"💬 Vamos conversar",
-    "exp.label":"O que cobrimos","exp.h2":"Talentos tech enterprise<br>em <em>toda a stack.</em>","exp.desc":"De ERP à infraestrutura cloud — cobrimos o espectro completo de funções técnicas.",
-    "exp.i1":"S/4HANA, BTP, ABAP, Basis, Security, GRC, EWM, PP, SD, HCM, SuccessFactors.",
-    "exp.i2":"Oracle Retail, Oracle Cloud ERP, Oracle Integration Cloud — funcional e técnico.",
-    "exp.i3":"HCM, Integrações, Financials, Payroll — consultores certificados na LATAM.",
-    "exp.i4":"AWS, Azure, GCP, Kubernetes, DevSecOps — engenharia de infraestrutura e plataforma.",
-    "exp.i5":"GenAI, LLMs, RAG, Engenharia de Dados, ML, Snowflake, Databricks.",
-    "exp.i6":"ServiceNow, Salesforce, MuleSoft — especialistas em integração e plataforma.",
-    "contact.label":"Entre em contato","contact.h2":"Conte-nos o que<br>você <em>precisa.</em>","contact.lead":"Deixe seus dados e respondemos em menos de 24 horas.",
-    "contact.heading":"Prefere nos contatar<br><em>diretamente?</em>","contact.sub":"Respondemos em horas. Escolha o canal que funciona melhor.",
-    "form.name":"Nome","form.company":"Empresa","form.email":"E-mail","form.role":"Que perfil você busca?",
-    "form.role.opt0":"Selecione um perfil","form.role.other":"Outro","form.message":"Conte-nos mais",
-    "form.message.ph":"Função, senioridade, prazo, localização...","form.submit":"Vamos Conversar!",
-    "form.success":"✓ Mensagem enviada! Respondemos em menos de 24 horas."
+  pt:{
+    "nav.roles":"Perfis","nav.countries":"Países","nav.models":"Modelos de trabalho","nav.contact":"Contato","nav.cta":"Enviar uma vaga",
+    "hero.h1":"Talentos tech enterprise da América Latina","hero.sub":"Especialistas em SAP, Oracle, Workday e cloud. Avaliados e pré-selecionados em 48 horas.",
+    "s.role":"Que perfil você precisa?","s.role.ph":"ex. Consultor SAP FI/CO sênior","s.country":"Onde","s.any":"Qualquer país da América Latina","s.btn":"Buscar talentos",
+    "c.mx":"México","c.pe":"Peru","c.br":"Brasil","city.mx":"Cidade do México, Guadalajara, Monterrey",
+    "chip.all":"Todos os perfis","chip.cloud":"Cloud e DevOps","chip.data":"IA e Dados",
+    "roles.h":"Os perfis mais pedidos","roles.p":"Escolha um e começamos a busca hoje.",
+    "m.func":"Funcional, sênior, remoto","m.tech":"Técnico, pleno a sênior, remoto","m.both":"Funcional e técnico, remoto","m.cert":"Certificado, sênior, remoto","m.int":"Integrações, pleno a sênior","m.fast":"Shortlist em 48 horas","m.cta":"Pedir perfis",
+    "w1.h":"Shortlist em 48 horas","w1.p":"Envie a vaga hoje e receba perfis avaliados em dois dias úteis.",
+    "w2.h":"Avaliados, não currículos em massa","w2.p":"Cada candidato é avaliado em módulos, projetos e disponibilidade antes de chegar a você.",
+    "w3.h":"Seu fuso horário","w3.p":"Consultores a no máximo três horas da Costa Leste dos EUA, para reuniões ao vivo.",
+    "w4.h":"Garantia de 60 dias","w4.p":"Se uma colocação não der certo, fazemos a reposição sem custo adicional.",
+    "pl.h":"Talentos em toda a América Latina","pl.p":"Remoto ou presencial, a partir dos polos onde as equipes de tecnologia enterprise já trabalham.",
+    "mod.h":"Três formas de trabalhar conosco","mod.p":"Sem retainer e sem exclusividade.",
+    "a.h":"Taxa de colocação","a.p":"Uma taxa por contratação bem-sucedida, faturada na data de início.","a.f":"Garantia de reposição de 60 dias",
+    "b.tag":"Mais escolhido","b.h":"Sourcing por hora","b.p":"Uma pequena taxa por hora trabalhada pelo consultor. Ideal para contratos longos.","b.f":"Custo distribuído ao longo do projeto",
+    "c.h":"Baseado em margem","c.p":"Para equipes contínuas ou por projeto, uma margem acordada em cada caso.","c.f":"Condições definidas em conjunto",
+    "trust":"Confiam em nós","cta.h":"Precisa de um consultor este mês?","cta.p":"Conte-nos a vaga. Respondemos em poucas horas em dias úteis.","cta.mail":"Enviar e-mail",
+    "foot.tag":"Recrutamento de tecnologia enterprise na América Latina.","foot.c":"Contato","foot.ph":"Telefone (Espanha)","foot.f":"Siga-nos",
+    "hero.note":"Toda colocação inclui garantia de reposição de 60 dias.",
+    "msg.hi":"Olá Bonavista, estou procurando","msg.in":"em","msg.any":"América Latina","msg.gen":"um consultor"
   }
 };
+let lang = 'en';
+function t(k){ return (i18n[lang]&&i18n[lang][k]) || i18n.en[k] || ''; }
+function setLang(l){
+  lang = i18n[l] ? l : 'en';
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{ const v=t(el.dataset.i18n); if(v) el.textContent=v; });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{ el.placeholder=t(el.dataset.i18nPh); });
+  document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed', b.dataset.lang===lang?'true':'false'));
+  try{ localStorage.setItem('bv-lang',lang); }catch(e){}
+}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
 
-let currentLang = 'en';
-function setLang(lang) {
-  currentLang = lang;
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang));
-  document.querySelectorAll('[data-i18n]').forEach(el => { const k=el.getAttribute('data-i18n'); if(i18n[lang][k]) el.textContent=i18n[lang][k]; });
-  document.querySelectorAll('[data-i18n-html]').forEach(el => { const k=el.getAttribute('data-i18n-html'); if(i18n[lang][k]) el.innerHTML=i18n[lang][k]; });
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { const k=el.getAttribute('data-i18n-placeholder'); if(i18n[lang][k]) el.setAttribute('placeholder',i18n[lang][k]); });
+function countryName(code){
+  const sel=document.querySelector('#sCountry option[value="'+code+'"]');
+  return (!code||code==='any') ? t('msg.any') : (sel?sel.textContent:code);
 }
-function submitForm(e) {
+function openWA(role, code){
+  const msg = t('msg.hi')+' '+(role||t('msg.gen'))+' '+t('msg.in')+' '+countryName(code)+'.';
+  window.open(WA+encodeURIComponent(msg),'_blank','noopener');
+}
+document.getElementById('searchForm').addEventListener('submit',e=>{
   e.preventDefault();
-  const name=document.getElementById('fname').value, company=document.getElementById('fcompany').value,
-    email=document.getElementById('femail').value, role=document.getElementById('frole').value,
-    message=document.getElementById('fmessage').value;
-  const subject=encodeURIComponent(`New inquiry from ${name} - ${role||'General'}`);
-  const body=encodeURIComponent(`Name: ${name}\nCompany: ${company}\nEmail: ${email}\nLooking for: ${role}\n\nMessage:\n${message}`);
-  window.location.href=`mailto:hola@bonavista.com.mx?subject=${subject}&body=${body}`;
-  setTimeout(()=>{
-    document.getElementById('contactForm').style.display='none';
-    const s=document.getElementById('formSuccess');
-    s.style.display='block';
-    s.textContent=i18n[currentLang]['form.success'];
-  },500);
-}
-window.addEventListener('scroll',()=>{ document.getElementById('mainNav').classList.toggle('scrolled',scrollY>40); },{passive:true});
-const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-setLang('en');
+  openWA(document.getElementById('sRole').value.trim(), document.getElementById('sCountry').value);
+});
+document.querySelectorAll('.role').forEach(c=>c.addEventListener('click',e=>{ e.preventDefault(); openWA(c.dataset.role, document.getElementById('sCountry').value); }));
+document.querySelectorAll('.place').forEach(p=>p.addEventListener('click',e=>{
+  e.preventDefault();
+  document.getElementById('sCountry').value=p.dataset.country;
+  window.scrollTo({top:0,behavior:'smooth'});
+  setTimeout(()=>document.getElementById('sRole').focus({preventScroll:true}),400);
+}));
+
+const rail=document.getElementById('rail');
+document.querySelectorAll('.chip').forEach(ch=>ch.addEventListener('click',()=>{
+  document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed', c===ch?'true':'false'));
+  const cat=ch.dataset.cat;
+  rail.querySelectorAll('.role').forEach(r=>{ r.hidden = !(cat==='all'||r.dataset.cat===cat); });
+  rail.scrollLeft=0;
+  if(cat!=='all') document.getElementById('roles').scrollIntoView({behavior:'smooth',block:'start'});
+}));
+document.querySelectorAll('.arrow').forEach(a=>a.addEventListener('click',()=>{
+  rail.scrollBy({left: rail.clientWidth*0.9*Number(a.dataset.dir), behavior:'smooth'});
+}));
+
+let saved=null; try{ saved=localStorage.getItem('bv-lang'); }catch(e){}
+setLang(saved||'en');
 </script>
 </body>
 </html>
